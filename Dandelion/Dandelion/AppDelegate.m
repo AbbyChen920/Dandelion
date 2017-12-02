@@ -21,16 +21,41 @@
     // 创建窗口
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    self.window.backgroundColor = [UIColor redColor];
+    
   
     // 设置根控制器
-    self.window.rootViewController = [[UITabBarController alloc] init];
+    UITabBarController *tabBarVc = [[UITabBarController alloc] init];
+    
+    UITableViewController *vc0 = [[UITableViewController alloc] init];
+    vc0.view.backgroundColor = [UIColor redColor];
+    vc0.tabBarItem.title = @"精华";
+    vc0.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
+    [tabBarVc addChildViewController:vc0];
+    
+    UIViewController *vc1 = [[UIViewController alloc] init];
+    vc1.view.backgroundColor = [UIColor blueColor];
+    vc1.tabBarItem.title = @"新帖";
+    vc1.tabBarItem.image = [UIImage imageNamed:@"tabBar_new_icon"];
+    [tabBarVc addChildViewController:vc1];
+    
+    UITableViewController *vc2 = [[UITableViewController alloc] init];
+    vc2.view.backgroundColor = [UIColor greenColor];
+    vc2.tabBarItem.title = @"关注";
+    vc2.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
+    [tabBarVc addChildViewController:vc2];
+    
+    UIViewController *vc3 = [[UIViewController alloc] init];
+    vc3.view.backgroundColor = [UIColor grayColor];
+    vc3.tabBarItem.title = @"我";
+    vc3.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
+    [tabBarVc addChildViewController:vc3];
+    
+    
+    self.window.rootViewController = tabBarVc;
   
     // 显示窗口
     [self.window makeKeyAndVisible];
-//    self.window.hidden = NO;  //这样也可以显示窗口,但相比上面少了一个设为主窗口的功能. 这样一些事件就可能触发不了,比如一些点击事件. 所以还是建议用上面的方法.
 
-    
     return YES;
 }
 

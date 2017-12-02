@@ -12,8 +12,6 @@
 		289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */; };
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
-		289E84F51FD2F77100E46DD8 /* AB1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84F41FD2F77100E46DD8 /* AB1ViewController.m */; };
-		289E84F81FD2F7AB00E46DD8 /* AB2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84F71FD2F7AB00E46DD8 /* AB2ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,10 +44,6 @@
 		289E84E11FD2D41F00E46DD8 /* DandelionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DandelionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DandelionUITests.m; sourceTree = "<group>"; };
 		289E84E71FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		289E84F31FD2F77100E46DD8 /* AB1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AB1ViewController.h; path = ../AB1ViewController.h; sourceTree = "<group>"; };
-		289E84F41FD2F77100E46DD8 /* AB1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AB1ViewController.m; path = ../AB1ViewController.m; sourceTree = "<group>"; };
-		289E84F61FD2F7AB00E46DD8 /* AB2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AB2ViewController.h; path = ../AB2ViewController.h; sourceTree = "<group>"; };
-		289E84F71FD2F7AB00E46DD8 /* AB2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AB2ViewController.m; path = ../AB2ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +96,6 @@
 			children = (
 				289E84C31FD2D41E00E46DD8 /* AppDelegate.h */,
 				289E84C41FD2D41E00E46DD8 /* AppDelegate.m */,
-				289E84F31FD2F77100E46DD8 /* AB1ViewController.h */,
-				289E84F41FD2F77100E46DD8 /* AB1ViewController.m */,
-				289E84F61FD2F7AB00E46DD8 /* AB2ViewController.h */,
-				289E84F71FD2F7AB00E46DD8 /* AB2ViewController.m */,
 				289E84C01FD2D41E00E46DD8 /* Supporting Files */,
 			);
 			path = Dandelion;
@@ -273,8 +263,6 @@
 			files = (
 				289E84C51FD2D41E00E46DD8 /* AppDelegate.m in Sources */,
 				289E84C21FD2D41E00E46DD8 /* main.m in Sources */,
-				289E84F81FD2F7AB00E46DD8 /* AB2ViewController.m in Sources */,
-				289E84F51FD2F77100E46DD8 /* AB1ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
