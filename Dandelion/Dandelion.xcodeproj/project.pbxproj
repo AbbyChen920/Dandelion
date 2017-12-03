@@ -13,6 +13,7 @@
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
 		289E84FB1FD3B40800E46DD8 /* UIImage+ABImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84FA1FD3B40800E46DD8 /* UIImage+ABImage.m */; };
+		289E84FE1FD3F3F700E46DD8 /* ABTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84FD1FD3F3F700E46DD8 /* ABTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		289E84E71FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		289E84F91FD3B40800E46DD8 /* UIImage+ABImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ABImage.h"; sourceTree = "<group>"; };
 		289E84FA1FD3B40800E46DD8 /* UIImage+ABImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ABImage.m"; sourceTree = "<group>"; };
+		289E84FC1FD3F3F700E46DD8 /* ABTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTabBarController.h; sourceTree = "<group>"; };
+		289E84FD1FD3F3F700E46DD8 /* ABTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 			children = (
 				289E84C31FD2D41E00E46DD8 /* AppDelegate.h */,
 				289E84C41FD2D41E00E46DD8 /* AppDelegate.m */,
+				289E84FC1FD3F3F700E46DD8 /* ABTabBarController.h */,
+				289E84FD1FD3F3F700E46DD8 /* ABTabBarController.m */,
 				289E84C01FD2D41E00E46DD8 /* Supporting Files */,
 			);
 			path = Dandelion;
@@ -268,6 +273,7 @@
 			files = (
 				289E84FB1FD3B40800E46DD8 /* UIImage+ABImage.m in Sources */,
 				289E84C51FD2D41E00E46DD8 /* AppDelegate.m in Sources */,
+				289E84FE1FD3F3F700E46DD8 /* ABTabBarController.m in Sources */,
 				289E84C21FD2D41E00E46DD8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +487,7 @@
 				289E84EC1FD2D41F00E46DD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		289E84ED1FD2D41F00E46DD8 /* Build configuration list for PBXNativeTarget "DandelionTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +496,7 @@
 				289E84EF1FD2D41F00E46DD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		289E84F01FD2D41F00E46DD8 /* Build configuration list for PBXNativeTarget "DandelionUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +505,7 @@
 				289E84F21FD2D41F00E46DD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
