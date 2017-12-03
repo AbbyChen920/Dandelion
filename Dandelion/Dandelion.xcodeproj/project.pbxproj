@@ -12,6 +12,7 @@
 		289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */; };
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
+		289E84FB1FD3B40800E46DD8 /* UIImage+ABImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84FA1FD3B40800E46DD8 /* UIImage+ABImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		289E84E11FD2D41F00E46DD8 /* DandelionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DandelionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DandelionUITests.m; sourceTree = "<group>"; };
 		289E84E71FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		289E84F91FD3B40800E46DD8 /* UIImage+ABImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ABImage.h"; sourceTree = "<group>"; };
+		289E84FA1FD3B40800E46DD8 /* UIImage+ABImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ABImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */,
 				289E84D11FD2D41F00E46DD8 /* Info.plist */,
 				289E84C11FD2D41E00E46DD8 /* main.m */,
+				289E84F91FD3B40800E46DD8 /* UIImage+ABImage.h */,
+				289E84FA1FD3B40800E46DD8 /* UIImage+ABImage.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				289E84FB1FD3B40800E46DD8 /* UIImage+ABImage.m in Sources */,
 				289E84C51FD2D41E00E46DD8 /* AppDelegate.m in Sources */,
 				289E84C21FD2D41E00E46DD8 /* main.m in Sources */,
 			);
