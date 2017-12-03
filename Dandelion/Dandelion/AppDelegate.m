@@ -26,7 +26,6 @@
     normalAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
     // 设置选中状态下的文字属性
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-    selectedAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
     selectedAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
 
     // 创建窗口
