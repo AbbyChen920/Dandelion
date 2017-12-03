@@ -50,6 +50,7 @@
 		289E84FA1FD3B40800E46DD8 /* UIImage+ABImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ABImage.m"; sourceTree = "<group>"; };
 		289E84FC1FD3F3F700E46DD8 /* ABTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTabBarController.h; sourceTree = "<group>"; };
 		289E84FD1FD3F3F700E46DD8 /* ABTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTabBarController.m; sourceTree = "<group>"; };
+		289E853E1FD4459900E46DD8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +105,7 @@
 				289E84C41FD2D41E00E46DD8 /* AppDelegate.m */,
 				289E84FC1FD3F3F700E46DD8 /* ABTabBarController.h */,
 				289E84FD1FD3F3F700E46DD8 /* ABTabBarController.m */,
+				289E853E1FD4459900E46DD8 /* PrefixHeader.pch */,
 				289E84C01FD2D41E00E46DD8 /* Supporting Files */,
 			);
 			path = Dandelion;
@@ -403,6 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = Dandelion/PrefixHeader.pch;
 				INFOPLIST_FILE = Dandelion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abby.www.Dandelion;
@@ -415,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = Dandelion/PrefixHeader.pch;
 				INFOPLIST_FILE = Dandelion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abby.www.Dandelion;

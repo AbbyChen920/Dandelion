@@ -6,6 +6,9 @@
 //  Copyright © 2017年 陈芬. All rights reserved.
 //
 
+
+
+
 #import "ABTabBarController.h"
 #import "UIImage+ABImage.h"
 @interface ABTabBarController ()
@@ -16,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     /**  TabBarItem文字属性    **/
     UITabBarItem *item = [UITabBarItem appearance];
     // 设置普通状态下的文字属性
@@ -50,7 +53,10 @@
 - (void)setUpOneChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
     
-    vc.view.backgroundColor = [UIColor grayColor];
+    NSLog(@"%zd",ABAge);
+
+    
+    vc.view.backgroundColor = ABRandomColor;
     vc.tabBarItem.title = title;
     vc.tabBarItem.image = [UIImage imageNamed:image];
     vc.tabBarItem.selectedImage = [UIImage imageWithOriginalImageName :selectedImage];
