@@ -37,10 +37,20 @@
     
     [self setUpOneChildViewController:[[UIViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
     
+    [self setUpOneChildViewController:[[UIViewController alloc] init] title:nil image:nil selectedImage:nil];
+  
+    
     [self setUpOneChildViewController:[[UITableViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     
     [self setUpOneChildViewController:[[UIViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
-
+    
+    UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [publishButton setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
+    [publishButton setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+    [publishButton sizeToFit];
+    publishButton.center = CGPointMake(self.tabBar.frame.size.width * 0.5, self.tabBar.frame.size.height * 0.5);
+    [publishButton addTarget:self action:@selector(publishClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.tabBar addSubview:publishButton];
 }
 
 /* 初始化一个子控制器
@@ -53,7 +63,7 @@
 - (void)setUpOneChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
     
-    NSLog(@"%zd",ABAge);
+    
 
     
     vc.view.backgroundColor = ABRandomColor;
@@ -61,7 +71,13 @@
     vc.tabBarItem.image = [UIImage imageNamed:image];
     vc.tabBarItem.selectedImage = [UIImage imageWithOriginalImageName :selectedImage];
     [self addChildViewController:vc];
- 
+
+}
+
+- (void)publishClick
+{
+    ABLogFunc;
+
 }
 
 @end
