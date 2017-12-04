@@ -37,6 +37,7 @@
     
     [self setUpOneChildViewController:[[UIViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
     
+    // 中间的发布按钮
     [self setUpOneChildViewController:[[UIViewController alloc] init] title:nil image:nil selectedImage:nil];
   
     
@@ -62,10 +63,6 @@
 
 - (void)setUpOneChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
-    
-    
-
-    
     vc.view.backgroundColor = ABRandomColor;
     vc.tabBarItem.title = title;
     vc.tabBarItem.image = [UIImage imageNamed:image];
@@ -73,6 +70,7 @@
     [self addChildViewController:vc];
 
 }
+
 
 - (void)publishClick
 {
