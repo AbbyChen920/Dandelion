@@ -15,6 +15,7 @@
 		289E84FB1FD3B40800E46DD8 /* UIImage+ABImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84FA1FD3B40800E46DD8 /* UIImage+ABImage.m */; };
 		289E84FE1FD3F3F700E46DD8 /* ABTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84FD1FD3F3F700E46DD8 /* ABTabBarController.m */; };
 		28F1846C1FD84F26001A94C8 /* ABTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F1846B1FD84F26001A94C8 /* ABTestViewController.m */; };
+		28F1846F1FD932F1001A94C8 /* ABTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F1846E1FD932F1001A94C8 /* ABTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		289E853E1FD4459900E46DD8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		28F1846A1FD84F26001A94C8 /* ABTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestViewController.h; sourceTree = "<group>"; };
 		28F1846B1FD84F26001A94C8 /* ABTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestViewController.m; sourceTree = "<group>"; };
+		28F1846D1FD932F1001A94C8 /* ABTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTabBar.h; sourceTree = "<group>"; };
+		28F1846E1FD932F1001A94C8 /* ABTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 			children = (
 				289E84C31FD2D41E00E46DD8 /* AppDelegate.h */,
 				289E84C41FD2D41E00E46DD8 /* AppDelegate.m */,
+				28F1846D1FD932F1001A94C8 /* ABTabBar.h */,
+				28F1846E1FD932F1001A94C8 /* ABTabBar.m */,
 				289E84FC1FD3F3F700E46DD8 /* ABTabBarController.h */,
 				289E84FD1FD3F3F700E46DD8 /* ABTabBarController.m */,
 				28F1846A1FD84F26001A94C8 /* ABTestViewController.h */,
@@ -282,6 +287,7 @@
 				28F1846C1FD84F26001A94C8 /* ABTestViewController.m in Sources */,
 				289E84C51FD2D41E00E46DD8 /* AppDelegate.m in Sources */,
 				289E84FE1FD3F3F700E46DD8 /* ABTabBarController.m in Sources */,
+				28F1846F1FD932F1001A94C8 /* ABTabBar.m in Sources */,
 				289E84C21FD2D41E00E46DD8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
