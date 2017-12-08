@@ -156,9 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				28F184BF1FDA9BB8001A94C8 /* Essence-精华 */,
+				28F184D11FDA9BB8001A94C8 /* New-新帖 */,
 				28F184C51FDA9BB8001A94C8 /* Follow-关注 */,
 				28F184CB1FDA9BB8001A94C8 /* Me-我 */,
-				28F184D11FDA9BB8001A94C8 /* New-新帖 */,
 				28F184D71FDA9BB8001A94C8 /* Other-其他 */,
 			);
 			path = Classes;
