@@ -38,43 +38,45 @@
 {
     [super layoutSubviews];
 
+    // 按钮的尺寸
+    CGFloat buttonW = self.ab_width / 5;
+    CGFloat buttonH = self.ab_height;
     
-    //    NSClassFromString(@"UITabBarButton") == [UITabBarButton Class];
-    //    NSClassFromString(@"UIButton") == [UIButton Class];
     
     /** 设置所有 UITabBarButton 的 frame */
-    // 按钮的尺寸
-    CGFloat buttonW = self.frame.size.width / 5;
-    CGFloat buttonH = self.frame.size.height;
-    CGFloat buttonY = 0;
+    CGFloat tabBarButtonY = 0;
     // 按钮索引
-    int buttonIndex = 0;
+    int  tabBarButtonIndex = 0;
     
     for (UIView *subview in self.subviews) {
+        
+        //    NSClassFromString(@"UITabBarButton") == [UITabBarButton Class];
+        //    NSClassFromString(@"UIButton") == [UIButton Class];
         
         // 过滤掉非UITabBarButton
         // if (subview.class != NSClassFromString(@"UITabBarButton")) continue;
         if (![@"UITabBarButton" isEqualToString:NSStringFromClass(subview.class)]) continue;
         
         // 设置 frame
-        CGFloat buttonX = buttonIndex * buttonW;
-        if (buttonIndex >= 2) { // 右边的2个UITabBarButton
-            buttonX += buttonW;
+        CGFloat tabBarButtonX = tabBarButtonIndex * buttonW;
+        if (tabBarButtonIndex >= 2) { // 右边的2个UITabBarButton
+            tabBarButtonX += buttonW;
         }
         
-        subview.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
+        subview.frame = CGRectMake(tabBarButtonX, tabBarButtonY, buttonW, buttonH);
         
         // 增加索引
-        buttonIndex++;
+        tabBarButtonIndex++;
     }
     
     
-    self.publishButton.frame = CGRectMake(0, 0, buttonW, buttonH);
-    self.publishButton.center = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height * 0.5);
+//    self.publishButton.frame = CGRectMake(0, 0, buttonW, buttonH);
+    
+    self.publishButton.ab_width = buttonW;
+    self.publishButton.ab_height = buttonH;
+    self.publishButton.center = CGPointMake(self.ab_width * 0.5, self.ab_height * 0.5);
 
 }
-
-
 
 #pragma mark - 监听
 - (void)publishClick

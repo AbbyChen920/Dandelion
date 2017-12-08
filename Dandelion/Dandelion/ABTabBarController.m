@@ -20,7 +20,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /**  TabBarItem文字属性    **/
+    /**  设置所有 UITabBarItem 的文字属性    **/
+    [self setupItemTitleTextAttributes];
+    
+    // 添加子控制器
+    [self setupChildViewControllers];
+ 
+    // 更换TabBar
+    [self setupTabBar];
+//    
+//    UISwitch *s = [[UISwitch alloc] init];
+//    s.ab_right = self.view.ab_width;
+//    s.ab_centerY = self.view.ab_height * 0.5;
+//    
+//    [self.view addSubview:s];
+    
+}
+
+
+/**  设置所有 UITabBarItem 的文字属性    **/
+- (void)setupItemTitleTextAttributes
+{
     UITabBarItem *item = [UITabBarItem appearance];
     // 设置普通状态下的文字属性
     NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
@@ -31,8 +51,11 @@
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
     selectedAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+}
 
-    // 中间用来占位的子控制器
+// 添加子控制器
+- (void)setupChildViewControllers
+{
     [self setUpOneChildViewController:[[UITableViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
     
     [self setUpOneChildViewController:[[UIViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
@@ -40,9 +63,14 @@
     [self setUpOneChildViewController:[[UITableViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     
     [self setUpOneChildViewController:[[UIViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
- 
-    [self setValue:[[ABTabBar alloc] init] forKeyPath:@"tabBar"];
+
 }
+
+// 更换TabBar
+- (void)setupTabBar
+{
+    [self setValue:[[ABTabBar alloc] init] forKeyPath:@"tabBar"];
+ }
 
 // 为什么要在viewWillAppear方法中添加发布按钮?
 // 当viewWillAppear方法被调用的时候, tabbar 内部已经添加了5个 UITabBarButton
