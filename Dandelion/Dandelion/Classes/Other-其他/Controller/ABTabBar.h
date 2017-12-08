@@ -1,5 +1,5 @@
 //
-//  ABTestViewController.h
+//  ABTabBar.h
 //  Dandelion
 //
 //  Created by 陈芬 on 17/12/7.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ABTestViewController : UIViewController
+@interface ABTabBar : UITabBar
 
 @end
