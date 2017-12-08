@@ -1,28 +1,30 @@
 //
-//  ABTestViewController.m
+//  ABNewViewController.m
 //  Dandelion
 //
-//  Created by 陈芬 on 17/12/7.
+//  Created by 陈芬 on 17/12/8.
 //  Copyright © 2017年 陈芬. All rights reserved.
 //
 
-#import "ABTestViewController.h"
+#import "ABNewViewController.h"
 
-@interface ABTestViewController ()
+@interface ABNewViewController ()
 
 @end
 
-@implementation ABTestViewController
+@implementation ABNewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = ABRandomColor;
+    // Do any additional setup after loading the view.
+    ABLogFunc
+    self.view.backgroundColor = ABCommonBgColor;
+
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*
