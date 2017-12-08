@@ -22,12 +22,7 @@
     // 标题(不建议使用 self.title 属性)
     self.navigationItem.title = @"关注";
     // 左边
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"friendsRecommentIcon"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(followClick) forControlEvents:UIControlEventTouchUpInside];
-    [button sizeToFit];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = [ABItemManager itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(followClick)];
     
 }
 
