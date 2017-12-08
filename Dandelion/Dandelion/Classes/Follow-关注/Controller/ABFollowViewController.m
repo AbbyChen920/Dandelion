@@ -22,7 +22,7 @@
     // 标题(不建议使用 self.title 属性)
     self.navigationItem.title = @"关注";
     // 左边
-    self.navigationItem.leftBarButtonItem = [ABItemManager itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(followClick)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(followClick)];
     
 }
 

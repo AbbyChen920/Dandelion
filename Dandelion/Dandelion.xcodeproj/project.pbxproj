@@ -21,6 +21,7 @@
 		28F184EF1FDA9BB8001A94C8 /* ABTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184E31FDA9BB8001A94C8 /* ABTabBarController.m */; };
 		28F184F01FDA9BB8001A94C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184E41FDA9BB8001A94C8 /* main.m */; };
 		28F184F31FDAF0F5001A94C8 /* ABItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184F21FDAF0F5001A94C8 /* ABItemManager.m */; };
+		28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184F51FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		28F184E51FDA9BB8001A94C8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		28F184F11FDAF0F5001A94C8 /* ABItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABItemManager.h; sourceTree = "<group>"; };
 		28F184F21FDAF0F5001A94C8 /* ABItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABItemManager.m; sourceTree = "<group>"; };
+		28F184F41FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ABExtension.h"; sourceTree = "<group>"; };
+		28F184F51FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ABExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +323,8 @@
 				28F184DC1FDA9BB8001A94C8 /* UIImage+ABImage.m */,
 				28F184DD1FDA9BB8001A94C8 /* UIView+ABExtension.h */,
 				28F184DE1FDA9BB8001A94C8 /* UIView+ABExtension.m */,
+				28F184F41FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.h */,
+				28F184F51FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				28F184EB1FDA9BB8001A94C8 /* AppDelegate.m in Sources */,
 				28F184EC1FDA9BB8001A94C8 /* UIImage+ABImage.m in Sources */,
 				28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */,
+				28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */,
 				28F184EA1FDA9BB8001A94C8 /* ABNewViewController.m in Sources */,
 				28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */,
 				28F184EE1FDA9BB8001A94C8 /* ABTabBar.m in Sources */,
