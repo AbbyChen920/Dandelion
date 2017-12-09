@@ -19,3 +19,4 @@
     return [[self alloc] initWithCustomView:button];
 }
 @end
+

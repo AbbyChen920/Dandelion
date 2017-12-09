@@ -7,6 +7,7 @@
 //
 
 #import "ABFollowViewController.h"
+#import "ABRecommendFollowViewController.h"
 
 @interface ABFollowViewController ()
 
@@ -29,6 +30,11 @@
 - (void)followClick
 {
     ABLogFunc
+    
+    ABRecommendFollowViewController *test = [[ABRecommendFollowViewController alloc] init];
+    test.view.backgroundColor = ABRandomColor;
+    test.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:test animated:YES];
 }
 
 @end

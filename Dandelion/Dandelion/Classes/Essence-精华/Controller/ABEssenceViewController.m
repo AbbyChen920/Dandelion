@@ -32,7 +32,7 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(tagClick)];
     
 }
-
+  
 - (void)tagClick
 {
     ABLogFunc
