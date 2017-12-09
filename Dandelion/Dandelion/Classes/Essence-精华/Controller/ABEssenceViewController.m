@@ -18,12 +18,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = ABCommonBgColor;
-    
-//    UIImageView *imageView = [[UIImageView alloc] init];
-//    imageView.backgroundColor = [UIColor redColor];
-//    imageView.image = [UIImage imageNamed:@"MainTitle"];
-//    [imageView sizeToFit];
-//    self.navigationItem.titleView = imageView;
+
     
     // 标题
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
@@ -35,7 +30,7 @@
   
 - (void)tagClick
 {
-    ABLogFunc
+    ABLogFunc 
 }
 
 

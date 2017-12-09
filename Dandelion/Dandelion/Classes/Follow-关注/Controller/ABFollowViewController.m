@@ -33,7 +33,6 @@
     
     ABRecommendFollowViewController *test = [[ABRecommendFollowViewController alloc] init];
     test.view.backgroundColor = ABRandomColor;
-    test.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:test animated:YES];
 }
 

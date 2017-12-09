@@ -6,8 +6,8 @@
 //  Copyright © 2017年 陈芬. All rights reserved.
 //
 
-#import "ABBaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ABTest1ViewController : ABBaseViewController
+@interface ABTest1ViewController : UIViewController
 
 @end

@@ -20,12 +20,11 @@
 		28F184EE1FDA9BB8001A94C8 /* ABTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184E11FDA9BB8001A94C8 /* ABTabBar.m */; };
 		28F184EF1FDA9BB8001A94C8 /* ABTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184E31FDA9BB8001A94C8 /* ABTabBarController.m */; };
 		28F184F01FDA9BB8001A94C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184E41FDA9BB8001A94C8 /* main.m */; };
-		28F184F31FDAF0F5001A94C8 /* ABItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184F21FDAF0F5001A94C8 /* ABItemManager.m */; };
 		28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184F51FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m */; };
 		28F184F91FDB8DAA001A94C8 /* ABRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184F81FDB8DAA001A94C8 /* ABRecommendFollowViewController.m */; };
-		28F184FF1FDB9AC2001A94C8 /* ABBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184FE1FDB9AC2001A94C8 /* ABBaseViewController.m */; };
 		28F185021FDB9BE7001A94C8 /* ABTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F185011FDB9BE7001A94C8 /* ABTestViewController.m */; };
 		28F185051FDB9D4B001A94C8 /* ABTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F185041FDB9D4B001A94C8 /* ABTest1ViewController.m */; };
+		28F185081FDBD3D3001A94C8 /* ABNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F185071FDBD3D3001A94C8 /* ABNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,18 +74,16 @@
 		28F184E31FDA9BB8001A94C8 /* ABTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTabBarController.m; sourceTree = "<group>"; };
 		28F184E41FDA9BB8001A94C8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		28F184E51FDA9BB8001A94C8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		28F184F11FDAF0F5001A94C8 /* ABItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABItemManager.h; sourceTree = "<group>"; };
-		28F184F21FDAF0F5001A94C8 /* ABItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABItemManager.m; sourceTree = "<group>"; };
 		28F184F41FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ABExtension.h"; sourceTree = "<group>"; };
 		28F184F51FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ABExtension.m"; sourceTree = "<group>"; };
 		28F184F71FDB8DAA001A94C8 /* ABRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRecommendFollowViewController.h; sourceTree = "<group>"; };
 		28F184F81FDB8DAA001A94C8 /* ABRecommendFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRecommendFollowViewController.m; sourceTree = "<group>"; };
-		28F184FD1FDB9AC2001A94C8 /* ABBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBaseViewController.h; sourceTree = "<group>"; };
-		28F184FE1FDB9AC2001A94C8 /* ABBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBaseViewController.m; sourceTree = "<group>"; };
 		28F185001FDB9BE7001A94C8 /* ABTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestViewController.h; sourceTree = "<group>"; };
 		28F185011FDB9BE7001A94C8 /* ABTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestViewController.m; sourceTree = "<group>"; };
 		28F185031FDB9D4B001A94C8 /* ABTest1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTest1ViewController.h; sourceTree = "<group>"; };
 		28F185041FDB9D4B001A94C8 /* ABTest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTest1ViewController.m; sourceTree = "<group>"; };
+		28F185061FDBD3D3001A94C8 /* ABNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNavigationController.h; sourceTree = "<group>"; };
+		28F185071FDBD3D3001A94C8 /* ABNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,8 +351,8 @@
 				28F184E11FDA9BB8001A94C8 /* ABTabBar.m */,
 				28F184E21FDA9BB8001A94C8 /* ABTabBarController.h */,
 				28F184E31FDA9BB8001A94C8 /* ABTabBarController.m */,
-				28F184FD1FDB9AC2001A94C8 /* ABBaseViewController.h */,
-				28F184FE1FDB9AC2001A94C8 /* ABBaseViewController.m */,
+				28F185061FDBD3D3001A94C8 /* ABNavigationController.h */,
+				28F185071FDBD3D3001A94C8 /* ABNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -363,8 +360,6 @@
 		28F184E61FDA9BB8001A94C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				28F184F11FDAF0F5001A94C8 /* ABItemManager.h */,
-				28F184F21FDAF0F5001A94C8 /* ABItemManager.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -510,11 +505,10 @@
 				28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */,
 				28F184EA1FDA9BB8001A94C8 /* ABNewViewController.m in Sources */,
 				28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */,
-				28F184FF1FDB9AC2001A94C8 /* ABBaseViewController.m in Sources */,
 				28F184EE1FDA9BB8001A94C8 /* ABTabBar.m in Sources */,
-				28F184F31FDAF0F5001A94C8 /* ABItemManager.m in Sources */,
 				28F185021FDB9BE7001A94C8 /* ABTestViewController.m in Sources */,
 				28F184EF1FDA9BB8001A94C8 /* ABTabBarController.m in Sources */,
+				28F185081FDBD3D3001A94C8 /* ABNavigationController.m in Sources */,
 				28F184F91FDB8DAA001A94C8 /* ABRecommendFollowViewController.m in Sources */,
 				28F184F01FDA9BB8001A94C8 /* main.m in Sources */,
 			);

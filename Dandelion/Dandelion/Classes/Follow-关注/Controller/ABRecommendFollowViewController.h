@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ABBaseViewController.h"
-@interface ABRecommendFollowViewController : ABBaseViewController
+
+@interface ABRecommendFollowViewController : UIViewController
 
 @end
