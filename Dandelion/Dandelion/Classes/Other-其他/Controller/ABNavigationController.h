@@ -1,5 +1,5 @@
 //
-//  ABBaseViewController.h
+//  ABNavigationController.h
 //  Dandelion
 //
 //  Created by 陈芬 on 17/12/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ABBaseViewController : UIViewController
+@interface ABNavigationController : UINavigationController
 
 @end

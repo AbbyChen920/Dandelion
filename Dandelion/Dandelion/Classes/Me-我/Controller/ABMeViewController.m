@@ -39,7 +39,6 @@
     ABLogFunc
     ABTestViewController *test = [[ABTestViewController alloc] init];
     test.view.backgroundColor = ABRandomColor;
-    test.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:test animated:YES];
     
 }
