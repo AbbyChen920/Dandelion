@@ -7,6 +7,8 @@
 //
 
 #import "ABMeViewController.h"
+#import "ABTestViewController.h"
+
 
 @interface ABMeViewController ()
 
@@ -35,6 +37,11 @@
 - (void)settingClick
 {
     ABLogFunc
+    ABTestViewController *test = [[ABTestViewController alloc] init];
+    test.view.backgroundColor = ABRandomColor;
+    test.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:test animated:YES];
+    
 }
 
 - (void)moonClick
