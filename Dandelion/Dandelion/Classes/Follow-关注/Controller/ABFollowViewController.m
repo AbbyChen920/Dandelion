@@ -32,7 +32,7 @@
     ABLogFunc
     
     ABRecommendFollowViewController *test = [[ABRecommendFollowViewController alloc] init];
-    test.view.backgroundColor = ABRandomColor;
+    
     [self.navigationController pushViewController:test animated:YES];
 }
 

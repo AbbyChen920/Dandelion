@@ -8,7 +8,7 @@
 
 #import "ABNavigationController.h"
 
-@interface ABNavigationController ()
+@interface ABNavigationController () <UIGestureRecognizerDelegate>
 
 @end
 
@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.interactivePopGestureRecognizer.delegate = self;
+    
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 /*
@@ -43,15 +48,49 @@
         viewController.hidesBottomBarWhenPushed = YES;
     }
     
-    // 所有设置搞定之后,在 push 控制器
-    [super pushViewController:viewController animated:animated];
+    // 所有设置搞定之后,再 push 控制器
+    [super pushViewController:viewController animated:YES];
 
 }
 
 
+//-(UIViewController *)popViewControllerAnimated:(BOOL)animated
+//{
+//    return [super popViewControllerAnimated:NO];
+//}
+//
+//// 如果想全世界的pop 都没有动画,那在下面的几个方法中也设置下Animated:NO
+//- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
+//{
+//    return [super popToViewController:viewController animated:NO];
+//    
+//}
+//-(NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated
+//{
+//    return [super popToRootViewControllerAnimated:NO];
+//}
+//
 - (void)back
 {
     [self popViewControllerAnimated:YES];
+}
+
+
+#pragma mark - UIGestureRecognizerDelegate
+/*
+ 手势识别器对象会调用这个代理方法来决定是否有效
+ 
+ @return YES:手势有效;  NO: 手势无效
+ */
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+//    if (self.childViewControllers.count == 1) { //导航控制器中只有1个子控制器
+//        return NO;
+//    }
+//    return YES;
+    
+    // 手势何时有效:当导航控制器的子控制器个数>1时候有效
+    return self.childViewControllers.count > 1;
 }
 
 @end

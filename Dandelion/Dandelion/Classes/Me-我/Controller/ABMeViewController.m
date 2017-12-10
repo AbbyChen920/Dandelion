@@ -38,7 +38,7 @@
 {
     ABLogFunc
     ABTestViewController *test = [[ABTestViewController alloc] init];
-    test.view.backgroundColor = ABRandomColor;
+    
     [self.navigationController pushViewController:test animated:YES];
     
 }
