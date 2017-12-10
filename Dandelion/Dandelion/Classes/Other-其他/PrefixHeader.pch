@@ -1,0 +1,45 @@
+//
+//  PrefixHeader.pch
+//  Dandelion
+//
+//  Created by 陈芬 on 17/12/3.
+//  Copyright © 2017年 陈芬. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+
+/*****如果希望某些内容能拷贝到任何源代码文件( OC/C/C++等),那么久不要写在#ifdef  __OBJC__ 跟 #endif之间 *****/
+
+/*****在#ifdef  __OBJC__ 跟 #endif之间 ,只会拷贝到 OC 源代码文件中,不会拷贝到其他语言的源代码文件中*****/
+#ifdef  __OBJC__
+
+#import "UIView+ABExtension.h"
+#import "UIImage+ABImage.h"
+#import "UIBarButtonItem+ABExtension.h"
+/** 日志 */
+#ifdef DEBUG
+#define ABLog(...) NSLog(__VA_ARGS__)
+#else
+#define ABLog(...)
+#endif
+
+#define ABLogFunc ABLog(@"%s",__func__);
+
+/** 颜色 */
+#define ABColorA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+#define ABColor(r, g, b) ABColorA((r), (g), (b), 255)
+#define ABRandomColor ABColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+#define ABGrayColor(v) ABColor((v), (v), (v))
+#define ABCommonBgColor ABGrayColor(206)
+
+
+
+#endif
+
+/*****在#ifdef  __OBJC__ 跟 #endif之间 ,只会拷贝到 OC 源代码文件中,不会拷贝到其他语言的源代码文件中*****/
+
+
+#endif /* PrefixHeader_pch */
