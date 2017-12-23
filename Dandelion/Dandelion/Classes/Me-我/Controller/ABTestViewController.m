@@ -18,12 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"设置";
+    self.view.backgroundColor = ABCommonBgColor;
+    
+    
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     ABTest1ViewController *test1 = [[ABTest1ViewController alloc] init];
-    test1.view.backgroundColor = ABRandomColor;
+    
     [self.navigationController pushViewController:test1 animated:YES];
     
 }

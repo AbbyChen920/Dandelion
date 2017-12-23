@@ -32,6 +32,15 @@
 
 
 #pragma mark - 初始化
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundImage = [UIImage imageNamed:@"tabbar-light"];
+    }
+    
+    return self;
+}
+
 
 // 布局子控件
 -(void)layoutSubviews

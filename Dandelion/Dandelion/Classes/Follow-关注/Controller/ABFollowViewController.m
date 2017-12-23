@@ -11,6 +11,7 @@
 
 @interface ABFollowViewController ()
 
+
 @end
 
 @implementation ABFollowViewController
@@ -18,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+ 
+    
     self.view.backgroundColor = ABCommonBgColor;
     
     // 标题(不建议使用 self.title 属性)
@@ -32,7 +35,7 @@
     ABLogFunc
     
     ABRecommendFollowViewController *test = [[ABRecommendFollowViewController alloc] init];
-    test.view.backgroundColor = ABRandomColor;
+    
     [self.navigationController pushViewController:test animated:YES];
 }
 
