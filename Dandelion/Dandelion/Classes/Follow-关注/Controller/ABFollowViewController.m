@@ -8,6 +8,7 @@
 
 #import "ABFollowViewController.h"
 #import "ABRecommendFollowViewController.h"
+#import "ABLoginRegisterViewController.h"
 
 @interface ABFollowViewController ()
 
@@ -18,8 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
- 
     
     self.view.backgroundColor = ABCommonBgColor;
     
@@ -28,6 +27,13 @@
     // 左边
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(followClick)];
     
+}
+
+- (IBAction)loginRegister {
+    
+    ABLoginRegisterViewController *loginRegister = [[ABLoginRegisterViewController alloc] init];
+    
+    [self presentViewController:loginRegister animated:YES completion:nil];
 }
 
 - (void)followClick

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		280A676E1FEE1F2200AE22EE /* ABFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280A676D1FEE1F2200AE22EE /* ABFollowViewController.xib */; };
+		280A67721FEE7A5700AE22EE /* ABLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A67701FEE7A5700AE22EE /* ABLoginRegisterViewController.m */; };
+		280A67731FEE7A5700AE22EE /* ABLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280A67711FEE7A5700AE22EE /* ABLoginRegisterViewController.xib */; };
 		289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */; };
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
@@ -47,6 +49,9 @@
 
 /* Begin PBXFileReference section */
 		280A676D1FEE1F2200AE22EE /* ABFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABFollowViewController.xib; sourceTree = "<group>"; };
+		280A676F1FEE7A5700AE22EE /* ABLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLoginRegisterViewController.h; sourceTree = "<group>"; };
+		280A67701FEE7A5700AE22EE /* ABLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABLoginRegisterViewController.m; sourceTree = "<group>"; };
+		280A67711FEE7A5700AE22EE /* ABLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABLoginRegisterViewController.xib; sourceTree = "<group>"; };
 		289E84BD1FD2D41E00E46DD8 /* Dandelion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandelion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289E84D11FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -356,6 +361,9 @@
 				28F184E31FDA9BB8001A94C8 /* ABTabBarController.m */,
 				28F185061FDBD3D3001A94C8 /* ABNavigationController.h */,
 				28F185071FDBD3D3001A94C8 /* ABNavigationController.m */,
+				280A676F1FEE7A5700AE22EE /* ABLoginRegisterViewController.h */,
+				280A67701FEE7A5700AE22EE /* ABLoginRegisterViewController.m */,
+				280A67711FEE7A5700AE22EE /* ABLoginRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -476,6 +484,7 @@
 			files = (
 				280A676E1FEE1F2200AE22EE /* ABFollowViewController.xib in Resources */,
 				289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */,
+				280A67731FEE7A5700AE22EE /* ABLoginRegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +519,7 @@
 				28F184EA1FDA9BB8001A94C8 /* ABNewViewController.m in Sources */,
 				28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */,
 				28F184EE1FDA9BB8001A94C8 /* ABTabBar.m in Sources */,
+				280A67721FEE7A5700AE22EE /* ABLoginRegisterViewController.m in Sources */,
 				28F185021FDB9BE7001A94C8 /* ABTestViewController.m in Sources */,
 				28F184EF1FDA9BB8001A94C8 /* ABTabBarController.m in Sources */,
 				28F185081FDBD3D3001A94C8 /* ABNavigationController.m in Sources */,

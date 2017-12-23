@@ -20,24 +20,23 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfv-TA-fdS" userLabel="中间的文字描述">
-                    <rect key="frame" x="129" y="292.5" width="119" height="82"/>
-                    <string key="text">阿凯和大就\n就
-学大
-56
-奸大</string>
+                    <rect key="frame" x="70" y="303" width="235" height="61"/>
+                    <string key="text">快快登录吧,关注百思最 in 牛人
+好友动态让你过把瘾儿~
+欧耶~~~</string>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_cry_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Zrj-gz-gFg" userLabel="顶部图标">
-                    <rect key="frame" x="163" y="204.5" width="48" height="48"/>
+                    <rect key="frame" x="163" y="215" width="48" height="48"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="48" id="2yo-Sb-qn1"/>
                         <constraint firstAttribute="height" constant="48" id="zI7-Cu-Xyn"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTC-UJ-aPY" userLabel="登录注册按钮">
-                    <rect key="frame" x="66" y="414.5" width="243" height="35"/>
+                    <rect key="frame" x="66" y="404" width="243" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="agF-Cc-mTK"/>
                     </constraints>
@@ -48,6 +47,9 @@
                     <state key="highlighted" backgroundImage="friendsTrend_login_click">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="loginRegister" destination="-1" eventType="touchUpInside" id="P9p-Dh-aNf"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
