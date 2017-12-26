@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
    // 设置圆角
     self.loginButton.layer.cornerRadius = 5;
 //    [self.loginButton setValue:@5 forKeyPath:@"layer.cornerRadius"];
