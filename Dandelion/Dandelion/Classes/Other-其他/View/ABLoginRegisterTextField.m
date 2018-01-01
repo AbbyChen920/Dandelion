@@ -7,6 +7,9 @@
 //
 
 #import "ABLoginRegisterTextField.h"
+#import <objc/runtime.h>
+
+static NSString * const ABPlaceholderColorKey = @"placeholderLabel.textColor";
 
 @implementation ABLoginRegisterTextField
 
@@ -21,44 +24,54 @@
 //    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
 //    attributes[NSForegroundColorAttributeName] = [UIColor whiteColor];
 //    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:attributes];
- 
+
+//    
+//    unsigned int count;
+//    Ivar *ivarList = class_copyIvarList([UITextField class], &count);
+//    for (int i = 0; i < count; i++) {
+//        Ivar ivar = ivarList[i];
+//        NSLog(@"%s", ivar_getName(ivar));
+//    }
+//    free(ivarList);
+    
+    
+//    UILabel *label = [self valueForKeyPath:@"placeholderLabel"];
+//    label.textColor = [UIColor whiteColor];
+    
+    // 设置默认的占位文字颜色
+    [self setValue:[UIColor grayColor] forKeyPath:ABPlaceholderColorKey];
+    
+    // 直接打印subviews 为空,可能因为刚从 xib 加载过来还没来得及显示子控件. 延迟打印就有了
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        UILabel *label = self.subviews.lastObject;
+//        label.textColor = [UIColor whiteColor];
+//        
+//    });
+    
+
+    [self addTarget:self action:@selector(editingDidBegin) forControlEvents:UIControlEventEditingDidBegin];
+    
+    [self addTarget:self action:@selector(editingDidEnd) forControlEvents:UIControlEventEditingDidEnd];
+    
+    // 监听文字改变
+//    [self addTarget:self action:@selector(editingChange) forControlEvents:UIControlEventEditingChanged];
 }
 
-#pragma mark - 重写
-//-(CGRect)placeholderRectForBounds:(CGRect)bounds
-//{
-//    return CGRectMake(0, 0, 40, 10);
-//}
-
-
--(void)drawPlaceholderInRect:(CGRect)rect
+// 开始编辑
+- (void)editingDidBegin
 {
-    // 文字属性
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-    attrs[NSFontAttributeName] = self.font;
-    
-    
-    // 方法中的rect参数就是文本框的 rect
-    // NSLog(@"%@", NSStringFromCGRect(rect));
-    // 2017-12-29 17:59:35.956 Dandelion[8928:1190527] {{0, 0}, {246, 45.5}}
-
-    // 画出占位文字
-    // 画到 rect, 具体位置尺寸
-    CGRect placeholderRect;
-    placeholderRect.origin.x = 0;
-    placeholderRect.origin.y = (rect.size.height - self.font.lineHeight) * 0.5;
-    placeholderRect.size.width = rect.size.width;
-    placeholderRect.size.height = self.font.lineHeight;
-//    [self.placeholder drawInRect:placeholderRect withAttributes:attrs];
-    
-    // 画到一个点上, 只用起点就可以,宽高会自动设置
-    CGPoint placeholderPoint;
-    placeholderPoint.x = 0;
-    placeholderPoint.y = (rect.size.height - self.font.lineHeight) * 0.5;
-    [self.placeholder drawAtPoint:placeholderPoint withAttributes:attrs];
-    
+    [self setValue:[UIColor whiteColor] forKeyPath:ABPlaceholderColorKey];
 }
 
+// 结束编辑
+- (void)editingDidEnd
+{
+    [self setValue:[UIColor grayColor] forKeyPath:ABPlaceholderColorKey];
+}
 
+//- (void)editingChange
+//{
+//    ABLogFunc
+//}
 @end
