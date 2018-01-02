@@ -11,7 +11,7 @@
 
 static NSString * const ABPlaceholderColorKey = @"placeholderLabel.textColor";
 
-@interface ABLoginRegisterTextField() <UITextFieldDelegate>
+@interface ABLoginRegisterTextField()
 
 @end
 
@@ -27,21 +27,26 @@ static NSString * const ABPlaceholderColorKey = @"placeholderLabel.textColor";
     // 设置默认的占位文字颜色
     [self setValue:[UIColor grayColor] forKeyPath:ABPlaceholderColorKey];
     
-    self.delegate = self;
+    // object一定要设置为self,不然所有的文本框都会接受通知执行方法. 要规定只接受自己的文本框发出的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginEditing) name:UITextFieldTextDidBeginEditingNotification object:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endEditing) name:UITextFieldTextDidEndEditingNotification object:self];
    
 }
-
-#pragma mark - UITextFieldDelegate
--(void)textFieldDidBeginEditing:(UITextField *)textField
+-(void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)beginEditing
+{
+    //    ABLog(@"%@ beginEditing",[note.object placeholder]);
     [self setValue:[UIColor whiteColor] forKeyPath:ABPlaceholderColorKey];
-
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField
+- (void)endEditing
 {
+//    ABLog(@"%@ beginEditing",[note.object placeholder]);
     [self setValue:[UIColor grayColor] forKeyPath:ABPlaceholderColorKey];
-
 }
-
 @end
