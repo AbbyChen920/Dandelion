@@ -12,7 +12,7 @@
 static NSString * const ABPlaceholderColorKey = @"placeholderLabel.textColor";
 
 @interface ABLoginRegisterTextField()
-
+@property (nonatomic,strong) id observer;
 @end
 
 @implementation ABLoginRegisterTextField
@@ -32,10 +32,26 @@ static NSString * const ABPlaceholderColorKey = @"placeholderLabel.textColor";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endEditing) name:UITextFieldTextDidEndEditingNotification object:self];
    
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginEditing) name:UITextFieldTextDidBeginEditingNotification object:self];
+//        
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endEditing) name:UITextFieldTextDidEndEditingNotification object:self];
+//    });
+    
+
+    // object对象发了名字为 name 的通知,就在queue队列中执行 block
+    // 这个方法的返回值是监听器
+    id observer = [[NSNotificationCenter defaultCenter] addObserverForName:UITextFieldTextDidBeginEditingNotification object:self queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        
+        // 移除通知
+        [[NSNotificationCenter defaultCenter] removeObserver:observer];
+    }];
+    
 }
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.observer];
 }
 
 - (void)beginEditing
