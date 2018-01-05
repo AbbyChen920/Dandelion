@@ -16,6 +16,7 @@
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
 		28CA93051FF28BE500BFEBC2 /* ABLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CA93041FF28BE500BFEBC2 /* ABLoginRegisterTextField.m */; };
+		28CA93891FFFD37B00BFEBC2 /* UITextField+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CA93881FFFD37B00BFEBC2 /* UITextField+ABExtension.m */; };
 		28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */; };
 		28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C81FDA9BB8001A94C8 /* ABFollowViewController.m */; };
 		28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184CE1FDA9BB8001A94C8 /* ABMeViewController.m */; };
@@ -69,6 +70,8 @@
 		289E84E71FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28CA93031FF28BE500BFEBC2 /* ABLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLoginRegisterTextField.h; sourceTree = "<group>"; };
 		28CA93041FF28BE500BFEBC2 /* ABLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABLoginRegisterTextField.m; sourceTree = "<group>"; };
+		28CA93871FFFD37B00BFEBC2 /* UITextField+ABExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+ABExtension.h"; sourceTree = "<group>"; };
+		28CA93881FFFD37B00BFEBC2 /* UITextField+ABExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ABExtension.m"; sourceTree = "<group>"; };
 		28F184C11FDA9BB8001A94C8 /* ABEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABEssenceViewController.h; sourceTree = "<group>"; };
 		28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABEssenceViewController.m; sourceTree = "<group>"; };
 		28F184C71FDA9BB8001A94C8 /* ABFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFollowViewController.h; sourceTree = "<group>"; };
@@ -354,6 +357,8 @@
 				28F184DE1FDA9BB8001A94C8 /* UIView+ABExtension.m */,
 				28F184F41FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.h */,
 				28F184F51FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m */,
+				28CA93871FFFD37B00BFEBC2 /* UITextField+ABExtension.h */,
+				28CA93881FFFD37B00BFEBC2 /* UITextField+ABExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */,
+				28CA93891FFFD37B00BFEBC2 /* UITextField+ABExtension.m in Sources */,
 				28F184ED1FDA9BB8001A94C8 /* UIView+ABExtension.m in Sources */,
 				28F184EB1FDA9BB8001A94C8 /* AppDelegate.m in Sources */,
 				28CA93051FF28BE500BFEBC2 /* ABLoginRegisterTextField.m in Sources */,
