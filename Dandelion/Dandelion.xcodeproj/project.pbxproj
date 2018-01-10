@@ -12,6 +12,8 @@
 		280A67731FEE7A5700AE22EE /* ABLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280A67711FEE7A5700AE22EE /* ABLoginRegisterViewController.xib */; };
 		280A67761FEEAF2600AE22EE /* ABTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A67751FEEAF2600AE22EE /* ABTabBar.m */; };
 		280A67791FEEAFE900AE22EE /* ABQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A67781FEEAFE900AE22EE /* ABQuickLoginButton.m */; };
+		2844B6892006550500578257 /* ABConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B6882006550500578257 /* ABConst.m */; };
+		2844B68C2006628200578257 /* ABMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B68B2006628200578257 /* ABMeCell.m */; };
 		289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */; };
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
@@ -59,6 +61,10 @@
 		280A67751FEEAF2600AE22EE /* ABTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTabBar.m; sourceTree = "<group>"; };
 		280A67771FEEAFE900AE22EE /* ABQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABQuickLoginButton.h; sourceTree = "<group>"; };
 		280A67781FEEAFE900AE22EE /* ABQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABQuickLoginButton.m; sourceTree = "<group>"; };
+		2844B6872006550500578257 /* ABConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABConst.h; sourceTree = "<group>"; };
+		2844B6882006550500578257 /* ABConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABConst.m; sourceTree = "<group>"; };
+		2844B68A2006628200578257 /* ABMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMeCell.h; sourceTree = "<group>"; };
+		2844B68B2006628200578257 /* ABMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABMeCell.m; sourceTree = "<group>"; };
 		289E84BD1FD2D41E00E46DD8 /* Dandelion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandelion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289E84D11FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -297,6 +303,8 @@
 		28F184D01FDA9BB8001A94C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2844B68A2006628200578257 /* ABMeCell.h */,
+				2844B68B2006628200578257 /* ABMeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -386,6 +394,8 @@
 				280A67781FEEAFE900AE22EE /* ABQuickLoginButton.m */,
 				28CA93031FF28BE500BFEBC2 /* ABLoginRegisterTextField.h */,
 				28CA93041FF28BE500BFEBC2 /* ABLoginRegisterTextField.m */,
+				2844B6872006550500578257 /* ABConst.h */,
+				2844B6882006550500578257 /* ABConst.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -537,11 +547,13 @@
 				28F184EA1FDA9BB8001A94C8 /* ABNewViewController.m in Sources */,
 				28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */,
 				280A67721FEE7A5700AE22EE /* ABLoginRegisterViewController.m in Sources */,
+				2844B68C2006628200578257 /* ABMeCell.m in Sources */,
 				28F185021FDB9BE7001A94C8 /* ABTestViewController.m in Sources */,
 				28F184EF1FDA9BB8001A94C8 /* ABTabBarController.m in Sources */,
 				28F185081FDBD3D3001A94C8 /* ABNavigationController.m in Sources */,
 				280A67791FEEAFE900AE22EE /* ABQuickLoginButton.m in Sources */,
 				28F184F91FDB8DAA001A94C8 /* ABRecommendFollowViewController.m in Sources */,
+				2844B6892006550500578257 /* ABConst.m in Sources */,
 				28F184F01FDA9BB8001A94C8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

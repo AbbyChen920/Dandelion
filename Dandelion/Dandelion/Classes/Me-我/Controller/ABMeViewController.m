@@ -8,6 +8,7 @@
 
 #import "ABMeViewController.h"
 #import "ABTestViewController.h"
+#import "ABMeCell.h"
 
 
 @interface ABMeViewController ()
@@ -23,24 +24,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.tableView.sectionHeaderHeight = 0;
-    self.tableView.sectionFooterHeight = 10;
-
-    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
     
-    self.view.backgroundColor = ABCommonBgColor;
+    [self setUpTable];
+    
+    [self setUpNav];
+}
 
+- (void)setUpTable
+{
+    self.view.backgroundColor = ABCommonBgColor;
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = ABMargin;
+    self.tableView.contentInset = UIEdgeInsetsMake(ABMargin - 35, 0, 0, 0);
+    
+    // 设置 footer
+    UIView *footerView = [[UIView alloc] init];
+    footerView.backgroundColor = [UIColor redColor];
+    footerView.ab_height = 200;
+    self.tableView.tableFooterView = footerView;
+}
+
+- (void)setUpNav
+{
     // 标题
     self.navigationItem.title = @"我的";
     
     // 右边-设置
     UIBarButtonItem *settingItem = [UIBarButtonItem itemWithImage:@"mine-setting-icon" highImage:@"mine-setting-icon-click" target:self action:@selector(settingClick)];
-
+    
     // 右边-月亮
     UIBarButtonItem *moonItem = [UIBarButtonItem itemWithImage:@"mine-moon-icon" highImage:@"mine-moon-icon-click" target:self action:@selector(moonClick)];
     
     self.navigationItem.rightBarButtonItems = @[settingItem, moonItem];
-
 }
 
 - (void)settingClick
@@ -61,7 +76,7 @@
 #pragma mark - 数据源方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 
@@ -73,31 +88,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 1.确定重用标识
     static NSString *ID = @"cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    // 2.从缓存池中取
+    ABMeCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
+    // 3.如果空就手动创建
     if (!cell) {
-        cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell =  [[ABMeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%zd",indexPath.section];
-    
+    // 4.设置数据
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"登录/注册";
+        cell.imageView.image = [UIImage imageNamed:@"setup-head-default"];
+    }else{
+        cell.textLabel.text = @"离线下载";
+        cell.imageView.image = nil; // 只要有其他cell设置过 imageview.image,其他不显示图片的 cell 都需要设置 imageview.image = nil
+    }
+      
     return cell;
 }
 
 #pragma mark - 代理方法
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 2) return 200;
-    return 44;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    ABLog(@"%@",NSStringFromCGRect(cell.frame));
-}
 
 
 
