@@ -13,11 +13,10 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-//        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
         
         self.textLabel.textColor = [UIColor darkGrayColor];
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//        self.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow"]];
         
         self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
     }

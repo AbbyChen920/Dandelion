@@ -9,6 +9,7 @@
 #import "ABMeViewController.h"
 #import "ABTestViewController.h"
 #import "ABMeCell.h"
+#import "ABMeFooterView.h"
 
 
 @interface ABMeViewController ()
@@ -38,10 +39,7 @@
     self.tableView.contentInset = UIEdgeInsetsMake(ABMargin - 35, 0, 0, 0);
     
     // 设置 footer
-    UIView *footerView = [[UIView alloc] init];
-    footerView.backgroundColor = [UIColor redColor];
-    footerView.ab_height = 200;
-    self.tableView.tableFooterView = footerView;
+    self.tableView.tableFooterView = [[ABMeFooterView alloc] init];
 }
 
 - (void)setUpNav

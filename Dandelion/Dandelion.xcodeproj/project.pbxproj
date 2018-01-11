@@ -14,6 +14,7 @@
 		280A67791FEEAFE900AE22EE /* ABQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A67781FEEAFE900AE22EE /* ABQuickLoginButton.m */; };
 		2844B6892006550500578257 /* ABConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B6882006550500578257 /* ABConst.m */; };
 		2844B68C2006628200578257 /* ABMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B68B2006628200578257 /* ABMeCell.m */; };
+		2844B68F200702EF00578257 /* ABMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B68E200702EF00578257 /* ABMeFooterView.m */; };
 		289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */; };
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
@@ -33,6 +34,7 @@
 		28F185021FDB9BE7001A94C8 /* ABTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F185011FDB9BE7001A94C8 /* ABTestViewController.m */; };
 		28F185051FDB9D4B001A94C8 /* ABTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F185041FDB9D4B001A94C8 /* ABTest1ViewController.m */; };
 		28F185081FDBD3D3001A94C8 /* ABNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F185071FDBD3D3001A94C8 /* ABNavigationController.m */; };
+		E45DF05EC0E23C4F499856AF /* libPods-Dandelion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15116E2793687C45F8B9AA14 /* libPods-Dandelion.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15116E2793687C45F8B9AA14 /* libPods-Dandelion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dandelion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		280A676D1FEE1F2200AE22EE /* ABFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABFollowViewController.xib; sourceTree = "<group>"; };
 		280A676F1FEE7A5700AE22EE /* ABLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLoginRegisterViewController.h; sourceTree = "<group>"; };
 		280A67701FEE7A5700AE22EE /* ABLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABLoginRegisterViewController.m; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 		2844B6882006550500578257 /* ABConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABConst.m; sourceTree = "<group>"; };
 		2844B68A2006628200578257 /* ABMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMeCell.h; sourceTree = "<group>"; };
 		2844B68B2006628200578257 /* ABMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABMeCell.m; sourceTree = "<group>"; };
+		2844B68D200702EF00578257 /* ABMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMeFooterView.h; sourceTree = "<group>"; };
+		2844B68E200702EF00578257 /* ABMeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABMeFooterView.m; sourceTree = "<group>"; };
 		289E84BD1FD2D41E00E46DD8 /* Dandelion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandelion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289E84D11FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,6 +111,8 @@
 		28F185041FDB9D4B001A94C8 /* ABTest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTest1ViewController.m; sourceTree = "<group>"; };
 		28F185061FDBD3D3001A94C8 /* ABNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNavigationController.h; sourceTree = "<group>"; };
 		28F185071FDBD3D3001A94C8 /* ABNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNavigationController.m; sourceTree = "<group>"; };
+		A3728D38CCBE0E09F8AA6C3F /* Pods-Dandelion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dandelion/Pods-Dandelion.debug.xcconfig"; sourceTree = "<group>"; };
+		C3C031E846A408D0D30D0173 /* Pods-Dandelion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dandelion/Pods-Dandelion.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E45DF05EC0E23C4F499856AF /* libPods-Dandelion.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +141,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00BF6FE010C41996B3B98679 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3728D38CCBE0E09F8AA6C3F /* Pods-Dandelion.debug.xcconfig */,
+				C3C031E846A408D0D30D0173 /* Pods-Dandelion.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		289E84B41FD2D41E00E46DD8 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +157,8 @@
 				289E84D91FD2D41F00E46DD8 /* DandelionTests */,
 				289E84E41FD2D41F00E46DD8 /* DandelionUITests */,
 				289E84BE1FD2D41E00E46DD8 /* Products */,
+				00BF6FE010C41996B3B98679 /* Pods */,
+				F558373DA8B15C6CF5455682 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,6 +324,8 @@
 			children = (
 				2844B68A2006628200578257 /* ABMeCell.h */,
 				2844B68B2006628200578257 /* ABMeCell.m */,
+				2844B68D200702EF00578257 /* ABMeFooterView.h */,
+				2844B68E200702EF00578257 /* ABMeFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -400,6 +421,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F558373DA8B15C6CF5455682 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15116E2793687C45F8B9AA14 /* libPods-Dandelion.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -407,9 +436,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 289E84EA1FD2D41F00E46DD8 /* Build configuration list for PBXNativeTarget "Dandelion" */;
 			buildPhases = (
+				66879B374C8B06C6D55BDA67 /* [CP] Check Pods Manifest.lock */,
 				289E84B91FD2D41E00E46DD8 /* Sources */,
 				289E84BA1FD2D41E00E46DD8 /* Frameworks */,
 				289E84BB1FD2D41E00E46DD8 /* Resources */,
+				611FB243878D7E3049F71840 /* [CP] Embed Pods Frameworks */,
+				EE325013B9320243751D5958 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -529,6 +561,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		611FB243878D7E3049F71840 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dandelion/Pods-Dandelion-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66879B374C8B06C6D55BDA67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dandelion-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE325013B9320243751D5958 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dandelion/Pods-Dandelion-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		289E84B91FD2D41E00E46DD8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -542,6 +625,7 @@
 				28F184EC1FDA9BB8001A94C8 /* UIImage+ABImage.m in Sources */,
 				28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */,
 				280A67761FEEAF2600AE22EE /* ABTabBar.m in Sources */,
+				2844B68F200702EF00578257 /* ABMeFooterView.m in Sources */,
 				28F185051FDB9D4B001A94C8 /* ABTest1ViewController.m in Sources */,
 				28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */,
 				28F184EA1FDA9BB8001A94C8 /* ABNewViewController.m in Sources */,
@@ -680,6 +764,7 @@
 		};
 		289E84EB1FD2D41F00E46DD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3728D38CCBE0E09F8AA6C3F /* Pods-Dandelion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -693,6 +778,7 @@
 		};
 		289E84EC1FD2D41F00E46DD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3C031E846A408D0D30D0173 /* Pods-Dandelion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
