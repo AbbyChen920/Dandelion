@@ -23,7 +23,7 @@
     if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = [UIColor redColor];
-        self.ab_height = 100;
+
         
         // 参数
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -32,7 +32,7 @@
         
         // 请求
         [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
-//            ABLog(@"请求成功- %@ %@", [responseObject class],responseObject);
+
             // 字典数据->模型数组
             NSArray *squares = [ABMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
 
@@ -80,20 +80,25 @@
         // 设置数据
 //        button.backgroundColor = ABRandomColor;
         [button setTitle:square.name forState:UIControlStateNormal];
-       
-//        [button.imageView sd_setImageWithURL:[NSURL URLWithString:square.icon] placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
-        
-        // 手动设置占位图片
-//        [button setImage:[UIImage imageNamed:@"setup-head-default"] forState:UIControlStateNormal];
-        
         [button sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
         
     }
+    // 设置 footer 的高度 == 最后一个按钮的 bottom(最大 Y 值)
+    self.ab_height = self.subviews.lastObject.ab_bottom;
+    
+    UITableView *tableView = (UITableView *)self.superview;
+    
+//    tableView.tableFooterView = self; 
+    tableView.contentSize = CGSizeMake(0, self.ab_bottom);
+ 
 }
 
 
 - (void)buttonClick:(UIButton *)button
 {
+    UITableView *tableView = (UITableView *)self.superview;
+    ABLog(@"%@",NSStringFromUIEdgeInsets(tableView.contentInset));
+
     ABLogFunc
 }
 @end
