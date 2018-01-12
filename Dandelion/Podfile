@@ -5,5 +5,7 @@ target 'Dandelion' do
 pod “AFNetworking”
 
 pod “SDWebImage”
-  
+
+pod “MJExtension”
+
 end
