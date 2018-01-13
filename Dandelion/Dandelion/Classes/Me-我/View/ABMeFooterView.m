@@ -14,6 +14,7 @@
 #import <SDWebImageManager.h>
 #import <SDWebImageDownloader.h>
 #import <UIButton+WebCache.h>
+#import "ABMeSquareButton.h"
 
 
 @implementation ABMeFooterView
@@ -21,10 +22,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        
-        self.backgroundColor = [UIColor redColor];
-
-        
+      
         // 参数
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         params[@"a"] = @"square";
@@ -55,18 +53,18 @@
     NSUInteger count = squares.count;
     
     // 方块的尺寸
-    int maxColsCount = 4;  //一行的最大列数
+    int maxColsCount = 4;  //一行的最大列数 
     CGFloat buttonW = self.ab_width / maxColsCount;
     CGFloat buttonH = buttonW;
     
     // 创建所有的方块
-    for (NSUInteger i = 0; i < count; i++) {
+    for (NSUInteger i = 0; i < count + 2; i++) {
         
         // i 位置对应的模型数据
-        ABMeSquare *square = squares[i];
+        ABMeSquare *square = i >= 42 ? nil : squares[i];
         
         // 创建按钮
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        ABMeSquareButton *button = [ABMeSquareButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         
@@ -78,17 +76,17 @@
         
         
         // 设置数据
-//        button.backgroundColor = ABRandomColor;
-        [button setTitle:square.name forState:UIControlStateNormal];
-        [button sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
-        
+        if (square) {
+            [button setTitle:square.name forState:UIControlStateNormal];
+            [button sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
+        }
+               
     }
     // 设置 footer 的高度 == 最后一个按钮的 bottom(最大 Y 值)
     self.ab_height = self.subviews.lastObject.ab_bottom;
     
+    // 设置tableview的contentSize
     UITableView *tableView = (UITableView *)self.superview;
-    
-//    tableView.tableFooterView = self; 
     tableView.contentSize = CGSizeMake(0, self.ab_bottom);
  
 }
@@ -96,9 +94,6 @@
 
 - (void)buttonClick:(UIButton *)button
 {
-    UITableView *tableView = (UITableView *)self.superview;
-    ABLog(@"%@",NSStringFromUIEdgeInsets(tableView.contentInset));
-
     ABLogFunc
 }
 @end
