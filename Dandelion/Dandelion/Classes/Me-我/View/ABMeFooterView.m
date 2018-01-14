@@ -11,13 +11,24 @@
 #import "ABMeSquare.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
-#import <SDWebImageManager.h>
-#import <SDWebImageDownloader.h>
 #import <UIButton+WebCache.h>
 #import "ABMeSquareButton.h"
 
+@interface ABMeFooterView ()
+// 存放所有模型的字典
+//@property (nonatomic,strong) NSMutableDictionary<NSString *, ABMeSquare *> *allSquares;
+
+@end
 
 @implementation ABMeFooterView
+
+//-(NSMutableDictionary<NSString *,ABMeSquare *> *)allSquares
+//{
+//    if (!_allSquares) {
+//        _allSquares = [NSMutableDictionary dictionary];
+//    }
+//    return _allSquares;
+//}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -58,10 +69,10 @@
     CGFloat buttonH = buttonW;
     
     // 创建所有的方块
-    for (NSUInteger i = 0; i < count + 2; i++) {
+    for (NSUInteger i = 0; i < count; i++) {
         
         // i 位置对应的模型数据
-        ABMeSquare *square = i >= 42 ? nil : squares[i];
+        ABMeSquare *square = squares[i];
         
         // 创建按钮
         ABMeSquareButton *button = [ABMeSquareButton buttonWithType:UIButtonTypeCustom];
@@ -74,14 +85,12 @@
         button.ab_width = buttonW;
         button.ab_height = buttonH;
         
-        
         // 设置数据
-        if (square) {
-            [button setTitle:square.name forState:UIControlStateNormal];
-            [button sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
-        }
-               
+        button.square = square;
+//            self.allSquares[button.currentTitle] = square;
+
     }
+    
     // 设置 footer 的高度 == 最后一个按钮的 bottom(最大 Y 值)
     self.ab_height = self.subviews.lastObject.ab_bottom;
     
@@ -89,14 +98,40 @@
     UITableView *tableView = (UITableView *)self.superview;
     tableView.tableFooterView = self;
     [tableView reloadData];  //重新刷新数据(会重新计算 contentSize)
-    
-    //    tableView.contentSize = CGSizeMake(0, self .ab_bottom);  // 不靠谱
  
 }
 
 
-- (void)buttonClick:(UIButton *)button
+- (void)buttonClick:(ABMeSquareButton *)button
 {
-    ABLogFunc
+//    ABMeSquare *square = self.allSquares[button.currentTitle];
+//    ABLog(@"%@",square.url);
+    
+    ABMeSquare *square = button.square;
+    
+    // [@"mod://fsdhttpedasdsa" containsString:@"http"]  YES
+    // [@"mod://fsdhttpedasdsa" hasSuffix:@"sa"]  YES
+    // [@"mod://fsdhttpedasdsa" hasPrefix:@"http"]  NO
+    
+    // 如果location == 0; 说明以 http 开头
+    // 如果location == NSNotFound; 或者 length == 0,说明没有找到对应的字符串
+//    [@"5328://fsdfesadsf" rangeOfString:@"http"].location == NSNotFound;
+    
+    if ([square.url hasPrefix:@"http"]) { //利用 webview 加载 url 即可
+        ABLog(@"利用 webview 加载 url");
+    }else if ([square.url hasPrefix:@"mod"]){ // 另行处理
+        
+        if ([square.url hasSuffix:@"BDJ_To_Check"]) {
+            ABLog(@"跳转到[审帖]界面");
+        } else if ([square.url hasSuffix:@"BDJ_To_RecentHot"]){
+            ABLog(@"跳转到[每日排行]界面");
+        } else {
+            ABLog(@"跳转到其他界面");
+        }
+                
+    } else {
+        ABLog(@"不是 http或者 mod 协议的");
+    }
+    
 }
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "ABMeSquareButton.h"
+#import "ABMeSquare.h"
+#import <UIButton+WebCache.h>
 
 @implementation ABMeSquareButton
 
@@ -38,5 +40,13 @@
     self.titleLabel.ab_width = self.ab_width;
     self.titleLabel.ab_height = self.ab_height - self.titleLabel.ab_y;
     
+}
+
+-(void)setSquare:(ABMeSquare *)square{
+    
+    _square = square;
+    // 设置数据
+    [self setTitle:square.name forState:UIControlStateNormal];
+    [self sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
 }
 @end
