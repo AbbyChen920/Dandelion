@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class ABMeSquare;
+
 @interface ABMeSquareButton : UIButton
+
+// 方块模型
+@property (nonatomic,strong) ABMeSquare *square;
 
 @end

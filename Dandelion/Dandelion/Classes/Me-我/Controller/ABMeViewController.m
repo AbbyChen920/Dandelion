@@ -38,17 +38,6 @@
     // 设置 footer
     self.tableView.tableFooterView = [[ABMeFooterView alloc] init];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//        UIView *footer = [[UIView alloc] init];
-//        footer.backgroundColor = [UIColor redColor];
-//        footer.ab_height = 1015;
-//        self.tableView.tableFooterView = footer;
-//        [self.tableView reloadData];
-//        ABLog(@"%@",NSStringFromCGSize(self.tableView.contentSize));
-//
-//    });
-    
 }
 
 - (void)setUpNav
