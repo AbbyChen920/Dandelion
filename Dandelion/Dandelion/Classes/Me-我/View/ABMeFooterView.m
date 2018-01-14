@@ -87,7 +87,10 @@
     
     // 设置tableview的contentSize
     UITableView *tableView = (UITableView *)self.superview;
-    tableView.contentSize = CGSizeMake(0, self.ab_bottom);
+    tableView.tableFooterView = self;
+    [tableView reloadData];  //重新刷新数据(会重新计算 contentSize)
+    
+    //    tableView.contentSize = CGSizeMake(0, self .ab_bottom);  // 不靠谱
  
 }
 
