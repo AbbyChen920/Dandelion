@@ -13,22 +13,13 @@
 #import <UIImageView+WebCache.h>
 #import <UIButton+WebCache.h>
 #import "ABMeSquareButton.h"
+#import "ABWebViewController.h"
 
 @interface ABMeFooterView ()
-// 存放所有模型的字典
-//@property (nonatomic,strong) NSMutableDictionary<NSString *, ABMeSquare *> *allSquares;
 
 @end
 
 @implementation ABMeFooterView
-
-//-(NSMutableDictionary<NSString *,ABMeSquare *> *)allSquares
-//{
-//    if (!_allSquares) {
-//        _allSquares = [NSMutableDictionary dictionary];
-//    }
-//    return _allSquares;
-//}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -71,9 +62,6 @@
     // 创建所有的方块
     for (NSUInteger i = 0; i < count; i++) {
         
-        // i 位置对应的模型数据
-        ABMeSquare *square = squares[i];
-        
         // 创建按钮
         ABMeSquareButton *button = [ABMeSquareButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -86,9 +74,7 @@
         button.ab_height = buttonH;
         
         // 设置数据
-        button.square = square;
-//            self.allSquares[button.currentTitle] = square;
-
+        button.square = squares[i];
     }
     
     // 设置 footer 的高度 == 最后一个按钮的 bottom(最大 Y 值)
@@ -98,32 +84,32 @@
     UITableView *tableView = (UITableView *)self.superview;
     tableView.tableFooterView = self;
     [tableView reloadData];  //重新刷新数据(会重新计算 contentSize)
- 
 }
 
 
 - (void)buttonClick:(ABMeSquareButton *)button
 {
-//    ABMeSquare *square = self.allSquares[button.currentTitle];
-//    ABLog(@"%@",square.url);
+    NSString *url = button.square.url;
     
-    ABMeSquare *square = button.square;
-    
-    // [@"mod://fsdhttpedasdsa" containsString:@"http"]  YES
-    // [@"mod://fsdhttpedasdsa" hasSuffix:@"sa"]  YES
-    // [@"mod://fsdhttpedasdsa" hasPrefix:@"http"]  NO
-    
-    // 如果location == 0; 说明以 http 开头
-    // 如果location == NSNotFound; 或者 length == 0,说明没有找到对应的字符串
-//    [@"5328://fsdfesadsf" rangeOfString:@"http"].location == NSNotFound;
-    
-    if ([square.url hasPrefix:@"http"]) { //利用 webview 加载 url 即可
-        ABLog(@"利用 webview 加载 url");
-    }else if ([square.url hasPrefix:@"mod"]){ // 另行处理
+    if ([url hasPrefix:@"http"]) { //利用 webview 加载 url 即可
         
-        if ([square.url hasSuffix:@"BDJ_To_Check"]) {
+        ABWebViewController *webView = [[ABWebViewController alloc] init];
+        webView.url = url;
+        webView.navigationItem.title = button.currentTitle;
+        
+        // 获得"我"模块对应的导航控制器
+//        UITabBarController *tabBarVc = [UIApplication sharedApplication].keyWindow.rootViewController;
+//        UINavigationController *nav = tabBarVc.childViewControllers.firstObject;
+        UITabBarController *tabBarVc = (UITabBarController *)self.window.rootViewController;
+        UINavigationController *nav = tabBarVc.selectedViewController;
+        [nav pushViewController:webView animated:YES];
+        
+        
+    }else if ([url hasPrefix:@"mod"]){ // 另行处理
+        
+        if ([url hasSuffix:@"BDJ_To_Check"]) {
             ABLog(@"跳转到[审帖]界面");
-        } else if ([square.url hasSuffix:@"BDJ_To_RecentHot"]){
+        } else if ([url hasSuffix:@"BDJ_To_RecentHot"]){
             ABLog(@"跳转到[每日排行]界面");
         } else {
             ABLog(@"跳转到其他界面");
