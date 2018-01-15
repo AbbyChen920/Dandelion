@@ -14,6 +14,7 @@
 #import <UIButton+WebCache.h>
 #import "ABMeSquareButton.h"
 #import "ABWebViewController.h"
+#import <SafariServices/SafariServices.h>
 
 @interface ABMeFooterView ()
 
@@ -93,17 +94,21 @@
     
     if ([url hasPrefix:@"http"]) { //利用 webview 加载 url 即可
         
-        ABWebViewController *webView = [[ABWebViewController alloc] init];
-        webView.url = url;
-        webView.navigationItem.title = button.currentTitle;
+//        ABWebViewController *webView = [[ABWebViewController alloc] init];
+//        webView.url = url;
+//        webView.navigationItem.title = button.currentTitle;
+        SFSafariViewController *webView = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];
+        
         
         // 获得"我"模块对应的导航控制器
 //        UITabBarController *tabBarVc = [UIApplication sharedApplication].keyWindow.rootViewController;
 //        UINavigationController *nav = tabBarVc.childViewControllers.firstObject;
         UITabBarController *tabBarVc = (UITabBarController *)self.window.rootViewController;
-        UINavigationController *nav = tabBarVc.selectedViewController;
-        [nav pushViewController:webView animated:YES];
+        [tabBarVc presentViewController:webView animated:YES completion:nil];
         
+//        UINavigationController *nav = tabBarVc.selectedViewController;
+//        [nav pushViewController:webView animated:YES];
+//        
         
     }else if ([url hasPrefix:@"mod"]){ // 另行处理
         
