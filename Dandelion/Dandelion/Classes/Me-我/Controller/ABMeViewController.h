@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ABMeViewController : UIViewController
+@interface ABMeViewController : UITableViewController
+
 @end

@@ -12,6 +12,7 @@
 
 @interface ABFollowViewController ()
 
+@property (nonatomic,weak) UITextField *textField;
 
 @end
 
@@ -26,10 +27,15 @@
     self.navigationItem.title = @"关注";
     // 左边
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(followClick)];
+
     
 }
 
 - (IBAction)loginRegister {
+    
+    
+    
+//    NSLog(@"%@",self.textField.placeholderColor); //本来是 nil,但打印出来是有值的,因为在调用方法的时候,判断如果是 nil,就会给其赋值/懒加载.
     
     ABLoginRegisterViewController *loginRegister = [[ABLoginRegisterViewController alloc] init];
     
