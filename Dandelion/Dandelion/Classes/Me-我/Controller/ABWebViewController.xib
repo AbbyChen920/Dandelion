@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ABWebViewController">
             <connections>
+                <outlet property="backItem" destination="kIX-1s-639" id="4MZ-BE-G0u"/>
+                <outlet property="forwardItem" destination="Z0c-8U-Hgi" id="WdL-6j-Y1G"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="xla-sw-iWR" id="y1J-ka-P8j"/>
             </connections>
@@ -23,14 +25,29 @@
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xla-sw-iWR">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ZPJ-eP-OCS"/>
+                    </connections>
                 </webView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6Z-wO-Mgb">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                     <items>
-                        <barButtonItem image="arrow_left " id="kIX-1s-639"/>
-                        <barButtonItem image="arrow_right" id="Z0c-8U-Hgi"/>
+                        <barButtonItem enabled="NO" image="arrow_left " id="kIX-1s-639">
+                            <connections>
+                                <action selector="back:" destination="-1" id="sdv-Wz-CQX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem enabled="NO" image="arrow_right" id="Z0c-8U-Hgi">
+                            <connections>
+                                <action selector="forward:" destination="-1" id="ux3-Kj-nUy"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LaJ-de-EOH"/>
-                        <barButtonItem systemItem="refresh" id="aNK-yc-se4"/>
+                        <barButtonItem systemItem="refresh" id="aNK-yc-se4">
+                            <connections>
+                                <action selector="reload:" destination="-1" id="HsE-Ls-d9p"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>

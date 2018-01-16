@@ -14,6 +14,7 @@
 #import <UIButton+WebCache.h>
 #import "ABMeSquareButton.h"
 #import "ABWebViewController.h"
+#import <SafariServices/SafariServices.h>
 
 @interface ABMeFooterView ()
 
@@ -55,7 +56,7 @@
     NSUInteger count = squares.count;
     
     // 方块的尺寸
-    int maxColsCount = 4;  //一行的最大列数 
+    NSUInteger maxColsCount = 4;  //一行的最大列数
     CGFloat buttonW = self.ab_width / maxColsCount;
     CGFloat buttonH = buttonW;
     
@@ -84,7 +85,35 @@
     UITableView *tableView = (UITableView *)self.superview;
     tableView.tableFooterView = self;
     [tableView reloadData];  //重新刷新数据(会重新计算 contentSize)
+    
+    // 法一:
+    //    NSUInteger rowsCount = 0;
+    //    if (count % maxColsCount == 0) { // 能整除
+    //        rowsCount = count / maxColsCount;
+    //    } else { // 不能整除
+    //        rowsCount = count / maxColsCount + 1;
+    //    }
+    
+    // 法二:
+    //    NSUInteger rowsCount = count / maxColsCount;
+    //    if (count % maxColsCount) { // 不能整除
+    //        rowsCount += 1;
+    //    }
+    
+    // 法三:
+    // 总数: 1660
+    // 每一行最多显示的数量: 30
+    // 总行数: (1660 + 30 - 1 )/ 30
+    
+    // 总数: 2476
+    // 每页最多显示的数量: 35
+    // 总页数: (2476 + 35 - 1 )/ 35
+    // pagesCount = (总数 + 每页显示的最大数量 - 1) / 每页显示的最大数量
+    
+//    NSUInteger rowsCount = (count + maxColsCount - 1) / maxColsCount;
+//    self.ab_height = rowsCount * buttonH;
 }
+
 
 
 - (void)buttonClick:(ABMeSquareButton *)button
@@ -93,17 +122,25 @@
     
     if ([url hasPrefix:@"http"]) { //利用 webview 加载 url 即可
         
-        ABWebViewController *webView = [[ABWebViewController alloc] init];
-        webView.url = url;
-        webView.navigationItem.title = button.currentTitle;
+        // 使用SFSafariViewController显示网页
+//        SFSafariViewController *webView = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];
+//        UITabBarController *tabBarVc = (UITabBarController *)self.window.rootViewController;
+//        [tabBarVc presentViewController:webView animated:YES completion:nil];
         
+    
         // 获得"我"模块对应的导航控制器
 //        UITabBarController *tabBarVc = [UIApplication sharedApplication].keyWindow.rootViewController;
 //        UINavigationController *nav = tabBarVc.childViewControllers.firstObject;
         UITabBarController *tabBarVc = (UITabBarController *)self.window.rootViewController;
         UINavigationController *nav = tabBarVc.selectedViewController;
-        [nav pushViewController:webView animated:YES];
         
+        // 显示ABWebViewController
+        ABWebViewController *webView = [[ABWebViewController alloc] init];
+        webView.url = url;
+        webView.navigationItem.title = button.currentTitle;
+
+        [nav pushViewController:webView animated:YES];
+//
         
     }else if ([url hasPrefix:@"mod"]){ // 另行处理
         
