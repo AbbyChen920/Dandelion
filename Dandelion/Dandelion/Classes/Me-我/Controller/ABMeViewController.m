@@ -5,7 +5,7 @@
 //
 
 #import "ABMeViewController.h"
-#import "ABTestViewController.h"
+#import "ABSettingViewController.h"
 #import "ABMeCell.h"
 #import "ABMeFooterView.h"
 
@@ -57,7 +57,7 @@
 - (void)settingClick
 {
     ABLogFunc
-    ABTestViewController *test = [[ABTestViewController alloc] init];
+    ABSettingViewController *test = [[ABSettingViewController alloc] init];
     
     [self.navigationController pushViewController:test animated:YES];
     
@@ -106,9 +106,5 @@
       
     return cell;
 }
-
-#pragma mark - 代理方法
-
-
 
 @end

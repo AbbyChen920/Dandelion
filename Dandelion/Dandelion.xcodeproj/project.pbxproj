@@ -19,6 +19,7 @@
 		2844B6D42009BCBC00578257 /* ABMeSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B6D32009BCBC00578257 /* ABMeSquareButton.m */; };
 		2890DA65200C7605001CBE70 /* ABWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA63200C7605001CBE70 /* ABWebViewController.m */; };
 		2890DA66200C7605001CBE70 /* ABWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2890DA64200C7605001CBE70 /* ABWebViewController.xib */; };
+		2890DA69200E0D6C001CBE70 /* ABSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA68200E0D6C001CBE70 /* ABSettingViewController.m */; };
 		289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */; };
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
@@ -35,7 +36,6 @@
 		28F184F01FDA9BB8001A94C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184E41FDA9BB8001A94C8 /* main.m */; };
 		28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184F51FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m */; };
 		28F184F91FDB8DAA001A94C8 /* ABRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184F81FDB8DAA001A94C8 /* ABRecommendFollowViewController.m */; };
-		28F185021FDB9BE7001A94C8 /* ABTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F185011FDB9BE7001A94C8 /* ABTestViewController.m */; };
 		28F185051FDB9D4B001A94C8 /* ABTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F185041FDB9D4B001A94C8 /* ABTest1ViewController.m */; };
 		28F185081FDBD3D3001A94C8 /* ABNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F185071FDBD3D3001A94C8 /* ABNavigationController.m */; };
 		E45DF05EC0E23C4F499856AF /* libPods-Dandelion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15116E2793687C45F8B9AA14 /* libPods-Dandelion.a */; };
@@ -81,6 +81,8 @@
 		2890DA62200C7605001CBE70 /* ABWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWebViewController.h; sourceTree = "<group>"; };
 		2890DA63200C7605001CBE70 /* ABWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWebViewController.m; sourceTree = "<group>"; };
 		2890DA64200C7605001CBE70 /* ABWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABWebViewController.xib; sourceTree = "<group>"; };
+		2890DA67200E0D6C001CBE70 /* ABSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSettingViewController.h; sourceTree = "<group>"; };
+		2890DA68200E0D6C001CBE70 /* ABSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSettingViewController.m; sourceTree = "<group>"; };
 		289E84BD1FD2D41E00E46DD8 /* Dandelion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandelion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289E84D11FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,8 +118,6 @@
 		28F184F51FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ABExtension.m"; sourceTree = "<group>"; };
 		28F184F71FDB8DAA001A94C8 /* ABRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRecommendFollowViewController.h; sourceTree = "<group>"; };
 		28F184F81FDB8DAA001A94C8 /* ABRecommendFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRecommendFollowViewController.m; sourceTree = "<group>"; };
-		28F185001FDB9BE7001A94C8 /* ABTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestViewController.h; sourceTree = "<group>"; };
-		28F185011FDB9BE7001A94C8 /* ABTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestViewController.m; sourceTree = "<group>"; };
 		28F185031FDB9D4B001A94C8 /* ABTest1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTest1ViewController.h; sourceTree = "<group>"; };
 		28F185041FDB9D4B001A94C8 /* ABTest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTest1ViewController.m; sourceTree = "<group>"; };
 		28F185061FDBD3D3001A94C8 /* ABNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNavigationController.h; sourceTree = "<group>"; };
@@ -315,8 +315,8 @@
 			children = (
 				28F184CD1FDA9BB8001A94C8 /* ABMeViewController.h */,
 				28F184CE1FDA9BB8001A94C8 /* ABMeViewController.m */,
-				28F185001FDB9BE7001A94C8 /* ABTestViewController.h */,
-				28F185011FDB9BE7001A94C8 /* ABTestViewController.m */,
+				2890DA67200E0D6C001CBE70 /* ABSettingViewController.h */,
+				2890DA68200E0D6C001CBE70 /* ABSettingViewController.m */,
 				28F185031FDB9D4B001A94C8 /* ABTest1ViewController.h */,
 				28F185041FDB9D4B001A94C8 /* ABTest1ViewController.m */,
 				2890DA62200C7605001CBE70 /* ABWebViewController.h */,
@@ -636,6 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2890DA69200E0D6C001CBE70 /* ABSettingViewController.m in Sources */,
 				28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */,
 				28CA93891FFFD37B00BFEBC2 /* UITextField+ABExtension.m in Sources */,
 				28F184ED1FDA9BB8001A94C8 /* UIView+ABExtension.m in Sources */,
@@ -654,7 +655,6 @@
 				280A67721FEE7A5700AE22EE /* ABLoginRegisterViewController.m in Sources */,
 				2844B68C2006628200578257 /* ABMeCell.m in Sources */,
 				2844B6D12008554800578257 /* ABMeSquare.m in Sources */,
-				28F185021FDB9BE7001A94C8 /* ABTestViewController.m in Sources */,
 				28F184EF1FDA9BB8001A94C8 /* ABTabBarController.m in Sources */,
 				28F185081FDBD3D3001A94C8 /* ABNavigationController.m in Sources */,
 				280A67791FEEAFE900AE22EE /* ABQuickLoginButton.m in Sources */,
