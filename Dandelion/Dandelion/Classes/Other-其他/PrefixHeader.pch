@@ -21,7 +21,7 @@
 #import "UIBarButtonItem+ABExtension.h"
 #import "UITextField+ABExtension.h"
 #import "ABConst.h"
-
+#import "NSString+ABExtension.h"
 /** 日志 */
 #ifdef DEBUG
 #define ABLog(...) NSLog(__VA_ARGS__)

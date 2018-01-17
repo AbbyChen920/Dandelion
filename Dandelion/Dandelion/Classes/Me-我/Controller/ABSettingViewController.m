@@ -27,11 +27,14 @@
     self.navigationItem.title = @"设置";
     self.view.backgroundColor = ABCommonBgColor;
     
-    ABLog(@"%zd", [SDImageCache sharedImageCache].getSize);
     
+//    ABLog(@"%zd",[NSString fileSizeForFile:@"/Users/Abby/Desktop/敲代码"]);
+    // 更简单的写法
+    ABLog(@"%zd",@"/Users/Abby/Desktop/敲代码".fileSize);
     
-    [self getCacheSize];
-    [self getCacheSize2];
+//    ABLog(@"%zd", [SDImageCache sharedImageCache].getSize);
+//    [self getCacheSize];
+//    [self getCacheSize2];
 }
 
 - (void)getCacheSize
@@ -43,7 +46,6 @@
     NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
     NSString *dirPath = [cachesPath stringByAppendingPathComponent:@"default/com.hackemist.SDWebImageCache.default"];
     
-    ABLog(@"%@",dirPath);    
     // 文件管理者
     NSFileManager *mgr = [NSFileManager defaultManager];
     
