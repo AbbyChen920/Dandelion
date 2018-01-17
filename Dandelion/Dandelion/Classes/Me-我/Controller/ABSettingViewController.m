@@ -27,7 +27,11 @@
     self.navigationItem.title = @"设置";
     self.view.backgroundColor = ABCommonBgColor;
     
+    ABLog(@"%zd", [SDImageCache sharedImageCache].getSize);
+    
+    
     [self getCacheSize];
+    [self getCacheSize2];
 }
 
 - (void)getCacheSize
@@ -37,15 +41,39 @@
     
     // 获得缓存文件夹路径
     NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
-    NSString *dirPath = [cachesPath stringByAppendingPathComponent:@"default"];
+    NSString *dirPath = [cachesPath stringByAppendingPathComponent:@"default/com.hackemist.SDWebImageCache.default"];
+    
+    ABLog(@"%@",dirPath);    
+    // 文件管理者
+    NSFileManager *mgr = [NSFileManager defaultManager];
+    
+    // 获得文件夹的大小 == 获得文件夹中所有文件的总大小
+    NSDirectoryEnumerator *enumerator = [mgr enumeratorAtPath:dirPath];
+//    NSArray *subPaths = [mgr subpathsAtPath:dirPath];
+    
+    for (NSString *subPath in enumerator) {
+        // 全路径
+        NSString *fullSubPath = [dirPath stringByAppendingPathComponent:subPath];
+        // 累加文件大小
+        size += [mgr attributesOfItemAtPath:fullSubPath error:nil].fileSize;
+    }
+    
+    ABLog(@"%zd",size);
+}
+
+- (void)getCacheSize2
+{
+    // 总大小
+    unsigned long long size = 0;
+    
+    // 获得缓存文件夹路径
+    NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    NSString *dirPath = [cachesPath stringByAppendingPathComponent:@"default/com.hackemist.SDWebImageCache.default"];
     
     // 文件管理者
     NSFileManager *mgr = [NSFileManager defaultManager];
     
     // 获得文件夹的大小 == 获得文件夹中所有文件的总大小
-//    ABLog(@"contents - %@",[mgr contentsOfDirectoryAtPath:dirPath error:nil]);
-//    ABLog(@"subpaths - %@",[mgr subpathsAtPath:dirPath]);
-    
     NSArray *subPaths = [mgr subpathsAtPath:dirPath];
     for (NSString *subPath in subPaths) {
         // 全路径
@@ -55,10 +83,6 @@
     }
     
     ABLog(@"%zd",size);
-    
-    // 获得文件夹的属性
-//    NSDictionary *attrs = [mgr  attributesOfItemAtPath:dirPath error:nil];
-//    ABLog(@"%@",attrs);
     
 }
 
