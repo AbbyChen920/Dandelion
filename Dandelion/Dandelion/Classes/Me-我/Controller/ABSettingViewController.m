@@ -30,7 +30,7 @@
     
 //    ABLog(@"%zd",[NSString fileSizeForFile:@"/Users/Abby/Desktop/敲代码"]);
     // 更简单的写法
-    ABLog(@"%zd",@"/Users/Abby/Desktop/敲代码".fileSize);
+//    ABLog(@"%zd",@"/Users/Abby/Desktop/敲代码".fileSize);
     
 //    ABLog(@"%zd", [SDImageCache sharedImageCache].getSize);
 //    [self getCacheSize];
@@ -122,11 +122,39 @@
         cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    // 4.设置数据
-    cell.textLabel.text = @"清除缓存";
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    // 设置 cell 右边的指示器(用来说明正在出来一些事情)
+    UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [loadingView startAnimating];
+    cell.accessoryView = loadingView;
     
-//    ABLog(@"%zd",[SDImageCache share dImageCache].getSize);
+    // 设置 cell 默认的文字
+    cell.textLabel.text = @"正在计算缓存大小...";
+
+    // 4.设置数据
+    // 在子线程计算缓存大小
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 获得缓存文件夹路径
+//        unsigned long long size = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Custom"].fileSize;
+         unsigned long long size = @"/Users/Abby/Desktop/敲代码".fileSize;
+        size += [SDImageCache sharedImageCache].getSize;
+
+        // 生成文字
+        NSString *text = [NSString stringWithFormat:@"清除缓存(%zdB)",size];
+        
+        // 回到主线程设置文字
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 设置文字
+            cell.textLabel.text = text;
+           
+            // 注意:accessoryView的优先级是高于accessoryType的
+            // 清空右边的指示器
+            cell.accessoryView = nil;
+            
+            // 显示右边的箭头
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        });
+        
+    });
     
 //    ABLog(@"%@",NSHomeDirectory());
     
