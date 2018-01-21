@@ -9,6 +9,7 @@
 #import "ABSettingViewController.h"
 #import "ABTest1ViewController.h"
 #import <SDImageCache.h>
+#import "ABClearCacheCell.h"
 
 @interface ABSettingViewController ()
 
@@ -16,9 +17,11 @@
 
 @implementation ABSettingViewController
 
+static NSString * const ABClearCacheCellId = @"ABClearCacheCell";
+
 - (instancetype)init
 {
-    return [self initWithStyle:UITableViewStyleGrouped];
+        return [self initWithStyle:UITableViewStyleGrouped];
 }
 
 - (void)viewDidLoad {
@@ -27,6 +30,7 @@
     self.navigationItem.title = @"设置";
     self.view.backgroundColor = ABCommonBgColor;
     
+    [self.tableView registerClass:[ABClearCacheCell class] forCellReuseIdentifier:ABClearCacheCellId];
     
 //    ABLog(@"%zd",[NSString fileSizeForFile:@"/Users/Abby/Desktop/敲代码"]);
     // 更简单的写法
@@ -111,52 +115,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 1.确定重用标识
-    static NSString *ID = @"setting";
-    
-    // 2.从缓存池中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    // 3.如果空就手动创建
-    if (!cell) {
-        cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    
-    // 设置 cell 右边的指示器(用来说明正在出来一些事情)
-    UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [loadingView startAnimating];
-    cell.accessoryView = loadingView;
-    
-    // 设置 cell 默认的文字
-    cell.textLabel.text = @"正在计算缓存大小...";
-
-    // 4.设置数据
-    // 在子线程计算缓存大小
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        // 获得缓存文件夹路径
-//        unsigned long long size = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Custom"].fileSize;
-         unsigned long long size = @"/Users/Abby/Desktop/敲代码".fileSize;
-        size += [SDImageCache sharedImageCache].getSize;
-
-        // 生成文字
-        NSString *text = [NSString stringWithFormat:@"清除缓存(%zdB)",size];
-        
-        // 回到主线程设置文字
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // 设置文字
-            cell.textLabel.text = text;
-           
-            // 注意:accessoryView的优先级是高于accessoryType的
-            // 清空右边的指示器
-            cell.accessoryView = nil;
-            
-            // 显示右边的箭头
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        });
-        
-    });
-    
-//    ABLog(@"%@",NSHomeDirectory());
+    // 取出 cell
+    ABClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:ABClearCacheCellId];
     
     
     return cell;
