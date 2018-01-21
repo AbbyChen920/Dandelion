@@ -8,4 +8,6 @@ pod “SDWebImage”
 
 pod “MJExtension”
 
+pod “SVProgressHUD”
+
 end

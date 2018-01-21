@@ -8,6 +8,9 @@
 
 #import "ABClearCacheCell.h"
 #import <SDImageCache.h>
+#import <SVProgressHUD.h>
+
+#define ABCustomCacheFile [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Custom"]
 
 @implementation ABClearCacheCell
 
@@ -25,11 +28,13 @@
         // 4.设置数据
         // 在子线程计算缓存大小
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            // 获得缓存文件夹路径
-            //        unsigned long long size = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Custom"].fileSize;
-            unsigned long long size = @"/Users/Abby/Desktop/敲代码".fileSize;
-            size += [SDImageCache sharedImageCache].getSize;
+        
+#warning 睡眠 
+            [NSThread sleepForTimeInterval:2.0];
             
+            // 获得缓存文件夹路径
+            unsigned long long size = ABCustomCacheFile.fileSize;
+            size += [SDImageCache sharedImageCache].getSize;
             
             NSString *sizeText = nil;
             
@@ -62,10 +67,48 @@
                 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             });
             
+            // 添加手势监听器
+            [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearCache)]];
         });
     
     }
     return self;
 }
 
+// 清除缓存
+- (void)clearCache
+{
+    // 弹出指示器
+    [SVProgressHUD showWithStatus:@"正在清除缓存..." maskType:SVProgressHUDMaskTypeBlack];
+    
+    // 删除 SDWebimage的缓存
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+        // 删除自定义的缓存
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            
+            NSFileManager *mgr = [NSFileManager defaultManager];
+            [mgr removeItemAtPath:ABCustomCacheFile error:nil];
+            
+            [mgr createDirectoryAtPath:ABCustomCacheFile withIntermediateDirectories:YES attributes:nil error:nil];
+#warning 睡眠
+            [NSThread sleepForTimeInterval:2.0];
+            
+            // 所有的缓存都清除完毕
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                // 隐藏指示器
+                [SVProgressHUD dismiss];
+                
+                // 设置文字
+                self.textLabel.text = @"清除缓存(0B)";
+            });
+            
+        });
+        
+        
+    }];
+    
+    
+    
+    
+}
 @end

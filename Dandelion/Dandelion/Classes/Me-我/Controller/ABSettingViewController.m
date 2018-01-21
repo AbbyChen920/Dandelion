@@ -122,4 +122,12 @@ static NSString * const ABClearCacheCellId = @"ABClearCacheCell";
     return cell;
 }
 
+#pragma mark - delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ABLogFunc
+}
+
+
 @end
