@@ -37,7 +37,7 @@
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
 #warning 睡眠 
-//            [NSThread sleepForTimeInterval:2.0];
+            [NSThread sleepForTimeInterval:5.0];
             
             // 获得缓存文件夹路径
             unsigned long long size = ABCustomCacheFile.fileSize;
@@ -78,14 +78,8 @@
                 
                 // 恢复点击事件
                 self.userInteractionEnabled = YES  ;
-                
-//                [self layoutIfNeeded]; // 不行
-
             });
-            
-            
-        });
-    
+        });     
     }
     return self;
 }
