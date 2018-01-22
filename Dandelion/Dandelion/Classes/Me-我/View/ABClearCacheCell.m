@@ -17,20 +17,27 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+        
         // 设置 cell 右边的指示器(用来说明正在出来一些事情)
         UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [loadingView startAnimating];
         self.accessoryView = loadingView;
         
-        // 设置 cell 默认的文字
+        // 设置 cell 默认的文字(如果设置文字之前self.userInteractionEnabled = NO;,那么文字会自动变成浅灰色)
         self.textLabel.text = @"正在计算缓存大小...";
+        
+        
+        // 禁止点击
+        self.userInteractionEnabled = NO;
+
         
         // 4.设置数据
         // 在子线程计算缓存大小
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
 #warning 睡眠 
-            [NSThread sleepForTimeInterval:2.0];
+//            [NSThread sleepForTimeInterval:2.0];
             
             // 获得缓存文件夹路径
             unsigned long long size = ABCustomCacheFile.fileSize;
@@ -65,10 +72,18 @@
                 
                 // 显示右边的箭头
                 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
+                // 添加手势监听器
+                [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearCache)]];
+                
+                // 恢复点击事件
+                self.userInteractionEnabled = YES  ;
+                
+//                [self layoutIfNeeded]; // 不行
+
             });
             
-            // 添加手势监听器
-            [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearCache)]];
+            
         });
     
     }
@@ -91,7 +106,7 @@
             
             [mgr createDirectoryAtPath:ABCustomCacheFile withIntermediateDirectories:YES attributes:nil error:nil];
 #warning 睡眠
-            [NSThread sleepForTimeInterval:2.0];
+//            [NSThread sleepForTimeInterval:2.0];
             
             // 所有的缓存都清除完毕
             dispatch_sync(dispatch_get_main_queue(), ^{
