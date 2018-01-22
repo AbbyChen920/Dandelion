@@ -10,6 +10,8 @@
 #import "ABTest1ViewController.h"
 #import <SDImageCache.h>
 #import "ABClearCacheCell.h"
+#import "ABSettingCell.h"
+#import "ABOtherCell.h"
 
 @interface ABSettingViewController ()
 
@@ -18,6 +20,9 @@
 @implementation ABSettingViewController
 
 static NSString * const ABClearCacheCellId = @"ABClearCacheCell";
+static NSString * const ABSettingCellId = @"ABSettingCell";
+static NSString * const ABOtherCellId = @"other";
+
 
 - (instancetype)init
 {
@@ -31,6 +36,9 @@ static NSString * const ABClearCacheCellId = @"ABClearCacheCell";
     self.view.backgroundColor = ABCommonBgColor;
     
     [self.tableView registerClass:[ABClearCacheCell class] forCellReuseIdentifier:ABClearCacheCellId];
+    [self.tableView registerClass:[ABSettingCell class] forCellReuseIdentifier:ABSettingCellId];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ABOtherCell class]) bundle:nil] forCellReuseIdentifier:ABOtherCellId];
+
     
 //    ABLog(@"%zd",[NSString fileSizeForFile:@"/Users/Abby/Desktop/敲代码"]);
     // 更简单的写法
@@ -103,23 +111,46 @@ static NSString * const ABClearCacheCellId = @"ABClearCacheCell";
 #pragma mark - 数据源方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 5;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 取出 cell
-    ABClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:ABClearCacheCellId];
+ 
+    if (indexPath.section == 0) {
+        
+      if (indexPath.row == 0) { // 清除缓存
+        return [tableView dequeueReusableCellWithIdentifier:ABClearCacheCellId];
+    } else{ // ABSettingCell
+        ABSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:ABSettingCellId];
+        
+        if (indexPath.row == 1) {
+            cell.textLabel.text = @"检查更新";
+            
+        } else if (indexPath.row == 2){
+            cell.textLabel.text = @"给我们评分";
+
+        } else if (indexPath.row == 3){
+            cell.textLabel.text = @"推送设置";
+
+        } else{
+            cell.textLabel.text = @"关于我们";
+
+        }
+        
+        return cell;
+       }
+    }else {// ABOtherCell
+        return [tableView dequeueReusableCellWithIdentifier:ABOtherCellId];
+    }
     
-    
-    return cell;
 }
 
 #pragma mark - delegate
