@@ -49,6 +49,14 @@ static NSString * const ABOtherCellId = @"other";
 //    [self getCacheSize2];
 }
 
+- (void)dealloc
+{
+    ABLogFunc
+}
+
+
+
+
 - (void)getCacheSize
 {
     // 总大小
