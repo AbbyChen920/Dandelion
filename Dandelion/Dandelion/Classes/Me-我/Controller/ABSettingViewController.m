@@ -119,7 +119,7 @@ static NSString * const ABOtherCellId = @"other";
 #pragma mark - 数据源方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 
@@ -135,7 +135,15 @@ static NSString * const ABOtherCellId = @"other";
     if (indexPath.section == 0) {
         
       if (indexPath.row == 0) { // 清除缓存
-        return [tableView dequeueReusableCellWithIdentifier:ABClearCacheCellId];
+//         ABClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:ABClearCacheCellId];
+          
+//          // cell 重新显示的时候,继续转圈圈
+//          UIActivityIndicatorView *loadingView = (UIActivityIndicatorView *)cell.accessoryView;
+//          [loadingView startAnimating];
+          
+//          return cell;
+          return [tableView dequeueReusableCellWithIdentifier:ABClearCacheCellId];
+          
     } else{ // ABSettingCell
         ABSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:ABSettingCellId];
         
@@ -158,7 +166,6 @@ static NSString * const ABOtherCellId = @"other";
     }else {// ABOtherCell
         return [tableView dequeueReusableCellWithIdentifier:ABOtherCellId];
     }
-    
 }
 
 #pragma mark - delegate

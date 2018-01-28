@@ -132,6 +132,17 @@
         
     }];
 }
+
+
+/** 当 cell 重新显示到屏幕上时,也会调用一次 layoutSubviews */
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    // cell 重新显示的时候,继续转圈圈
+    UIActivityIndicatorView *loadingView = (UIActivityIndicatorView *)self.accessoryView;
+    [loadingView startAnimating];
+}
 @end
 
 
