@@ -7,9 +7,12 @@
 //
 
 #import "ABEssenceViewController.h"
+#import "ABTitleButton.h"
+
 
 @interface ABEssenceViewController ()
-
+// 当前选中的标题按钮
+@property (nonatomic,weak) ABTitleButton *selectedTitleButton;
 @end
 
 @implementation ABEssenceViewController
@@ -50,9 +53,8 @@
     CGFloat titleButtonH = titlesView.ab_height;
     for (NSUInteger i = 0; i <count; i++) {
         // 创建
-        UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        ABTitleButton *titleButton = [ABTitleButton buttonWithType:UIButtonTypeCustom];
         titleButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titlesView addSubview:titleButton];
         
@@ -62,6 +64,20 @@
         
         // 设置 frame
         titleButton.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
+        
+        // 设置按钮颜色
+        // titleButton.selected = NO;
+        [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+
+        // titleButton.selected = YES;
+        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        
+        
+        // titleButton.enabled = YES;
+//        [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//
+//        // titleButton.enabled = NO;
+//        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
     }
     
 }
@@ -78,9 +94,19 @@
     
 }
 
-
-- (void)titleClick:(UIButton *)titleButton
+#pragma mark - 监听点击
+- (void)titleClick:(ABTitleButton *)titleButton
 {
+    // 控制按钮状态
+    self.selectedTitleButton.selected = NO;
+    titleButton.selected = YES;
+    self.selectedTitleButton = titleButton;
+    
+    // 控制按钮状态
+//    [self.selectedTitleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//    [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//    self.selectedTitleButton = titleButton;
+
     ABLogFunc
 }
 
@@ -88,7 +114,4 @@
 {
     ABLogFunc 
 }
-
-
-
 @end
