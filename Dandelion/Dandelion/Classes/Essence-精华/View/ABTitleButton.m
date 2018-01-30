@@ -10,6 +10,22 @@
 
 @implementation ABTitleButton
 
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        
+        // 设置按钮颜色
+        // titleButton.selected = NO;
+        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        
+        // titleButton.selected = YES;
+        [self setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        self.titleLabel.font = [UIFont systemFontOfSize:14];
+
+    }
+    return self;
+}
+
 -(void)setHighlighted:(BOOL)highlighted
 {
     

@@ -13,6 +13,10 @@
 @interface ABEssenceViewController ()
 // 当前选中的标题按钮
 @property (nonatomic,weak) ABTitleButton *selectedTitleButton;
+
+// 标题按钮底部的指示器的
+@property (nonatomic,weak) UIView *indicatorView;
+
 @end
 
 @implementation ABEssenceViewController
@@ -54,7 +58,6 @@
     for (NSUInteger i = 0; i <count; i++) {
         // 创建
         ABTitleButton *titleButton = [ABTitleButton buttonWithType:UIButtonTypeCustom];
-        titleButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titlesView addSubview:titleButton];
         
@@ -64,21 +67,19 @@
         
         // 设置 frame
         titleButton.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
-        
-        // 设置按钮颜色
-        // titleButton.selected = NO;
-        [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-
-        // titleButton.selected = YES;
-        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-        
-        
-        // titleButton.enabled = YES;
-//        [titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-//
-//        // titleButton.enabled = NO;
-//        [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
+         
     }
+    
+    // 按钮的选中眼
+    ABTitleButton *lastTitleButton = titlesView.subviews.lastObject;
+    
+    // 底部的指示器
+    UIView *indicatorView = [[UIView alloc] init];
+    indicatorView.backgroundColor = [lastTitleButton titleColorForState:UIControlStateSelected];
+    indicatorView.ab_height = 1;
+    indicatorView.ab_y = titlesView.ab_height - indicatorView.ab_height;
+    [titlesView addSubview:indicatorView];
+    self.indicatorView = indicatorView;
     
 }
 
@@ -101,17 +102,24 @@
     self.selectedTitleButton.selected = NO;
     titleButton.selected = YES;
     self.selectedTitleButton = titleButton;
-    
-    // 控制按钮状态
-//    [self.selectedTitleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-//    [titleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-//    self.selectedTitleButton = titleButton;
 
-    ABLogFunc
+    // 指示器
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        // 计算文字宽度
+//        CGFloat titleW = [titleButton.currentTitle sizeWithFont:titleButton.titleLabel.font].width;
+//        CGFloat titleW = [titleButton.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleButton.titleLabel.font}].width;
+        
+        
+        self.indicatorView.ab_width = titleButton.titleLabel.ab_width;
+        self.indicatorView.ab_centerX = titleButton.ab_centerX;
+
+    }];
 }
 
 - (void)tagClick
 {
     ABLogFunc 
 }
+
 @end
