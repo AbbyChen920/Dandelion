@@ -61,7 +61,6 @@
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titlesView addSubview:titleButton];
         
-        
         // 设置数据
         [titleButton setTitle:titles[i] forState:UIControlStateNormal];
         
@@ -70,16 +69,26 @@
          
     }
     
-    // 按钮的选中眼
-    ABTitleButton *lastTitleButton = titlesView.subviews.lastObject;
+    // 按钮的选中颜色
+    ABTitleButton *firstTitleButton = titlesView.subviews.firstObject;
     
     // 底部的指示器
     UIView *indicatorView = [[UIView alloc] init];
-    indicatorView.backgroundColor = [lastTitleButton titleColorForState:UIControlStateSelected];
+    indicatorView.backgroundColor = [firstTitleButton titleColorForState:UIControlStateSelected];
     indicatorView.ab_height = 1;
     indicatorView.ab_y = titlesView.ab_height - indicatorView.ab_height;
     [titlesView addSubview:indicatorView];
     self.indicatorView = indicatorView;
+  
+    // 立刻根据文字内容计算 label 的宽度
+    [firstTitleButton.titleLabel sizeToFit];
+    indicatorView.ab_width = firstTitleButton.titleLabel.ab_width;
+    indicatorView.ab_centerX = firstTitleButton.ab_centerX;
+
+    // 默认情况:选中最前面的标题按钮
+//    [self titleClick:firstTitleButton];
+    firstTitleButton.selected = YES;
+    self.selectedTitleButton = firstTitleButton;
     
 }
 
@@ -114,6 +123,7 @@
         self.indicatorView.ab_width = titleButton.titleLabel.ab_width;
         self.indicatorView.ab_centerX = titleButton.ab_centerX;
 
+        ABLog(@"%f",self.indicatorView.ab_width);
     }];
 }
 
