@@ -8,6 +8,11 @@
 
 #import "ABEssenceViewController.h"
 #import "ABTitleButton.h"
+#import "ABAllViewController.h"
+#import "ABVideoViewController.h"
+#import "ABVoiceViewController.h"
+#import "ABPictureViewController.h"
+#import "ABWordViewController.h"
 
 
 @interface ABEssenceViewController ()
@@ -26,18 +31,63 @@
 
     [self setupNav];
 
+    [self setupChildViewControllers];
+    
     [self setupScrollView];
     
     [self setupTitlesView];
     
 }
 
+- (void)setupChildViewControllers
+{
+    ABAllViewController *all = [[ABAllViewController alloc] init];
+    [self addChildViewController:all];
+    
+    ABVideoViewController *video = [[ABVideoViewController alloc] init];
+    [self addChildViewController:video];
+    
+    ABVoiceViewController *voice = [[ABVoiceViewController alloc] init];
+    [self addChildViewController:voice];
+    
+    ABPictureViewController *picture = [[ABPictureViewController alloc] init];
+    [self addChildViewController:picture];
+    
+    ABWordViewController *word = [[ABWordViewController alloc] init];
+    [self addChildViewController:word];
+}
+
 - (void)setupScrollView
 {
+    // 不允许自动调整 scrollview 的内边距
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = ABRandomColor;
     scrollView.frame = self.view.bounds;
+    scrollView.pagingEnabled = YES;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:scrollView];
+    
+    // 添加所有的子控制器的 view 到 scrollview中
+    NSUInteger count = self.childViewControllers.count;
+    for (NSUInteger i = 0; i < count; i++) {
+        
+        UITableView *childVcView = (UITableView *)self.childViewControllers[i].view;
+        childVcView.backgroundColor = ABRandomColor;
+        childVcView.ab_x = i  * childVcView.ab_width;
+        childVcView.ab_y = 0;
+        childVcView.ab_height = scrollView.ab_height;
+        [scrollView addSubview:childVcView];
+        
+        // 内边距
+        childVcView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
+        childVcView.scrollIndicatorInsets = childVcView.contentInset;
+
+    }
+    scrollView.contentSize = CGSizeMake(count * scrollView.ab_width , 0);
+
 }
 
 - (void)setupTitlesView
@@ -115,15 +165,9 @@
     // 指示器
     [UIView animateWithDuration:0.25 animations:^{
         
-        // 计算文字宽度
-//        CGFloat titleW = [titleButton.currentTitle sizeWithFont:titleButton.titleLabel.font].width;
-//        CGFloat titleW = [titleButton.currentTitle sizeWithAttributes:@{NSFontAttributeName : titleButton.titleLabel.font}].width;
-        
-        
         self.indicatorView.ab_width = titleButton.titleLabel.ab_width;
         self.indicatorView.ab_centerX = titleButton.ab_centerX;
 
-        ABLog(@"%f",self.indicatorView.ab_width);
     }];
 }
 
