@@ -15,12 +15,14 @@
 #import "ABWordViewController.h"
 
 
-@interface ABEssenceViewController ()
+@interface ABEssenceViewController () <UIScrollViewDelegate>
 // 当前选中的标题按钮
 @property (nonatomic,weak) ABTitleButton *selectedTitleButton;
 
 // 标题按钮底部的指示器的
 @property (nonatomic,weak) UIView *indicatorView;
+
+@property (nonatomic,weak) UIScrollView *scrollView;
 
 @end
 
@@ -63,30 +65,16 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.delegate = self;
     scrollView.backgroundColor = ABRandomColor;
     scrollView.frame = self.view.bounds;
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:scrollView];
-    
     // 添加所有的子控制器的 view 到 scrollview中
-    NSUInteger count = self.childViewControllers.count;
-    for (NSUInteger i = 0; i < count; i++) {
-        
-        UITableView *childVcView = (UITableView *)self.childViewControllers[i].view;
-        childVcView.backgroundColor = ABRandomColor;
-        childVcView.ab_x = i  * childVcView.ab_width;
-        childVcView.ab_y = 0;
-        childVcView.ab_height = scrollView.ab_height;
-        [scrollView addSubview:childVcView];
-        
-        // 内边距
-        childVcView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
-        childVcView.scrollIndicatorInsets = childVcView.contentInset;
-
-    }
-    scrollView.contentSize = CGSizeMake(count * scrollView.ab_width , 0);
+    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollView.ab_width , 0);
+    [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
 
 }
 
@@ -108,6 +96,7 @@
     for (NSUInteger i = 0; i <count; i++) {
         // 创建
         ABTitleButton *titleButton = [ABTitleButton buttonWithType:UIButtonTypeCustom];
+        titleButton.tag = i ;
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titlesView addSubview:titleButton];
         
@@ -169,11 +158,44 @@
         self.indicatorView.ab_centerX = titleButton.ab_centerX;
 
     }];
+    
+    // 让 UIscrollView 滚动到对应的位置
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x = titleButton.tag * self.scrollView.ab_width;
+    [self.scrollView setContentOffset:offset animated:YES];
+    
 }
 
 - (void)tagClick
 {
     ABLogFunc 
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+// 在 scrollview 滚动动画结束时,就会调用这个方法
+// 前提:使用 setContentOffset:animated: 或者 scrollRectVisible:animated:方法让scrollview产生滚动动画
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    // 子控制器的索引
+    NSUInteger index = scrollView.contentOffset.x / scrollView.ab_width;
+    
+    // 取出子控制器
+    UIViewController *childVc = self.childViewControllers[index];
+    childVc.view.ab_x = index * scrollView.ab_width;
+    childVc.view.ab_y = 0;
+    childVc.view.ab_width = scrollView.ab_width;
+    childVc.view.ab_height = scrollView.ab_height;
+    [scrollView addSubview:childVc.view];
+    
+}
+
+// 在 scrollview 滚动动画结束时,就会调用这个方法
+// 前提:人为拖拽scrollview产生滚动动画
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    ABLogFunc
 }
 
 @end
