@@ -22,7 +22,12 @@
 // 标题按钮底部的指示器的
 @property (nonatomic,weak) UIView *indicatorView;
 
+// scrollView
 @property (nonatomic,weak) UIScrollView *scrollView;
+
+// 标题栏
+@property (nonatomic,weak) UIView *titlesView;
+
 
 @end
 
@@ -38,6 +43,9 @@
     [self setupScrollView];
     
     [self setupTitlesView];
+    
+    // 一开始显示"全部" tableview 的内容
+    [self addChildVcView];
     
 }
 
@@ -84,9 +92,10 @@
     UIView *titlesView = [[UIView alloc] init];
 //    titlesView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
 //    titlesView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.2];
-    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2];
+    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     titlesView.frame = CGRectMake(0, 64, self.view.ab_width, 35);
     [self.view addSubview:titlesView];
+    self.titlesView = titlesView;
     
     // 添加标题
     NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
@@ -172,30 +181,67 @@
 }
 
 
+#pragma mark - 添加子控制器的 view
+- (void)addChildVcView
+{
+    // 子控制器的索引
+    NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.ab_width;
+    
+    // 取出子控制器
+    UIViewController *childVc = self.childViewControllers[index];
+    
+    // 如果不想每次 addChildVcView
+//    if (childVc.view.superview) return;
+    if (childVc.view.window) return;
+
+    
+//    childVc.view.ab_x = index * self.scrollView.ab_width;
+//    childVc.view.ab_y = 0;
+//    childVc.view.ab_width = self.scrollView.ab_width;
+//    childVc.view.ab_height = self.scrollView.ab_height;
+    
+    
+//    childVc.view.ab_x = self.scrollView.contentOffset.x;
+//    childVc.view.ab_y = self.scrollView.contentOffset.y;
+//    childVc.view.ab_width = self.scrollView.ab_width;
+//    childVc.view.ab_height = self.scrollView.ab_height;
+    
+    
+//    childVc.view.ab_x = self.scrollView.bounds.origin.x;
+//    childVc.view.ab_y = self.scrollView.bounds.origin.y;
+//    childVc.view.ab_width = self.scrollView.bounds.size.width;
+//    childVc.view.ab_height = self.scrollView.bounds.size.height;
+
+//    childVc.view.frame = CGRectMake(self.scrollView.bounds.origin.x, self.scrollView.bounds.origin.y, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
+    
+    childVc.view.frame = self.scrollView.bounds;
+    
+    [self.scrollView addSubview:childVc.view];
+    
+    ABLogFunc
+
+}
+
 #pragma mark - UIScrollViewDelegate
 
 // 在 scrollview 滚动动画结束时,就会调用这个方法
 // 前提:使用 setContentOffset:animated: 或者 scrollRectVisible:animated:方法让scrollview产生滚动动画
 -(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    // 子控制器的索引
-    NSUInteger index = scrollView.contentOffset.x / scrollView.ab_width;
-    
-    // 取出子控制器
-    UIViewController *childVc = self.childViewControllers[index];
-    childVc.view.ab_x = index * scrollView.ab_width;
-    childVc.view.ab_y = 0;
-    childVc.view.ab_width = scrollView.ab_width;
-    childVc.view.ab_height = scrollView.ab_height;
-    [scrollView addSubview:childVc.view];
-    
+    [self addChildVcView];
 }
 
 // 在 scrollview 滚动动画结束时,就会调用这个方法
 // 前提:人为拖拽scrollview产生滚动动画
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    ABLogFunc
+    // 选中\点击对应的按钮
+    NSUInteger index = scrollView.contentOffset.x / scrollView.ab_width;
+    ABTitleButton *titleButton = self.titlesView.subviews[index];
+    [self titleClick:titleButton];
+
+    // 添加子控制器的 view
+    [self addChildVcView];
 }
 
 @end
