@@ -54,11 +54,11 @@
 // 添加子控制器
 - (void)setupChildViewControllers
 {
+    [self setUpOneChildViewController:[[ABNavigationController alloc] initWithRootViewController:[[ABEssenceViewController alloc] init]] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
+    
     [self setUpOneChildViewController:[[ABNavigationController alloc] initWithRootViewController:[[ABMeViewController alloc] init]] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
     
     [self setUpOneChildViewController:[[ABNavigationController alloc] initWithRootViewController:[[ABFollowViewController alloc] init]] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
-    
-    [self setUpOneChildViewController:[[ABNavigationController alloc] initWithRootViewController:[[ABEssenceViewController alloc] init]] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
     
     [self setUpOneChildViewController:[[ABNavigationController alloc] initWithRootViewController:[[ABNewViewController alloc] init]] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
 
