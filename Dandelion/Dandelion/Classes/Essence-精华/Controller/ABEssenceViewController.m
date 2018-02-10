@@ -218,7 +218,7 @@
     
     [self.scrollView addSubview:childVc.view];
     
-    ABLogFunc
+    
 
 }
 
