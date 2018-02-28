@@ -7,6 +7,7 @@
 //
 
 #import "ABVideoViewController.h"
+#import "ABRefreshHeader.h"
 
 @interface ABVideoViewController ()
 
@@ -22,6 +23,10 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    self.tableView.mj_header = [ABRefreshHeader headerWithRefreshingBlock:^{
+        ABLogFunc
+    }];
 }
 
 

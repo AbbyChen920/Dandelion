@@ -17,6 +17,7 @@
 		2844B68F200702EF00578257 /* ABMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B68E200702EF00578257 /* ABMeFooterView.m */; };
 		2844B6D12008554800578257 /* ABMeSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B6D02008554800578257 /* ABMeSquare.m */; };
 		2844B6D42009BCBC00578257 /* ABMeSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B6D32009BCBC00578257 /* ABMeSquareButton.m */; };
+		2844FAAD2046E567005C18AE /* ABRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAAC2046E567005C18AE /* ABRefreshHeader.m */; };
 		2890DA65200C7605001CBE70 /* ABWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA63200C7605001CBE70 /* ABWebViewController.m */; };
 		2890DA66200C7605001CBE70 /* ABWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2890DA64200C7605001CBE70 /* ABWebViewController.xib */; };
 		2890DA69200E0D6C001CBE70 /* ABSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA68200E0D6C001CBE70 /* ABSettingViewController.m */; };
@@ -31,6 +32,7 @@
 		2890DA832020C018001CBE70 /* ABVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA822020C018001CBE70 /* ABVoiceViewController.m */; };
 		2890DA862020C029001CBE70 /* ABPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA852020C029001CBE70 /* ABPictureViewController.m */; };
 		2890DA892020C030001CBE70 /* ABWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA882020C030001CBE70 /* ABWordViewController.m */; };
+		2890DA8C202C7F87001CBE70 /* ABTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA8B202C7F87001CBE70 /* ABTopic.m */; };
 		289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */; };
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
@@ -89,6 +91,8 @@
 		2844B6D02008554800578257 /* ABMeSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABMeSquare.m; sourceTree = "<group>"; };
 		2844B6D22009BCBC00578257 /* ABMeSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMeSquareButton.h; sourceTree = "<group>"; };
 		2844B6D32009BCBC00578257 /* ABMeSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABMeSquareButton.m; sourceTree = "<group>"; };
+		2844FAAB2046E567005C18AE /* ABRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRefreshHeader.h; sourceTree = "<group>"; };
+		2844FAAC2046E567005C18AE /* ABRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRefreshHeader.m; sourceTree = "<group>"; };
 		2890DA62200C7605001CBE70 /* ABWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWebViewController.h; sourceTree = "<group>"; };
 		2890DA63200C7605001CBE70 /* ABWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWebViewController.m; sourceTree = "<group>"; };
 		2890DA64200C7605001CBE70 /* ABWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABWebViewController.xib; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		2890DA852020C029001CBE70 /* ABPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABPictureViewController.m; sourceTree = "<group>"; };
 		2890DA872020C030001CBE70 /* ABWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWordViewController.h; sourceTree = "<group>"; };
 		2890DA882020C030001CBE70 /* ABWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWordViewController.m; sourceTree = "<group>"; };
+		2890DA8A202C7F87001CBE70 /* ABTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTopic.h; sourceTree = "<group>"; };
+		2890DA8B202C7F87001CBE70 /* ABTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTopic.m; sourceTree = "<group>"; };
 		289E84BD1FD2D41E00E46DD8 /* Dandelion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandelion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289E84D11FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -295,6 +301,8 @@
 		28F184C31FDA9BB8001A94C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2890DA8A202C7F87001CBE70 /* ABTopic.h */,
+				2890DA8B202C7F87001CBE70 /* ABTopic.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -488,6 +496,8 @@
 				28CA93041FF28BE500BFEBC2 /* ABLoginRegisterTextField.m */,
 				2844B6872006550500578257 /* ABConst.h */,
 				2844B6882006550500578257 /* ABConst.m */,
+				2844FAAB2046E567005C18AE /* ABRefreshHeader.h */,
+				2844FAAC2046E567005C18AE /* ABRefreshHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -675,6 +685,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Dandelion/Pods-Dandelion-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -710,6 +721,7 @@
 				2844B68F200702EF00578257 /* ABMeFooterView.m in Sources */,
 				2890DA65200C7605001CBE70 /* ABWebViewController.m in Sources */,
 				2890DA7D2020BFFF001CBE70 /* ABAllViewController.m in Sources */,
+				2844FAAD2046E567005C18AE /* ABRefreshHeader.m in Sources */,
 				28F185051FDB9D4B001A94C8 /* ABTest1ViewController.m in Sources */,
 				2890DA7A201F7960001CBE70 /* ABTitleButton.m in Sources */,
 				28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */,
@@ -727,6 +739,7 @@
 				28F184F91FDB8DAA001A94C8 /* ABRecommendFollowViewController.m in Sources */,
 				2844B6892006550500578257 /* ABConst.m in Sources */,
 				28F184F01FDA9BB8001A94C8 /* main.m in Sources */,
+				2890DA8C202C7F87001CBE70 /* ABTopic.m in Sources */,
 				2890DA72201636A7001CBE70 /* ABSettingCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
