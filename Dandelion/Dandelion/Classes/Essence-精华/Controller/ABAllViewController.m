@@ -11,8 +11,7 @@
 #import "ABTopic.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
-#import <MJRefresh.h>
-
+#import "ABRefreshHeader.h"
 
 @interface ABAllViewController ()
 // 所有的帖子数据
@@ -32,17 +31,14 @@
 
 - (void)setUpRefresh
 {
-//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//    self.tableView.mj_header = [ABRefreshHeader headerWithRefreshingBlock:^{
 //        ABLogFunc
 //    }];
     
-   MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
-    mj_header.automaticallyChangeAlpha = YES;
-    mj_header.lastUpdatedTimeLabel.hidden = YES;
-    mj_header.stateLabel.hidden = YES;
-    mj_header.arrowView.hidden = YES;
-    [mj_header addSubview:[[UISwitch alloc] init]];
-    self.tableView.mj_header = mj_header;
+    
+    self.tableView.mj_header = [ABRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];;
+    
+    [self.tableView.mj_header beginRefreshing];
     
 }
 
