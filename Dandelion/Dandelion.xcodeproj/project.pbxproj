@@ -18,6 +18,7 @@
 		2844B6D12008554800578257 /* ABMeSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B6D02008554800578257 /* ABMeSquare.m */; };
 		2844B6D42009BCBC00578257 /* ABMeSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B6D32009BCBC00578257 /* ABMeSquareButton.m */; };
 		2844FAAD2046E567005C18AE /* ABRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAAC2046E567005C18AE /* ABRefreshHeader.m */; };
+		2844FAB02049874A005C18AE /* ABRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAAF2049874A005C18AE /* ABRefreshFooter.m */; };
 		2890DA65200C7605001CBE70 /* ABWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA63200C7605001CBE70 /* ABWebViewController.m */; };
 		2890DA66200C7605001CBE70 /* ABWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2890DA64200C7605001CBE70 /* ABWebViewController.xib */; };
 		2890DA69200E0D6C001CBE70 /* ABSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA68200E0D6C001CBE70 /* ABSettingViewController.m */; };
@@ -93,6 +94,8 @@
 		2844B6D32009BCBC00578257 /* ABMeSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABMeSquareButton.m; sourceTree = "<group>"; };
 		2844FAAB2046E567005C18AE /* ABRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRefreshHeader.h; sourceTree = "<group>"; };
 		2844FAAC2046E567005C18AE /* ABRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRefreshHeader.m; sourceTree = "<group>"; };
+		2844FAAE2049874A005C18AE /* ABRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRefreshFooter.h; sourceTree = "<group>"; };
+		2844FAAF2049874A005C18AE /* ABRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRefreshFooter.m; sourceTree = "<group>"; };
 		2890DA62200C7605001CBE70 /* ABWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWebViewController.h; sourceTree = "<group>"; };
 		2890DA63200C7605001CBE70 /* ABWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWebViewController.m; sourceTree = "<group>"; };
 		2890DA64200C7605001CBE70 /* ABWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABWebViewController.xib; sourceTree = "<group>"; };
@@ -498,6 +501,8 @@
 				2844B6882006550500578257 /* ABConst.m */,
 				2844FAAB2046E567005C18AE /* ABRefreshHeader.h */,
 				2844FAAC2046E567005C18AE /* ABRefreshHeader.m */,
+				2844FAAE2049874A005C18AE /* ABRefreshFooter.h */,
+				2844FAAF2049874A005C18AE /* ABRefreshFooter.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -723,6 +728,7 @@
 				2890DA7D2020BFFF001CBE70 /* ABAllViewController.m in Sources */,
 				2844FAAD2046E567005C18AE /* ABRefreshHeader.m in Sources */,
 				28F185051FDB9D4B001A94C8 /* ABTest1ViewController.m in Sources */,
+				2844FAB02049874A005C18AE /* ABRefreshFooter.m in Sources */,
 				2890DA7A201F7960001CBE70 /* ABTitleButton.m in Sources */,
 				28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */,
 				2890DA832020C018001CBE70 /* ABVoiceViewController.m in Sources */,

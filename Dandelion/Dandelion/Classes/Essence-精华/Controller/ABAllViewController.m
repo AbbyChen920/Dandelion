@@ -12,6 +12,7 @@
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
 #import "ABRefreshHeader.h"
+#import "ABRefreshFooter.h"
 
 @interface ABAllViewController ()
 // 所有的帖子数据
@@ -43,7 +44,7 @@
     
     [self.tableView.mj_header beginRefreshing];
     
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    self.tableView.mj_footer = [ABRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
     
 }
 
