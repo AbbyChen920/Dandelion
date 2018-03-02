@@ -22,6 +22,11 @@
 #import "UITextField+ABExtension.h"
 #import "ABConst.h"
 #import "NSString+ABExtension.h"
+
+// 将服务器返回数据写入 plist
+#define ABWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/Abby/Desktop/%@.plist",filename] atomically:YES];
+
+
 /** 日志 */
 #ifdef DEBUG
 #define ABLog(...) NSLog(__VA_ARGS__)
