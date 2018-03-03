@@ -7,7 +7,7 @@
 //
 
 #import "ABAllViewController.h"
-#import <AFNetworking.h>
+#import "ABHTTPSessionManager.h"
 #import "ABTopic.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
@@ -23,7 +23,7 @@
 @property (nonatomic,copy) NSString *maxtime;
 
 // 任务管理者
-@property (nonatomic,strong)  AFHTTPSessionManager *manager;
+@property (nonatomic,strong)  ABHTTPSessionManager *manager;
 
 @end
 
@@ -32,7 +32,7 @@
 -(AFHTTPSessionManager *)manager
 {
     if (!_manager) {
-        _manager = [AFHTTPSessionManager manager];
+        _manager = [ABHTTPSessionManager manager];
     }
     return _manager;
 }
@@ -48,11 +48,6 @@
 
 - (void)setUpRefresh
 {
-//    self.tableView.mj_header = [ABRefreshHeader headerWithRefreshingBlock:^{
-//        ABLogFunc
-//    }];
-    
-    
     self.tableView.mj_header = [ABRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];;
     
     [self.tableView.mj_header beginRefreshing];
