@@ -7,12 +7,13 @@
 //
 
 #import "ABAllViewController.h"
-#import <AFNetworking.h>
+#import "ABHTTPSessionManager.h"
 #import "ABTopic.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
 #import "ABRefreshHeader.h"
 #import "ABRefreshFooter.h"
+
 
 @interface ABAllViewController ()
 // 所有的帖子数据
@@ -20,9 +21,21 @@
 
 // maxtime: 用来加载下一页数据
 @property (nonatomic,copy) NSString *maxtime;
+
+// 任务管理者
+@property (nonatomic,strong)  ABHTTPSessionManager *manager;
+
 @end
 
 @implementation ABAllViewController
+
+-(AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [ABHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,11 +48,6 @@
 
 - (void)setUpRefresh
 {
-//    self.tableView.mj_header = [ABRefreshHeader headerWithRefreshingBlock:^{
-//        ABLogFunc
-//    }];
-    
-    
     self.tableView.mj_header = [ABRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];;
     
     [self.tableView.mj_header beginRefreshing];
@@ -52,13 +60,24 @@
 #pragma mark - 数据加载
 - (void)loadNewTopics
 {
+    // 取消其他请求
+//    for (NSURLSessionTask *task in self.manager.tasks) {
+//        [task cancel];
+//    }
+    
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    // 关闭NSURLSession + 取消所有请求  ;
+    // 关闭NSURLSession就再也不能发送请求了
+//    [self.manager invalidateSessionCancelingTasks:YES];
+    
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
     
     // 发送请求
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //        [responseObject writeToFile:@"/Users/Abby/Desktop/new_topics.plist" atomically:YES];
         
         // 存储 maxtime( 方便用来加载下一页数据)
@@ -72,7 +91,7 @@
         
         // 让[刷新控件]结束刷新
         [self.tableView.mj_header endRefreshing];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)  {
         ABLog(@"请求失败 - %@",error);
         
         // 让[刷新控件]结束刷新
@@ -81,9 +100,14 @@
     }];
 }
 
+// 一个请求任务被取消了( cancel), 会自动调用 AFN 请求的 failure 这个 block
+
 
 - (void)loadMoreTopics
 {
+    // 取消其他请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
@@ -91,7 +115,7 @@
     params[@"maxtime"] = self.maxtime;
     
     // 发送请求
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
 //        ABWriteToPlist(responseObject,@"more_topics");
         

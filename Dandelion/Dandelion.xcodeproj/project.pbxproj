@@ -19,6 +19,7 @@
 		2844B6D42009BCBC00578257 /* ABMeSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844B6D32009BCBC00578257 /* ABMeSquareButton.m */; };
 		2844FAAD2046E567005C18AE /* ABRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAAC2046E567005C18AE /* ABRefreshHeader.m */; };
 		2844FAB02049874A005C18AE /* ABRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAAF2049874A005C18AE /* ABRefreshFooter.m */; };
+		2844FAB3204A438F005C18AE /* ABHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAB2204A438F005C18AE /* ABHTTPSessionManager.m */; };
 		2890DA65200C7605001CBE70 /* ABWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA63200C7605001CBE70 /* ABWebViewController.m */; };
 		2890DA66200C7605001CBE70 /* ABWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2890DA64200C7605001CBE70 /* ABWebViewController.xib */; };
 		2890DA69200E0D6C001CBE70 /* ABSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA68200E0D6C001CBE70 /* ABSettingViewController.m */; };
@@ -96,6 +97,8 @@
 		2844FAAC2046E567005C18AE /* ABRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRefreshHeader.m; sourceTree = "<group>"; };
 		2844FAAE2049874A005C18AE /* ABRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRefreshFooter.h; sourceTree = "<group>"; };
 		2844FAAF2049874A005C18AE /* ABRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRefreshFooter.m; sourceTree = "<group>"; };
+		2844FAB1204A438F005C18AE /* ABHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABHTTPSessionManager.h; sourceTree = "<group>"; };
+		2844FAB2204A438F005C18AE /* ABHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABHTTPSessionManager.m; sourceTree = "<group>"; };
 		2890DA62200C7605001CBE70 /* ABWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWebViewController.h; sourceTree = "<group>"; };
 		2890DA63200C7605001CBE70 /* ABWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWebViewController.m; sourceTree = "<group>"; };
 		2890DA64200C7605001CBE70 /* ABWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABWebViewController.xib; sourceTree = "<group>"; };
@@ -503,6 +506,8 @@
 				2844FAAC2046E567005C18AE /* ABRefreshHeader.m */,
 				2844FAAE2049874A005C18AE /* ABRefreshFooter.h */,
 				2844FAAF2049874A005C18AE /* ABRefreshFooter.m */,
+				2844FAB1204A438F005C18AE /* ABHTTPSessionManager.h */,
+				2844FAB2204A438F005C18AE /* ABHTTPSessionManager.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -736,6 +741,7 @@
 				28F184EA1FDA9BB8001A94C8 /* ABNewViewController.m in Sources */,
 				28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */,
 				280A67721FEE7A5700AE22EE /* ABLoginRegisterViewController.m in Sources */,
+				2844FAB3204A438F005C18AE /* ABHTTPSessionManager.m in Sources */,
 				2844B68C2006628200578257 /* ABMeCell.m in Sources */,
 				2890DA6C200F8180001CBE70 /* NSString+ABExtension.m in Sources */,
 				2844B6D12008554800578257 /* ABMeSquare.m in Sources */,
