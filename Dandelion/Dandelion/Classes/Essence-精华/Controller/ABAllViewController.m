@@ -13,6 +13,7 @@
 #import <UIImageView+WebCache.h>
 #import "ABRefreshHeader.h"
 #import "ABRefreshFooter.h"
+#import "ABTopicCell.h"
 
 
 @interface ABAllViewController ()
@@ -27,8 +28,12 @@
 
 @end
 
+
 @implementation ABAllViewController
 
+static NSString * const ABTopicCellId = @"topic";
+
+#pragma mark - 懒加载
 -(AFHTTPSessionManager *)manager
 {
     if (!_manager) {
@@ -37,14 +42,26 @@
     return _manager;
 }
 
+#pragma mark - 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    
+
+    [self setUpTable];
+
     [self setUpRefresh];
 }
+
+
+- (void)setUpTable
+{
+    self.tableView.backgroundColor = ABCommonBgColor;
+    self.tableView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    // 注册 cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ABTopicCell class]) bundle:nil] forCellReuseIdentifier:ABTopicCellId];
+    self.tableView.rowHeight = 200;
+}
+
 
 - (void)setUpRefresh
 {
@@ -77,7 +94,7 @@
     params[@"c"] = @"data";
     
     // 发送请求
-    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:ABCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //        [responseObject writeToFile:@"/Users/Abby/Desktop/new_topics.plist" atomically:YES];
         
         // 存储 maxtime( 方便用来加载下一页数据)
@@ -115,7 +132,7 @@
     params[@"maxtime"] = self.maxtime;
     
     // 发送请求
-    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:ABCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
 //        ABWriteToPlist(responseObject,@"more_topics");
         
@@ -150,27 +167,19 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
-    // 1.确定重用标识
-    static NSString *ID = @"cell";
     
-    // 2.从缓存池中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    // 3.如果是空就手动创建
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        cell.backgroundColor = ABRandomColor;
-    }
-    
-    // 4.显示数据
-    ABTopic *topic = self.topics[indexPath.row];
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    ABTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:ABTopicCellId];
+    cell.topic = self.topics[indexPath.row];
     
     return cell;
    
+}
+
+
+#pragma mark -  delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ABLogFunc
 }
 
 @end

@@ -32,7 +32,7 @@
         params[@"c"] = @"topic";
         
         // 请求
-        [[ABHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
+        [[ABHTTPSessionManager manager] GET:ABCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
 
             // 字典数据->模型数组
             NSArray *squares = [ABMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
