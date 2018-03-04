@@ -45,6 +45,9 @@
                         </constraints>
                         <state key="normal" image="cellmorebtnnormal"/>
                         <state key="highlighted" image="cellmorebtnclick"/>
+                        <connections>
+                            <action selector="more" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gm7-CT-Mpl"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBD-zg-udE" userLabel="文字内容">
                         <rect key="frame" x="10" y="55" width="300" height="18"/>
