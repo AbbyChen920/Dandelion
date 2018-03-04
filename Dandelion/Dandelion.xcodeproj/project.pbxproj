@@ -20,6 +20,8 @@
 		2844FAAD2046E567005C18AE /* ABRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAAC2046E567005C18AE /* ABRefreshHeader.m */; };
 		2844FAB02049874A005C18AE /* ABRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAAF2049874A005C18AE /* ABRefreshFooter.m */; };
 		2844FAB3204A438F005C18AE /* ABHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAB2204A438F005C18AE /* ABHTTPSessionManager.m */; };
+		2844FAB7204AB656005C18AE /* ABTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844FAB5204AB656005C18AE /* ABTopicCell.m */; };
+		2844FAB8204AB656005C18AE /* ABTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2844FAB6204AB656005C18AE /* ABTopicCell.xib */; };
 		2890DA65200C7605001CBE70 /* ABWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA63200C7605001CBE70 /* ABWebViewController.m */; };
 		2890DA66200C7605001CBE70 /* ABWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2890DA64200C7605001CBE70 /* ABWebViewController.xib */; };
 		2890DA69200E0D6C001CBE70 /* ABSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA68200E0D6C001CBE70 /* ABSettingViewController.m */; };
@@ -99,6 +101,9 @@
 		2844FAAF2049874A005C18AE /* ABRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRefreshFooter.m; sourceTree = "<group>"; };
 		2844FAB1204A438F005C18AE /* ABHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABHTTPSessionManager.h; sourceTree = "<group>"; };
 		2844FAB2204A438F005C18AE /* ABHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABHTTPSessionManager.m; sourceTree = "<group>"; };
+		2844FAB4204AB656005C18AE /* ABTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTopicCell.h; sourceTree = "<group>"; };
+		2844FAB5204AB656005C18AE /* ABTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTopicCell.m; sourceTree = "<group>"; };
+		2844FAB6204AB656005C18AE /* ABTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABTopicCell.xib; sourceTree = "<group>"; };
 		2890DA62200C7605001CBE70 /* ABWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWebViewController.h; sourceTree = "<group>"; };
 		2890DA63200C7605001CBE70 /* ABWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWebViewController.m; sourceTree = "<group>"; };
 		2890DA64200C7605001CBE70 /* ABWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABWebViewController.xib; sourceTree = "<group>"; };
@@ -318,6 +323,9 @@
 			children = (
 				2890DA78201F7960001CBE70 /* ABTitleButton.h */,
 				2890DA79201F7960001CBE70 /* ABTitleButton.m */,
+				2844FAB4204AB656005C18AE /* ABTopicCell.h */,
+				2844FAB5204AB656005C18AE /* ABTopicCell.m */,
+				2844FAB6204AB656005C18AE /* ABTopicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -634,6 +642,7 @@
 				2890DA7720163C8E001CBE70 /* ABOtherCell.xib in Resources */,
 				280A676E1FEE1F2200AE22EE /* ABFollowViewController.xib in Resources */,
 				289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */,
+				2844FAB8204AB656005C18AE /* ABTopicCell.xib in Resources */,
 				280A67731FEE7A5700AE22EE /* ABLoginRegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -724,6 +733,7 @@
 				2890DA892020C030001CBE70 /* ABWordViewController.m in Sources */,
 				28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */,
 				2890DA6F201492AB001CBE70 /* ABClearCacheCell.m in Sources */,
+				2844FAB7204AB656005C18AE /* ABTopicCell.m in Sources */,
 				2890DA7620163C8E001CBE70 /* ABOtherCell.m in Sources */,
 				2844B6D42009BCBC00578257 /* ABMeSquareButton.m in Sources */,
 				2890DA802020C00B001CBE70 /* ABVideoViewController.m in Sources */,
