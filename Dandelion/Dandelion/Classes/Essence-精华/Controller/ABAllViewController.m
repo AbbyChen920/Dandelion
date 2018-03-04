@@ -55,6 +55,7 @@ static NSString * const ABTopicCellId = @"topic";
 - (void)setUpTable
 {
     self.tableView.backgroundColor = ABCommonBgColor;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     // 注册 cell
@@ -177,9 +178,6 @@ static NSString * const ABTopicCellId = @"topic";
 
 
 #pragma mark -  delegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    ABLogFunc
-}
+
 
 @end

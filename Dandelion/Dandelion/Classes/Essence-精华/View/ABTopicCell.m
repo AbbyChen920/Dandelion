@@ -34,7 +34,7 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    
+       
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 
@@ -52,5 +52,21 @@
     [self.repostButton setTitle:[NSString stringWithFormat:@"%zd",topic.repost] forState:UIControlStateNormal];
     [self.commentButton setTitle:[NSString stringWithFormat:@"%zd",topic.comment] forState:UIControlStateNormal];
    
-} 
+}
+
+
+// 重写这个方法的目的:能够拦截所有设置 cell frame 的操作
+- (void)setFrame:(CGRect)frame
+{
+    
+    frame.size.height -= ABMargin;
+    frame.origin.y += ABMargin;
+
+//    frame.origin.x += ABMargin;
+//    frame.size.width -= 2 * ABMargin;
+    
+    [super setFrame:frame];
+}
+
+
 @end
