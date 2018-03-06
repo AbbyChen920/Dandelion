@@ -27,4 +27,5 @@
 //评论数量
 @property (nonatomic, assign) NSInteger comment;
 
+
 @end

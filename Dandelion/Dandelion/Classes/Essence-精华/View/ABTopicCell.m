@@ -33,13 +33,6 @@
 
 - (IBAction)more {
     
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"我的标题" message:@"消息内容" delegate: nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-//    [alert show];
-    
-//    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"我的标题" delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"确定" otherButtonTitles:@"其他按钮", nil];
-//    
-//    [sheet showInView:self];
-    
     // UIAlertControllerStyleAlert == UIAlertView
     // UIAlertControllerStyleActionSheet == UIActionSheet
     // UIAlertController == UIAlertView + UIActionSheet
@@ -59,14 +52,6 @@
         ABLog(@"点击了[取消]按钮");
     }]];
     
-//    [controller addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-//        textField.textColor = [UIColor orangeColor];
-//    }];
-//    [controller addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-//        textField.textColor = [UIColor orangeColor];
-//    }];
-    
-    
     [self.window.rootViewController presentViewController:controller animated:YES completion:nil];
 }
 
@@ -85,8 +70,17 @@
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
     self.nameLabel.text = topic.name;
-    self.createdAtLabel.text = topic.created_at;
+    self.createdAtLabel.text = topic.created_at;   // 调用 get 方法  [topic created_at]
     self.text_label.text = topic.text;
+    
+    
+    // 发帖时间: NSString *created_at = @"2018-03-05 12:22:02"
+    // 手机的当前时间: 12:51    (两个时间格式不同,没办法比较;一般会把 nsstring 类型的转成 nsdate,再通过 nsdate 里面的方法把两个时间进行比较)
+    
+    // 发帖时间: NSDate *created_at = ....
+    // 手机的当前时间: NSDate *now = [NSDate date]
+    
+    
     
     
     // 用来测试的数据
