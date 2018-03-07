@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2804B72B204E77D70039EB85 /* NSDate+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804B72A204E77D70039EB85 /* NSDate+ABExtension.m */; };
 		2804B72E204E7A230039EB85 /* NSCalendar+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804B72D204E7A230039EB85 /* NSCalendar+ABExtension.m */; };
+		2804B731205022090039EB85 /* ABUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804B730205022090039EB85 /* ABUser.m */; };
+		2804B7342050227E0039EB85 /* ABComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804B7332050227E0039EB85 /* ABComment.m */; };
 		280A676E1FEE1F2200AE22EE /* ABFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280A676D1FEE1F2200AE22EE /* ABFollowViewController.xib */; };
 		280A67721FEE7A5700AE22EE /* ABLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A67701FEE7A5700AE22EE /* ABLoginRegisterViewController.m */; };
 		280A67731FEE7A5700AE22EE /* ABLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280A67711FEE7A5700AE22EE /* ABLoginRegisterViewController.xib */; };
@@ -83,6 +85,10 @@
 		2804B72A204E77D70039EB85 /* NSDate+ABExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ABExtension.m"; sourceTree = "<group>"; };
 		2804B72C204E7A230039EB85 /* NSCalendar+ABExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+ABExtension.h"; sourceTree = "<group>"; };
 		2804B72D204E7A230039EB85 /* NSCalendar+ABExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+ABExtension.m"; sourceTree = "<group>"; };
+		2804B72F205022090039EB85 /* ABUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABUser.h; sourceTree = "<group>"; };
+		2804B730205022090039EB85 /* ABUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUser.m; sourceTree = "<group>"; };
+		2804B7322050227E0039EB85 /* ABComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABComment.h; sourceTree = "<group>"; };
+		2804B7332050227E0039EB85 /* ABComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABComment.m; sourceTree = "<group>"; };
 		280A676D1FEE1F2200AE22EE /* ABFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABFollowViewController.xib; sourceTree = "<group>"; };
 		280A676F1FEE7A5700AE22EE /* ABLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLoginRegisterViewController.h; sourceTree = "<group>"; };
 		280A67701FEE7A5700AE22EE /* ABLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABLoginRegisterViewController.m; sourceTree = "<group>"; };
@@ -320,6 +326,10 @@
 			children = (
 				2890DA8A202C7F87001CBE70 /* ABTopic.h */,
 				2890DA8B202C7F87001CBE70 /* ABTopic.m */,
+				2804B72F205022090039EB85 /* ABUser.h */,
+				2804B730205022090039EB85 /* ABUser.m */,
+				2804B7322050227E0039EB85 /* ABComment.h */,
+				2804B7332050227E0039EB85 /* ABComment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -743,6 +753,7 @@
 				2890DA892020C030001CBE70 /* ABWordViewController.m in Sources */,
 				28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */,
 				2890DA6F201492AB001CBE70 /* ABClearCacheCell.m in Sources */,
+				2804B731205022090039EB85 /* ABUser.m in Sources */,
 				2844FAB7204AB656005C18AE /* ABTopicCell.m in Sources */,
 				2890DA7620163C8E001CBE70 /* ABOtherCell.m in Sources */,
 				2844B6D42009BCBC00578257 /* ABMeSquareButton.m in Sources */,
@@ -772,6 +783,7 @@
 				280A67791FEEAFE900AE22EE /* ABQuickLoginButton.m in Sources */,
 				28F184F91FDB8DAA001A94C8 /* ABRecommendFollowViewController.m in Sources */,
 				2844B6892006550500578257 /* ABConst.m in Sources */,
+				2804B7342050227E0039EB85 /* ABComment.m in Sources */,
 				28F184F01FDA9BB8001A94C8 /* main.m in Sources */,
 				2890DA8C202C7F87001CBE70 /* ABTopic.m in Sources */,
 				2890DA72201636A7001CBE70 /* ABSettingCell.m in Sources */,

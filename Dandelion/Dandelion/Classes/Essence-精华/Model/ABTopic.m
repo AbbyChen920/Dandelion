@@ -7,9 +7,18 @@
 //
 
 #import "ABTopic.h"
+#import <MJExtension.h>
+#import "ABComment.h"
 
 @implementation ABTopic
 
+#pragma mark - MJExtension
++(NSDictionary *)mj_objectClassInArray
+{
+    return @{@"top_cmt" : [ABComment class]};
+}
+
+#pragma mark - 其他
 static NSDateFormatter *fmt_;
 static NSCalendar *calendar_;
 
