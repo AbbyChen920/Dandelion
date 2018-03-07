@@ -22,16 +22,19 @@ static NSCalendar *calendar_;
 
 -(NSString *)created_at
 {
-    _created_at = @"2018-03-06 22:31:00";
+    _created_at = @"2018-03-08 10:20:00";
+    
     
     // 获得发帖日期
     fmt_.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     NSDate *createdAtDate = [fmt_ dateFromString:_created_at];
     
+    NSLog(@"%zd",createdAtDate.isTmorrow);
+
     
     if (createdAtDate.isThisYear) {  // 今年
           
-        if ([calendar_ isDateInToday:createdAtDate]) { // 今天
+        if (createdAtDate.isToday) { // 今天
             
             // 手机当前的时间
             NSDate *nowDate = [NSDate date];
@@ -48,7 +51,7 @@ static NSCalendar *calendar_;
                 return @"刚刚";
             }
         
-            } else if([calendar_ isDateInYesterday:createdAtDate]) // 昨天
+            } else if(createdAtDate.isYesterday) // 昨天
             {
                 fmt_.dateFormat = @"昨天 HH:mm:ss";
                 return [fmt_ stringFromDate:createdAtDate];
