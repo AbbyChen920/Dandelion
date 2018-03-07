@@ -9,7 +9,8 @@
 #import "ABTopicCell.h"
 #import "ABTopic.h"
 #import <UIImageView+WebCache.h>
-
+#import "ABComment.h"
+#import "ABUser.h"
 
 @interface ABTopicCell ()
 
@@ -84,7 +85,7 @@
     // 用来测试的数据
 //    topic.ding = 10000 + arc4random_uniform(5000);
 //    topic.cai = arc4random_uniform(8000) + arc4random_uniform(5000);
-//    topic.repost = arc4random_uniform(8000) + arc4random_uniform(5000);
+//    topic.repost = arc4r andom_uniform(8000) + arc4random_uniform(5000);
 //    topic.comment = 0;
 
     [self setupButton:self.dingButton number:topic.ding placeholder:@"顶"];
@@ -96,27 +97,15 @@
     if (topic.top_cmt.count) { // 有最热评论
         self.topCmtView.hidden = NO;
         
-        NSDictionary *comment = topic.top_cmt.firstObject;
-        
-        NSString *username = comment[@"user"][@"username"]; // 用户名
-        NSString *content = comment[@"content"];  // 评论内容
+        ABComment *comment = topic.top_cmt.firstObject;
+        NSString *username = comment.user.username; // 用户名
+        NSString *content = comment.content;  // 评论内容
         self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", username, content];
         
     } else{ // 没有最热评论
         self.topCmtView.hidden = YES;
     }
    
-    /*
-     数量 >= 10000
-     比如:53454  -> 5.3万
-     
-     数量 < 10000
-     比如:5435 -> 5435
-     比如546 -> 546
-     
-     数量 == 0
-     比如0 -> 评论
-     */
 }
 
 // 设置按钮的数字( placeholder 是一个中文参数,故意留到最后,前面的参数就可以使用点语法等智能提示)

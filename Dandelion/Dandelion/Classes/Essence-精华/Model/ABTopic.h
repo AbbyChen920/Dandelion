@@ -27,7 +27,7 @@
 //评论数量
 @property (nonatomic, assign) NSInteger comment;
 
-// 最热评论
+// 最热评论 (希望数组中存放着 ABComment 模型)
 @property (nonatomic,strong) NSArray *top_cmt;
 
 @end
