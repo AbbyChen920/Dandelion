@@ -22,15 +22,9 @@ static NSCalendar *calendar_;
 
 -(NSString *)created_at
 {
-    _created_at = @"2018-03-08 10:20:00";
-    
-    
     // 获得发帖日期
     fmt_.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     NSDate *createdAtDate = [fmt_ dateFromString:_created_at];
-    
-    NSLog(@"%zd",createdAtDate.isTmorrow);
-
     
     if (createdAtDate.isThisYear) {  // 今年
           

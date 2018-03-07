@@ -104,6 +104,16 @@ static NSString * const ABTopicCellId = @"topic";
         // 字典数组转模型数组
         self.topics = [ABTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
+        
+        ABWriteToPlist(responseObject, @"new_topics");
+        for (NSUInteger i = 0; i < self.topics.count; i++) {
+            if (self.topics[i].top_cmt.count) { //最热评论
+                ABLog(@"下拉刷新-%zd", i);
+            }
+        }
+        
+        
+        
         // 刷新表格
         [self.tableView reloadData];
         
@@ -143,7 +153,14 @@ static NSString * const ABTopicCellId = @"topic";
         // 字典数->模型数组
         NSArray<ABTopic *> *moreTopics = [ABTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.topics addObjectsFromArray:moreTopics];
-
+        
+        
+        ABWriteToPlist(responseObject, @"more_topics");
+        for (NSUInteger i = 0; i < moreTopics.count; i++) {
+            if (moreTopics[i].top_cmt.count) { //最热评论
+                ABLog(@"上拉刷新-%zd", i);
+            }
+        }
         
         // 刷新表格
         [self.tableView reloadData];

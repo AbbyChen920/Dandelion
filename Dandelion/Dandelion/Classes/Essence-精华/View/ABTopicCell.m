@@ -81,8 +81,6 @@
     // 手机的当前时间: NSDate *now = [NSDate date]
     
     
-    
-    
     // 用来测试的数据
 //    topic.ding = 10000 + arc4random_uniform(5000);
 //    topic.cai = arc4random_uniform(8000) + arc4random_uniform(5000);
@@ -94,6 +92,19 @@
     [self setupButton:self.repostButton number:topic.repost placeholder:@"分享"];
     [self setupButton:self.commentButton number:topic.comment placeholder:@"评论"];
 
+    // 最热评论
+    if (topic.top_cmt.count) { // 有最热评论
+        self.topCmtView.hidden = NO;
+        
+        NSDictionary *comment = topic.top_cmt.firstObject;
+        
+        NSString *username = comment[@"user"][@"username"]; // 用户名
+        NSString *content = comment[@"content"];  // 评论内容
+        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", username, content];
+        
+    } else{ // 没有最热评论
+        self.topCmtView.hidden = YES;
+    }
    
     /*
      数量 >= 10000
