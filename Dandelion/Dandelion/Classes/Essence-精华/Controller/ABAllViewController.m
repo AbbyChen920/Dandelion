@@ -93,7 +93,8 @@ static NSString * const ABTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    
+    params[@"type"] = @"1";
+
     // 发送请求
     [self.manager GET:ABCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //        [responseObject writeToFile:@"/Users/Abby/Desktop/new_topics.plist" atomically:YES];
@@ -104,13 +105,7 @@ static NSString * const ABTopicCellId = @"topic";
         // 字典数组转模型数组
         self.topics = [ABTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
-        
-        ABWriteToPlist(responseObject, @"new_topics");
-        for (NSUInteger i = 0; i < self.topics.count; i++) {
-            if (self.topics[i].top_cmt.count) { //最热评论
-                ABLog(@"下拉刷新-%zd", i);
-            }
-        }
+    
         
         
         
@@ -141,7 +136,8 @@ static NSString * const ABTopicCellId = @"topic";
     params[@"a"] = @"list";
     params[@"c"] = @"data";
     params[@"maxtime"] = self.maxtime;
-    
+    params[@"type"] = @"1";
+
     // 发送请求
     [self.manager GET:ABCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -155,13 +151,7 @@ static NSString * const ABTopicCellId = @"topic";
         [self.topics addObjectsFromArray:moreTopics];
         
         
-        ABWriteToPlist(responseObject, @"more_topics");
-        for (NSUInteger i = 0; i < moreTopics.count; i++) {
-            if (moreTopics[i].top_cmt.count) { //最热评论
-                ABLog(@"上拉刷新-%zd", i);
-            }
-        }
-        
+ 
         // 刷新表格
         [self.tableView reloadData];
         
@@ -195,6 +185,12 @@ static NSString * const ABTopicCellId = @"topic";
 
 
 #pragma mark -  delegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+#pragma mark - 根据ABTopic模型数据计算出 cell 具体的高度,并且返回
+    return indexPath.row * 10 + 200;
+}
 
 
 @end
