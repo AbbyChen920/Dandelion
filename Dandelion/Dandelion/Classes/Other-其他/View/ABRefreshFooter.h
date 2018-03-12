@@ -10,4 +10,6 @@
 
 @interface ABRefreshFooter : MJRefreshAutoNormalFooter 
 
+
+
 @end

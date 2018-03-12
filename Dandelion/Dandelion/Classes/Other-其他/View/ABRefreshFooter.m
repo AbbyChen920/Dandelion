@@ -23,7 +23,8 @@
     self.triggerAutomaticallyRefreshPercent = 0.5;
     
     // 不要自动刷新
-    self.automaticallyRefresh = NO;
+//    self.automaticallyRefresh = NO;
+    
     
 }
 
