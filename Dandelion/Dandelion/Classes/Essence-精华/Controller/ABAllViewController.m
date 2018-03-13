@@ -105,10 +105,7 @@ static NSString * const ABTopicCellId = @"topic";
         // 字典数组转模型数组
         self.topics = [ABTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
-    
-        
-        
-        
+
         // 刷新表格
         [self.tableView reloadData];
         
@@ -188,8 +185,9 @@ static NSString * const ABTopicCellId = @"topic";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-#pragma mark - 根据ABTopic模型数据计算出 cell 具体的高度,并且返回
-    return indexPath.row * 10 + 200;
+    ABLog(@"-------%zd",indexPath.row);
+
+    return self.topics[indexPath.row].cellHeight;
 }
 
 

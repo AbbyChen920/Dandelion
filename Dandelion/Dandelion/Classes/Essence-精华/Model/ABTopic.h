@@ -59,4 +59,13 @@ typedef NS_ENUM(NSUInteger, ABTopicType) {
 // 帖子类型
 @property (nonatomic, assign) ABTopicType type;
 
+// 图片的真实宽度
+@property (nonatomic, assign) CGFloat width;
+
+// 图片的真实高度
+@property (nonatomic, assign) CGFloat height;
+
+// 额外增加的属性 - 方便开发
+@property (nonatomic, assign) CGFloat cellHeight;
+
 @end
