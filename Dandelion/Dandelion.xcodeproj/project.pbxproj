@@ -11,6 +11,7 @@
 		2804B72E204E7A230039EB85 /* NSCalendar+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804B72D204E7A230039EB85 /* NSCalendar+ABExtension.m */; };
 		2804B731205022090039EB85 /* ABUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804B730205022090039EB85 /* ABUser.m */; };
 		2804B7342050227E0039EB85 /* ABComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804B7332050227E0039EB85 /* ABComment.m */; };
+		2804B7B12056B90C0039EB85 /* ABExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804B7B02056B90C0039EB85 /* ABExtensionConfig.m */; };
 		280A676E1FEE1F2200AE22EE /* ABFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280A676D1FEE1F2200AE22EE /* ABFollowViewController.xib */; };
 		280A67721FEE7A5700AE22EE /* ABLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A67701FEE7A5700AE22EE /* ABLoginRegisterViewController.m */; };
 		280A67731FEE7A5700AE22EE /* ABLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280A67711FEE7A5700AE22EE /* ABLoginRegisterViewController.xib */; };
@@ -89,6 +90,8 @@
 		2804B730205022090039EB85 /* ABUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABUser.m; sourceTree = "<group>"; };
 		2804B7322050227E0039EB85 /* ABComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABComment.h; sourceTree = "<group>"; };
 		2804B7332050227E0039EB85 /* ABComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABComment.m; sourceTree = "<group>"; };
+		2804B7AF2056B90C0039EB85 /* ABExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABExtensionConfig.h; sourceTree = "<group>"; };
+		2804B7B02056B90C0039EB85 /* ABExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABExtensionConfig.m; sourceTree = "<group>"; };
 		280A676D1FEE1F2200AE22EE /* ABFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABFollowViewController.xib; sourceTree = "<group>"; };
 		280A676F1FEE7A5700AE22EE /* ABLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLoginRegisterViewController.h; sourceTree = "<group>"; };
 		280A67701FEE7A5700AE22EE /* ABLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABLoginRegisterViewController.m; sourceTree = "<group>"; };
@@ -536,6 +539,8 @@
 				2844FAAF2049874A005C18AE /* ABRefreshFooter.m */,
 				2844FAB1204A438F005C18AE /* ABHTTPSessionManager.h */,
 				2844FAB2204A438F005C18AE /* ABHTTPSessionManager.m */,
+				2804B7AF2056B90C0039EB85 /* ABExtensionConfig.h */,
+				2804B7B02056B90C0039EB85 /* ABExtensionConfig.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -769,6 +774,7 @@
 				2890DA7A201F7960001CBE70 /* ABTitleButton.m in Sources */,
 				28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */,
 				2890DA832020C018001CBE70 /* ABVoiceViewController.m in Sources */,
+				2804B7B12056B90C0039EB85 /* ABExtensionConfig.m in Sources */,
 				2890DA862020C029001CBE70 /* ABPictureViewController.m in Sources */,
 				28F184EA1FDA9BB8001A94C8 /* ABNewViewController.m in Sources */,
 				28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */,
