@@ -42,6 +42,12 @@
 		2890DA862020C029001CBE70 /* ABPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA852020C029001CBE70 /* ABPictureViewController.m */; };
 		2890DA892020C030001CBE70 /* ABWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA882020C030001CBE70 /* ABWordViewController.m */; };
 		2890DA8C202C7F87001CBE70 /* ABTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2890DA8B202C7F87001CBE70 /* ABTopic.m */; };
+		2898BCB1205E1E3700D328DF /* ABTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2898BCB0205E1E3700D328DF /* ABTopicPictureView.m */; };
+		2898BCB3205E1EC700D328DF /* ABTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2898BCB2205E1EC700D328DF /* ABTopicPictureView.xib */; };
+		2898BCB6205E1F3700D328DF /* ABTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2898BCB5205E1F3700D328DF /* ABTopicVideoView.m */; };
+		2898BCB8205E1F4900D328DF /* ABTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2898BCB7205E1F4900D328DF /* ABTopicVideoView.xib */; };
+		2898BCBB205E1F9600D328DF /* ABTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2898BCBA205E1F9600D328DF /* ABTopicVoiceView.m */; };
+		2898BCBD205E1FB100D328DF /* ABTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2898BCBC205E1FB100D328DF /* ABTopicVoiceView.xib */; };
 		289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */; };
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
@@ -147,6 +153,15 @@
 		2890DA882020C030001CBE70 /* ABWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABWordViewController.m; sourceTree = "<group>"; };
 		2890DA8A202C7F87001CBE70 /* ABTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTopic.h; sourceTree = "<group>"; };
 		2890DA8B202C7F87001CBE70 /* ABTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTopic.m; sourceTree = "<group>"; };
+		2898BCAF205E1E3700D328DF /* ABTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTopicPictureView.h; sourceTree = "<group>"; };
+		2898BCB0205E1E3700D328DF /* ABTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTopicPictureView.m; sourceTree = "<group>"; };
+		2898BCB2205E1EC700D328DF /* ABTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABTopicPictureView.xib; sourceTree = "<group>"; };
+		2898BCB4205E1F3700D328DF /* ABTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTopicVideoView.h; sourceTree = "<group>"; };
+		2898BCB5205E1F3700D328DF /* ABTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTopicVideoView.m; sourceTree = "<group>"; };
+		2898BCB7205E1F4900D328DF /* ABTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABTopicVideoView.xib; sourceTree = "<group>"; };
+		2898BCB9205E1F9600D328DF /* ABTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTopicVoiceView.h; sourceTree = "<group>"; };
+		2898BCBA205E1F9600D328DF /* ABTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTopicVoiceView.m; sourceTree = "<group>"; };
+		2898BCBC205E1FB100D328DF /* ABTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABTopicVoiceView.xib; sourceTree = "<group>"; };
 		289E84BD1FD2D41E00E46DD8 /* Dandelion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandelion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289E84D11FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -345,6 +360,15 @@
 				2844FAB4204AB656005C18AE /* ABTopicCell.h */,
 				2844FAB5204AB656005C18AE /* ABTopicCell.m */,
 				2844FAB6204AB656005C18AE /* ABTopicCell.xib */,
+				2898BCAF205E1E3700D328DF /* ABTopicPictureView.h */,
+				2898BCB0205E1E3700D328DF /* ABTopicPictureView.m */,
+				2898BCB2205E1EC700D328DF /* ABTopicPictureView.xib */,
+				2898BCB4205E1F3700D328DF /* ABTopicVideoView.h */,
+				2898BCB5205E1F3700D328DF /* ABTopicVideoView.m */,
+				2898BCB7205E1F4900D328DF /* ABTopicVideoView.xib */,
+				2898BCB9205E1F9600D328DF /* ABTopicVoiceView.h */,
+				2898BCBA205E1F9600D328DF /* ABTopicVoiceView.m */,
+				2898BCBC205E1FB100D328DF /* ABTopicVoiceView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -663,7 +687,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2898BCBD205E1FB100D328DF /* ABTopicVoiceView.xib in Resources */,
 				2890DA66200C7605001CBE70 /* ABWebViewController.xib in Resources */,
+				2898BCB8205E1F4900D328DF /* ABTopicVideoView.xib in Resources */,
+				2898BCB3205E1EC700D328DF /* ABTopicPictureView.xib in Resources */,
 				2890DA7720163C8E001CBE70 /* ABOtherCell.xib in Resources */,
 				280A676E1FEE1F2200AE22EE /* ABFollowViewController.xib in Resources */,
 				289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */,
@@ -748,6 +775,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2898BCBB205E1F9600D328DF /* ABTopicVoiceView.m in Sources */,
 				2890DA69200E0D6C001CBE70 /* ABSettingViewController.m in Sources */,
 				28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */,
 				28CA93891FFFD37B00BFEBC2 /* UITextField+ABExtension.m in Sources */,
@@ -758,6 +786,7 @@
 				2890DA892020C030001CBE70 /* ABWordViewController.m in Sources */,
 				28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */,
 				2890DA6F201492AB001CBE70 /* ABClearCacheCell.m in Sources */,
+				2898BCB1205E1E3700D328DF /* ABTopicPictureView.m in Sources */,
 				2804B731205022090039EB85 /* ABUser.m in Sources */,
 				2844FAB7204AB656005C18AE /* ABTopicCell.m in Sources */,
 				2890DA7620163C8E001CBE70 /* ABOtherCell.m in Sources */,
@@ -772,6 +801,7 @@
 				28F185051FDB9D4B001A94C8 /* ABTest1ViewController.m in Sources */,
 				2844FAB02049874A005C18AE /* ABRefreshFooter.m in Sources */,
 				2890DA7A201F7960001CBE70 /* ABTitleButton.m in Sources */,
+				2898BCB6205E1F3700D328DF /* ABTopicVideoView.m in Sources */,
 				28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */,
 				2890DA832020C018001CBE70 /* ABVoiceViewController.m in Sources */,
 				2804B7B12056B90C0039EB85 /* ABExtensionConfig.m in Sources */,
