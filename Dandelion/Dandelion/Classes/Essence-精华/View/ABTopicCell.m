@@ -107,7 +107,7 @@
     }
     
     // 中间内容
-#pragma mark - 根据ABTopic模型数据的情况来决定中间添加什么控件(内容)
+#pragma mark - 根据ABTopic模型数据的情况来决定中间添加什么控件(内 容)
     if (topic.type == ABTopicTypeVideo) { // 视频
         
     } else if (topic.type == ABTopicTypeVoice) // 音频
