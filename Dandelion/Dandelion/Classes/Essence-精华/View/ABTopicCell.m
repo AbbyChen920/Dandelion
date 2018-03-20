@@ -157,13 +157,15 @@
         self.pictureView.hidden = YES;
         self.videoView.hidden = NO;
         self.videoView.frame = topic.contentF;
-        
+        self.videoView.topic = topic;
+
     } else if (topic.type == ABTopicTypeVoice) // 音频
     {
         self.videoView.hidden = YES;
         self.pictureView.hidden  = YES;
         self.voiceView.hidden = NO;
         self.voiceView.frame = topic.contentF;
+        self.voiceView.topic = topic;
 
     } else if (topic.type == ABTopicTypeWord) // 段子
     {

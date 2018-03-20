@@ -12,4 +12,6 @@ pod “SVProgressHUD”
 
 pod “MJRefresh”
 
+pod “DACircularProgress”
+
 end

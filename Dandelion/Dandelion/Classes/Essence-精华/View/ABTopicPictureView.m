@@ -9,11 +9,13 @@
 #import "ABTopicPictureView.h"
 #import <UIImageView+WebCache.h>
 #import "ABTopic.h"
+#import "DALabeledCircularProgressView.h"
 
 @interface ABTopicPictureView ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *gifView;
 @property (weak, nonatomic) IBOutlet UIButton *seeBigButton;
+@property (weak, nonatomic) IBOutlet DALabeledCircularProgressView *progressView;
 
 @end
 
@@ -23,6 +25,9 @@
 {
     // 从 xib 中加载进来的控件的autoresizingMask默认是UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+    self.progressView.roundedCorners = 5;
+    self.progressView.progressLabel.textColor = [UIColor whiteColor];
 }
 
 
@@ -31,7 +36,18 @@
     _topic = topic;
     
     // 由于是模拟器 (直接显示大图)
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        
+        // receivedSize:已经接收的图片大小
+        // expectedSize:图片的总大小
+        CGFloat progress =  1.0 * receivedSize / expectedSize;
+        self.progressView.progress = progress;
+        self.progressView.hidden = NO;
+        self.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f%%",progress * 100];
+        
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        self.progressView.hidden = YES;
+    }];
     
     // gif
     self.gifView.hidden = !topic.is_gif;

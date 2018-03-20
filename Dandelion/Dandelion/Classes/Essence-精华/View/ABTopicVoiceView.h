@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class ABTopic;
+
 @interface ABTopicVoiceView : UIView
+// 模型数据
+@property (nonatomic,strong) ABTopic *topic;
 
 @end

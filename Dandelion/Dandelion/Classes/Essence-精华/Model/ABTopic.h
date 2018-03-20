@@ -65,6 +65,14 @@ typedef NS_ENUM(NSUInteger, ABTopicType) {
 // 图片的真实高度
 @property (nonatomic, assign) CGFloat height;
 
+// 音频时长
+@property (nonatomic, assign) NSInteger voicetime;
+// 视频时长
+@property (nonatomic, assign) NSInteger videotime;
+// 音频/视频的播放次数
+@property (nonatomic, assign) NSInteger playcount;
+
+
 // 额外增加的属性 - 方便开发
 // cell 的高度 
 @property (nonatomic, assign) CGFloat cellHeight;
