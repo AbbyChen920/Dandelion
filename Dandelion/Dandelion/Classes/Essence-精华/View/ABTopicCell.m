@@ -11,6 +11,9 @@
 #import <UIImageView+WebCache.h>
 #import "ABComment.h"
 #import "ABUser.h"
+#import "ABTopicVideoView.h"
+#import "ABTopicVoiceView.h"
+#import "ABTopicPictureView.h"
 
 @interface ABTopicCell ()
 
@@ -27,10 +30,51 @@
 @property (weak, nonatomic) IBOutlet UIView *topCmtView;
 @property (weak, nonatomic) IBOutlet UILabel *topCmtContentLabel;
 
+/** 中间控件 */
+//视频控件
+@property (nonatomic,weak) ABTopicVideoView *videoView;
+//声音控件
+@property (nonatomic,weak) ABTopicVoiceView *voiceView;
+//图片控件
+@property (nonatomic,weak) ABTopicPictureView *pictureView;
+
 @end
 
 
 @implementation ABTopicCell
+
+#pragma mark - 懒加载
+-(ABTopicVideoView *)videoView
+{
+    if (!_videoView) {
+        ABTopicVideoView *videoView = [ABTopicVideoView viewFromXib];
+        [self.contentView addSubview:videoView];
+        _videoView = videoView;
+    }
+    return _videoView;
+}
+
+- (ABTopicVoiceView *)voiceView
+{
+    if (!_voiceView) {
+        ABTopicVoiceView *voiceView = [ABTopicVoiceView viewFromXib];
+        [self.contentView addSubview:voiceView];
+        _voiceView = voiceView;
+    }
+    return _voiceView;
+}
+
+- (ABTopicPictureView *)pictureView
+{
+    if (!_pictureView) {
+        ABTopicPictureView *pictureView = [ABTopicPictureView viewFromXib];
+        [self.contentView addSubview:pictureView];
+        _pictureView = pictureView;
+    }
+    return _pictureView;
+}
+
+
 
 - (IBAction)more {
     
@@ -68,6 +112,7 @@
 {
     _topic = topic;
     
+    
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
     self.nameLabel.text = topic.name;
@@ -97,7 +142,6 @@
     if (topic.top_cmt) { // 有最热评论
         self.topCmtView.hidden = NO;
         
-        
         NSString *username = topic.top_cmt.user.username; // 用户名
         NSString *content = topic.top_cmt.content;  // 评论内容
         self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", username, content];
@@ -109,16 +153,32 @@
     // 中间内容
 #pragma mark - 根据ABTopic模型数据的情况来决定中间添加什么控件(内 容)
     if (topic.type == ABTopicTypeVideo) { // 视频
+        self.voiceView.hidden = YES;
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = NO;
+        self.videoView.frame = topic.contentF;
         
     } else if (topic.type == ABTopicTypeVoice) // 音频
     {
-        
+        self.videoView.hidden = YES;
+        self.pictureView.hidden  = YES;
+        self.voiceView.hidden = NO;
+        self.voiceView.frame = topic.contentF;
+
     } else if (topic.type == ABTopicTypeWord) // 段子
     {
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.pictureView.hidden = YES;
         
     } else if (topic.type == ABTopicTypePicture) // 图片
     {
-        
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.pictureView.hidden = NO;
+        self.pictureView.frame = topic.contentF;
+        self.pictureView.topic = topic;
+
     }
    
 }

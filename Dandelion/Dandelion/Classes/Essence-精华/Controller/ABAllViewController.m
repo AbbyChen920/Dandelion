@@ -185,7 +185,7 @@ static NSString * const ABTopicCellId = @"topic";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ABLog(@"-------%zd",indexPath.row);
+//    ABLog(@"-------%zd",indexPath.row);
 
     return self.topics[indexPath.row].cellHeight;
 }

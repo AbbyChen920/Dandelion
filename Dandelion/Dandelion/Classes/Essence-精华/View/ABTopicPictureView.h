@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ABTopic;
 
 @interface ABTopicPictureView : UIView
+
+// 模型数据
+@property (nonatomic,strong) ABTopic *topic;
 
 @end

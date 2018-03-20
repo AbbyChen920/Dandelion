@@ -26,4 +26,6 @@
 
 @property(nonatomic, assign) CGFloat ab_bottom;
 
+
++ (instancetype)viewFromXib;
 @end

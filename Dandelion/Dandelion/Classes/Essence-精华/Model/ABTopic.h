@@ -66,6 +66,22 @@ typedef NS_ENUM(NSUInteger, ABTopicType) {
 @property (nonatomic, assign) CGFloat height;
 
 // 额外增加的属性 - 方便开发
+// cell 的高度 
 @property (nonatomic, assign) CGFloat cellHeight;
+
+// 中间内容的 frame
+@property (nonatomic, assign) CGRect contentF;
+
+// 小图
+@property (nonatomic,copy) NSString *small_image;
+// 大图
+@property (nonatomic,copy) NSString *large_image;
+// 中图
+@property (nonatomic,copy) NSString *middle_image;
+// 是否为动态图
+@property (nonatomic, assign) BOOL is_gif;
+// 是否为超长图片
+@property (nonatomic, assign, getter=isBigPicture) BOOL bigPicture;
+
 
 @end

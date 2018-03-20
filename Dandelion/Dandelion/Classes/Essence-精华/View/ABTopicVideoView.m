@@ -10,12 +10,10 @@
 
 @implementation ABTopicVideoView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib
+{
+    // 从 xib 中加载进来的控件的autoresizingMask默认是UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight
+    self.autoresizingMask = UIViewAutoresizingNone;
 }
-*/
 
 @end
