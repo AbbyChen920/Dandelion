@@ -74,9 +74,10 @@ static NSCalendar *calendar_;
 
 - (CGFloat)cellHeight
 {
+    
     // 如果 cell 的高度已经计算过,就直接返回
     if (_cellHeight) return _cellHeight;
-    ABLogFunc
+    
     // 1.头像
     _cellHeight = 55;
     
@@ -91,6 +92,16 @@ static NSCalendar *calendar_;
     if (self.type != ABTopicTypeWord) { // 如果是图片\声音\视频帖子,才需要计算中间内容的高度
         // 中间内容的高度 == 中间内容宽度 * 图片的真实高度 / 图片的真实宽度
         CGFloat contentH = textMaxW * self.height / self.width;
+        
+        if (contentH >= [UIScreen mainScreen].bounds.size.height) { //超长图片
+            // 将超长图片的高度变为200
+            contentH = 200;
+            self.bigPicture = YES;
+        }
+        // 这里的 cellHeight 就是中间内容的 y 值
+        self.contentF = CGRectMake(ABMargin, _cellHeight, textMaxW, contentH);
+        
+        // 累加中间内容的高度
         _cellHeight += contentH + ABMargin;
     }
     

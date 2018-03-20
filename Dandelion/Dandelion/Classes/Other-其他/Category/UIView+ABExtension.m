@@ -106,4 +106,8 @@
     self.ab_y = ab_bottom - self.ab_height;
 }
 
++ (instancetype)viewFromXib;
+{
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
+}
 @end

@@ -47,6 +47,11 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gifView" destination="J5N-OV-0Eu" id="FUC-V6-d60"/>
+                <outlet property="imageView" destination="FnM-6A-IoC" id="hYa-9V-oq2"/>
+                <outlet property="seeBigButton" destination="CH3-aT-9sb" id="mob-LI-7Oc"/>
+            </connections>
             <point key="canvasLocation" x="-228.5" y="257.5"/>
         </view>
     </objects>
