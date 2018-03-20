@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ABTopic;
 
 @interface ABTopicVideoView : UIView
-
+// 模型数据
+@property (nonatomic,strong) ABTopic *topic;
 @end
