@@ -48,6 +48,7 @@
 		2898BCB8205E1F4900D328DF /* ABTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2898BCB7205E1F4900D328DF /* ABTopicVideoView.xib */; };
 		2898BCBB205E1F9600D328DF /* ABTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2898BCBA205E1F9600D328DF /* ABTopicVoiceView.m */; };
 		2898BCBD205E1FB100D328DF /* ABTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2898BCBC205E1FB100D328DF /* ABTopicVoiceView.xib */; };
+		2898BCC02062544300D328DF /* ABTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2898BCBF2062544300D328DF /* ABTopicViewController.m */; };
 		289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */; };
 		289E84DB1FD2D41F00E46DD8 /* DandelionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84DA1FD2D41F00E46DD8 /* DandelionTests.m */; };
 		289E84E61FD2D41F00E46DD8 /* DandelionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E84E51FD2D41F00E46DD8 /* DandelionUITests.m */; };
@@ -162,6 +163,8 @@
 		2898BCB9205E1F9600D328DF /* ABTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTopicVoiceView.h; sourceTree = "<group>"; };
 		2898BCBA205E1F9600D328DF /* ABTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTopicVoiceView.m; sourceTree = "<group>"; };
 		2898BCBC205E1FB100D328DF /* ABTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABTopicVoiceView.xib; sourceTree = "<group>"; };
+		2898BCBE2062544300D328DF /* ABTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTopicViewController.h; sourceTree = "<group>"; };
+		2898BCBF2062544300D328DF /* ABTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTopicViewController.m; sourceTree = "<group>"; };
 		289E84BD1FD2D41E00E46DD8 /* Dandelion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandelion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E84CC1FD2D41F00E46DD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289E84D11FD2D41F00E46DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				2890DA852020C029001CBE70 /* ABPictureViewController.m */,
 				2890DA872020C030001CBE70 /* ABWordViewController.h */,
 				2890DA882020C030001CBE70 /* ABWordViewController.m */,
+				2898BCBE2062544300D328DF /* ABTopicViewController.h */,
+				2898BCBF2062544300D328DF /* ABTopicViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -821,6 +826,7 @@
 				2844B6892006550500578257 /* ABConst.m in Sources */,
 				2804B7342050227E0039EB85 /* ABComment.m in Sources */,
 				28F184F01FDA9BB8001A94C8 /* main.m in Sources */,
+				2898BCC02062544300D328DF /* ABTopicViewController.m in Sources */,
 				2890DA8C202C7F87001CBE70 /* ABTopic.m in Sources */,
 				2890DA72201636A7001CBE70 /* ABSettingCell.m in Sources */,
 			);

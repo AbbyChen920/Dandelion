@@ -52,6 +52,7 @@
 - (void)setupChildViewControllers
 {
     ABAllViewController *all = [[ABAllViewController alloc] init];
+    
     [self addChildViewController:all];
     
     ABVideoViewController *video = [[ABVideoViewController alloc] init];
@@ -59,6 +60,7 @@
     
     ABVoiceViewController *voice = [[ABVoiceViewController alloc] init];
     [self addChildViewController:voice];
+    
     
     ABPictureViewController *picture = [[ABPictureViewController alloc] init];
     [self addChildViewController:picture];

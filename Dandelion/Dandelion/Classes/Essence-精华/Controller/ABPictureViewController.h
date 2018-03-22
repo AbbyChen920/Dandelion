@@ -6,8 +6,8 @@
 //  Copyright © 2018年 陈芬. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ABTopicViewController.h"
 
-@interface ABPictureViewController : UITableViewController
+@interface ABPictureViewController : ABTopicViewController
 
 @end
