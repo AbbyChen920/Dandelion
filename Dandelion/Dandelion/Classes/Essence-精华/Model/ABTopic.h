@@ -21,7 +21,8 @@
 //}ABTopicType;
 
 typedef NS_ENUM(NSUInteger, ABTopicType) {
-    
+    // 全部
+    ABTopicTypeAll = 1,
     // 图片
     ABTopicTypePicture = 10,
     // 段子
