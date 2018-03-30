@@ -10,6 +10,7 @@
 #import <UIImageView+WebCache.h>
 #import "ABTopic.h"
 #import "DALabeledCircularProgressView.h"
+#import "ABSeeBigViewController.h"
 
 @interface ABTopicPictureView ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -23,13 +24,34 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     // 从 xib 中加载进来的控件的autoresizingMask默认是UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight
     self.autoresizingMask = UIViewAutoresizingNone;
     
     self.progressView.roundedCorners = 5;
     self.progressView.progressLabel.textColor = [UIColor whiteColor];
+    
+    // 1.给图片添加一个手势,手势执行跳转
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBigPicture)]];
+    
 }
 
+- (void)seeBigPicture
+{
+    // 2.做一个控制器的跳转,把图片的信息传递过去
+    ABSeeBigViewController *seeBigVc = [[ABSeeBigViewController alloc] init];
+    
+    // 传递什么 -> topic 模型
+    seeBigVc.topic = self.topic;
+    
+    // 如何取到包含本 view 的 VC去跳转?
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:seeBigVc animated:YES completion:nil];
+    
+
+    
+}
 
 -(void)setTopic:(ABTopic *)topic
 {
