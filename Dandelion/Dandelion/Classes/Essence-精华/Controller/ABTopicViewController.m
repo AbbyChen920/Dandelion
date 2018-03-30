@@ -31,6 +31,13 @@
 
 @implementation ABTopicViewController
 
+#pragma mark - 仅仅是为了消除编译器发出的警告: type 方法没有实现
+- (ABTopicType)type
+{
+    return 0;
+}
+
+
 static NSString * const ABTopicCellId = @"topic";
 
 #pragma mark - 懒加载
