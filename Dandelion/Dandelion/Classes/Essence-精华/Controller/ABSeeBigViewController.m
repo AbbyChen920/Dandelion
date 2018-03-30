@@ -24,6 +24,8 @@
 
 @implementation ABSeeBigViewController
 
+static NSString *ABAssetCollectionTitle = @"Dandelion";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -105,14 +107,60 @@
     // PHAsset:一个资源,比如一张图片\一段视频
     // PHAssetCollection:一个相簿
     
-    // 1.保存图片 A 到"相机胶卷"中
+    // PHAssetCollection 的标识,利用这个标识可以找到对应的PHAssetCollection对象(相簿)
+    __block NSString *assetCollectionLocalIdentifier = nil;
     
-    // 2.创建"相簿" D
+    // PHAsset 的标识,利用这个标识可以找到对应的PHAsset对象(图片)
+    __block NSString *assetLocalIdentifier = nil;
     
-    // 3.添加"相机胶卷"中的图片 A 到新建的"相簿" D 中
-    
-    
-}
+    // 如果相对"相册"进行修改{增删改),那么修改代码必须要放在[PHPhotoLibrary sharedPhotoLibrary]的performChanges方法的 block中
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        // 1.保存图片 A 到"相机胶卷"中
+        // 创建图片的请求
+            assetLocalIdentifier = [PHAssetCreationRequest creationRequestForAssetFromImage:self.imageView.image].placeholderForCreatedAsset.localIdentifier;
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (success == NO) {
+            ABLog(@"保存图片到[相机胶卷]中失败!失败信息-%@",error);
+            return;
+        }
+        
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            // 2.创建"相簿" D
+            // 创建相簿的请求
+            assetCollectionLocalIdentifier = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:ABAssetCollectionTitle].placeholderForCreatedAssetCollection.localIdentifier;
+        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+            if (success == NO) {
+                ABLog(@"保存相簿失败!失败信息-%@",error);
+                return;
+            }
+            
+            
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                // 3.添加"相机胶卷"中的图片 A 到新建的"相簿" D 中
+                
+                // 获得相簿
+                PHAssetCollection *assetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionLocalIdentifier] options:nil].firstObject;
+                
+                // 获得图片
+                PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetLocalIdentifier] options:nil].firstObject;
+                
+                // 添加图片到相簿中的请求
+                PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+                
+                // 添加图片到相簿
+                [request addAssets:@[asset]];
+                
+            } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                if (success == NO) {
+                    ABLog(@"[图片]保存到[相簿]失败!失败信息-%@",error);
+                }else{
+                    ABLog(@"[图片]保存到[相簿]成功!");
+                }
+            }];
+            
+        }];
+    }];
+ }
 
 
 #pragma mark - <UIScrollViewDelegate>
