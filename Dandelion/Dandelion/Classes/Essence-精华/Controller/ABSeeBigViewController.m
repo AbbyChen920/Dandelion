@@ -124,28 +124,16 @@ static NSString *ABAssetCollectionTitle = @"Dandelion";
             return;
         }
         
-        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-            // 2.创建"相簿" D
-            // 创建相簿的请求
-            assetCollectionLocalIdentifier = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:ABAssetCollectionTitle].placeholderForCreatedAssetCollection.localIdentifier;
-        } completionHandler:^(BOOL success, NSError * _Nullable error) {
-            if (success == NO) {
-                ABLog(@"保存相簿失败!失败信息-%@",error);
-                return;
-            }
-            
-            
+        PHAssetCollection *createdAssetCollection = [self createdAssetCollection];
+        if (createdAssetCollection) { // 曾经创建过相簿
             [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
                 // 3.添加"相机胶卷"中的图片 A 到新建的"相簿" D 中
-                
-                // 获得相簿
-                PHAssetCollection *assetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionLocalIdentifier] options:nil].firstObject;
                 
                 // 获得图片
                 PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetLocalIdentifier] options:nil].firstObject;
                 
                 // 添加图片到相簿中的请求
-                PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+                PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:createdAssetCollection];
                 
                 // 添加图片到相簿
                 [request addAssets:@[asset]];
@@ -157,11 +145,60 @@ static NSString *ABAssetCollectionTitle = @"Dandelion";
                     ABLog(@"[图片]保存到[相簿]成功!");
                 }
             }];
-            
-        }];
+        } else{ // 没有创建过相簿
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                // 2.创建"相簿" D
+                // 创建相簿的请求
+                assetCollectionLocalIdentifier = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:ABAssetCollectionTitle].placeholderForCreatedAssetCollection.localIdentifier;
+            } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                if (success == NO) {
+                    ABLog(@"保存相簿失败!失败信息-%@",error);
+                    return;
+                }
+                
+                
+                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                    // 3.添加"相机胶卷"中的图片 A 到新建的"相簿" D 中
+                    
+                    // 获得相簿
+                    PHAssetCollection *assetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionLocalIdentifier] options:nil].firstObject;
+                    
+                    // 获得图片
+                    PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetLocalIdentifier] options:nil].firstObject;
+                    
+                    // 添加图片到相簿中的请求
+                    PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+                    
+                    // 添加图片到相簿
+                    [request addAssets:@[asset]];
+                    
+                } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                    if (success == NO) {
+                        ABLog(@"[图片]保存到[相簿]失败!失败信息-%@",error);
+                    }else{
+                        ABLog(@"[图片]保存到[相簿]成功!");
+                    }
+                }];
+                
+            }];
+        }
+
     }];
  }
 
+
+// 获得曾经创建过的相簿
+- (PHAssetCollection *)createdAssetCollection
+{
+    PHFetchResult<PHAssetCollection *> *assetCollections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    
+    for (PHAssetCollection *assetCollection in assetCollections) {
+        if ([assetCollection.localizedTitle isEqualToString:ABAssetCollectionTitle]) {
+            return assetCollection;
+        }
+    }
+    return nil;
+}
 
 #pragma mark - <UIScrollViewDelegate>
 // 返回一个 scrollview 的子控件进行缩放
