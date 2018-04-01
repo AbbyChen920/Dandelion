@@ -107,9 +107,6 @@ static NSString *ABAssetCollectionTitle = @"Dandelion";
     // PHAsset:一个资源,比如一张图片\一段视频
     // PHAssetCollection:一个相簿
     
-    // PHAssetCollection 的标识,利用这个标识可以找到对应的PHAssetCollection对象(相簿)
-    __block NSString *assetCollectionLocalIdentifier = nil;
-    
     // PHAsset 的标识,利用这个标识可以找到对应的PHAsset对象(图片)
     __block NSString *assetLocalIdentifier = nil;
     
@@ -120,76 +117,50 @@ static NSString *ABAssetCollectionTitle = @"Dandelion";
             assetLocalIdentifier = [PHAssetCreationRequest creationRequestForAssetFromImage:self.imageView.image].placeholderForCreatedAsset.localIdentifier;
     } completionHandler:^(BOOL success, NSError * _Nullable error) {
         if (success == NO) {
-            ABLog(@"保存图片到[相机胶卷]中失败!失败信息-%@",error);
+            [self showError:@"保存图片失败!"];
             return;
         }
         
+        // 2.获得相簿
         PHAssetCollection *createdAssetCollection = [self createdAssetCollection];
-        if (createdAssetCollection) { // 曾经创建过相簿
-            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                // 3.添加"相机胶卷"中的图片 A 到新建的"相簿" D 中
-                
-                // 获得图片
-                PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetLocalIdentifier] options:nil].firstObject;
-                
-                // 添加图片到相簿中的请求
-                PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:createdAssetCollection];
-                
-                // 添加图片到相簿
-                [request addAssets:@[asset]];
-                
-            } completionHandler:^(BOOL success, NSError * _Nullable error) {
-                if (success == NO) {
-                    ABLog(@"[图片]保存到[相簿]失败!失败信息-%@",error);
-                }else{
-                    ABLog(@"[图片]保存到[相簿]成功!");
-                }
-            }];
-        } else{ // 没有创建过相簿
-            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                // 2.创建"相簿" D
-                // 创建相簿的请求
-                assetCollectionLocalIdentifier = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:ABAssetCollectionTitle].placeholderForCreatedAssetCollection.localIdentifier;
-            } completionHandler:^(BOOL success, NSError * _Nullable error) {
-                if (success == NO) {
-                    ABLog(@"保存相簿失败!失败信息-%@",error);
-                    return;
-                }
-                
-                
-                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        if (createdAssetCollection == nil) {
+            [self showError:@"创建相簿失败!"];
+            return;
+        }
+        
+        
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
                     // 3.添加"相机胶卷"中的图片 A 到新建的"相簿" D 中
-                    
-                    // 获得相簿
-                    PHAssetCollection *assetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionLocalIdentifier] options:nil].firstObject;
-                    
+
                     // 获得图片
                     PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetLocalIdentifier] options:nil].firstObject;
                     
                     // 添加图片到相簿中的请求
-                    PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+                    PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:createdAssetCollection];
                     
                     // 添加图片到相簿
                     [request addAssets:@[asset]];
                     
                 } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                    
+//                    ABLog(@"%@",[NSThread currentThread]);
+                    
                     if (success == NO) {
-                        ABLog(@"[图片]保存到[相簿]失败!失败信息-%@",error);
+                        [self showError:@"保存图片失败!"];
                     }else{
-                        ABLog(@"[图片]保存到[相簿]成功!");
+                        [self showSuccess:@"保存图片成功!"];
                     }
                 }];
                 
             }];
-        }
-
-    }];
- }
+     }
 
 
-// 获得曾经创建过的相簿
+
+// 获得相簿
 - (PHAssetCollection *)createdAssetCollection
 {
+    // 从已存在相簿中查找这个应用对应的相簿
     PHFetchResult<PHAssetCollection *> *assetCollections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     
     for (PHAssetCollection *assetCollection in assetCollections) {
@@ -197,8 +168,40 @@ static NSString *ABAssetCollectionTitle = @"Dandelion";
             return assetCollection;
         }
     }
-    return nil;
+    
+    // 没有找到对应的相簿,得创建新的相簿
+    
+    // PHAssetCollection 的标识,利用这个标识可以找到对应的PHAssetCollection对象(相簿)
+    __block NSString *assetCollectionLocalIdentifier = nil;
+    
+    // 错误信息
+    NSError *error = nil;
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{ // 同步方法
+        // 创建相簿的请求
+        assetCollectionLocalIdentifier = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:ABAssetCollectionTitle].placeholderForCreatedAssetCollection.localIdentifier;
+    } error:&error];
+    
+    if (error) return nil;
+    
+    // 获得刚才创建的相簿
+    return [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionLocalIdentifier] options:nil].firstObject;
 }
+
+- (void)showSuccess:(NSString *)text
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD showSuccessWithStatus:text];
+    });
+}
+
+- (void)showError:(NSString *)text
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD showErrorWithStatus:text];
+    });
+}
+
 
 #pragma mark - <UIScrollViewDelegate>
 // 返回一个 scrollview 的子控件进行缩放
