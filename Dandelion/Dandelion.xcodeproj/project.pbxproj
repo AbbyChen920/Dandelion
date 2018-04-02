@@ -56,6 +56,10 @@
 		28CA93891FFFD37B00BFEBC2 /* UITextField+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CA93881FFFD37B00BFEBC2 /* UITextField+ABExtension.m */; };
 		28F15E92206D220E00DC83B4 /* ABSeeBigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15E90206D220E00DC83B4 /* ABSeeBigViewController.m */; };
 		28F15E93206D220E00DC83B4 /* ABSeeBigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F15E91206D220E00DC83B4 /* ABSeeBigViewController.xib */; };
+		28F15ED520724E8D00DC83B4 /* ABRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15ED420724E8D00DC83B4 /* ABRecommendTag.m */; };
+		28F15ED920724FAB00DC83B4 /* ABRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15ED720724FAB00DC83B4 /* ABRecommendTagCell.m */; };
+		28F15EDA20724FAB00DC83B4 /* ABRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F15ED820724FAB00DC83B4 /* ABRecommendTagCell.xib */; };
+		28F15EDD2072623D00DC83B4 /* ABRecommendTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EDC2072623D00DC83B4 /* ABRecommendTagViewController.m */; };
 		28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */; };
 		28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C81FDA9BB8001A94C8 /* ABFollowViewController.m */; };
 		28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184CE1FDA9BB8001A94C8 /* ABMeViewController.m */; };
@@ -183,6 +187,13 @@
 		28F15E8F206D220E00DC83B4 /* ABSeeBigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSeeBigViewController.h; sourceTree = "<group>"; };
 		28F15E90206D220E00DC83B4 /* ABSeeBigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSeeBigViewController.m; sourceTree = "<group>"; };
 		28F15E91206D220E00DC83B4 /* ABSeeBigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABSeeBigViewController.xib; sourceTree = "<group>"; };
+		28F15ED320724E8D00DC83B4 /* ABRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRecommendTag.h; sourceTree = "<group>"; };
+		28F15ED420724E8D00DC83B4 /* ABRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRecommendTag.m; sourceTree = "<group>"; };
+		28F15ED620724FAB00DC83B4 /* ABRecommendTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRecommendTagCell.h; sourceTree = "<group>"; };
+		28F15ED720724FAB00DC83B4 /* ABRecommendTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRecommendTagCell.m; sourceTree = "<group>"; };
+		28F15ED820724FAB00DC83B4 /* ABRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABRecommendTagCell.xib; sourceTree = "<group>"; };
+		28F15EDB2072623D00DC83B4 /* ABRecommendTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRecommendTagViewController.h; sourceTree = "<group>"; };
+		28F15EDC2072623D00DC83B4 /* ABRecommendTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRecommendTagViewController.m; sourceTree = "<group>"; };
 		28F184C11FDA9BB8001A94C8 /* ABEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABEssenceViewController.h; sourceTree = "<group>"; };
 		28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABEssenceViewController.m; sourceTree = "<group>"; };
 		28F184C71FDA9BB8001A94C8 /* ABFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFollowViewController.h; sourceTree = "<group>"; };
@@ -348,6 +359,8 @@
 				28F15E8F206D220E00DC83B4 /* ABSeeBigViewController.h */,
 				28F15E90206D220E00DC83B4 /* ABSeeBigViewController.m */,
 				28F15E91206D220E00DC83B4 /* ABSeeBigViewController.xib */,
+				28F15EDB2072623D00DC83B4 /* ABRecommendTagViewController.h */,
+				28F15EDC2072623D00DC83B4 /* ABRecommendTagViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -361,6 +374,8 @@
 				2804B730205022090039EB85 /* ABUser.m */,
 				2804B7322050227E0039EB85 /* ABComment.h */,
 				2804B7332050227E0039EB85 /* ABComment.m */,
+				28F15ED320724E8D00DC83B4 /* ABRecommendTag.h */,
+				28F15ED420724E8D00DC83B4 /* ABRecommendTag.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -382,6 +397,9 @@
 				2898BCB9205E1F9600D328DF /* ABTopicVoiceView.h */,
 				2898BCBA205E1F9600D328DF /* ABTopicVoiceView.m */,
 				2898BCBC205E1FB100D328DF /* ABTopicVoiceView.xib */,
+				28F15ED620724FAB00DC83B4 /* ABRecommendTagCell.h */,
+				28F15ED720724FAB00DC83B4 /* ABRecommendTagCell.m */,
+				28F15ED820724FAB00DC83B4 /* ABRecommendTagCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -708,6 +726,7 @@
 				280A676E1FEE1F2200AE22EE /* ABFollowViewController.xib in Resources */,
 				28F15E93206D220E00DC83B4 /* ABSeeBigViewController.xib in Resources */,
 				289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */,
+				28F15EDA20724FAB00DC83B4 /* ABRecommendTagCell.xib in Resources */,
 				2844FAB8204AB656005C18AE /* ABTopicCell.xib in Resources */,
 				280A67731FEE7A5700AE22EE /* ABLoginRegisterViewController.xib in Resources */,
 			);
@@ -801,10 +820,12 @@
 				28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */,
 				2890DA6F201492AB001CBE70 /* ABClearCacheCell.m in Sources */,
 				2898BCB1205E1E3700D328DF /* ABTopicPictureView.m in Sources */,
+				28F15EDD2072623D00DC83B4 /* ABRecommendTagViewController.m in Sources */,
 				2804B731205022090039EB85 /* ABUser.m in Sources */,
 				2844FAB7204AB656005C18AE /* ABTopicCell.m in Sources */,
 				2890DA7620163C8E001CBE70 /* ABOtherCell.m in Sources */,
 				2844B6D42009BCBC00578257 /* ABMeSquareButton.m in Sources */,
+				28F15ED920724FAB00DC83B4 /* ABRecommendTagCell.m in Sources */,
 				2804B72E204E7A230039EB85 /* NSCalendar+ABExtension.m in Sources */,
 				2890DA802020C00B001CBE70 /* ABVideoViewController.m in Sources */,
 				280A67761FEEAF2600AE22EE /* ABTabBar.m in Sources */,
@@ -828,6 +849,7 @@
 				2844B68C2006628200578257 /* ABMeCell.m in Sources */,
 				2890DA6C200F8180001CBE70 /* NSString+ABExtension.m in Sources */,
 				2844B6D12008554800578257 /* ABMeSquare.m in Sources */,
+				28F15ED520724E8D00DC83B4 /* ABRecommendTag.m in Sources */,
 				28F184EF1FDA9BB8001A94C8 /* ABTabBarController.m in Sources */,
 				28F185081FDBD3D3001A94C8 /* ABNavigationController.m in Sources */,
 				280A67791FEEAFE900AE22EE /* ABQuickLoginButton.m in Sources */,
