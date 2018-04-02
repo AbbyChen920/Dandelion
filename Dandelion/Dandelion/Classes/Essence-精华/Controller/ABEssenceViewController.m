@@ -13,6 +13,7 @@
 #import "ABVoiceViewController.h"
 #import "ABPictureViewController.h"
 #import "ABWordViewController.h"
+#import "ABRecommendTagViewController.h"
 
 
 @interface ABEssenceViewController () <UIScrollViewDelegate>
@@ -179,7 +180,8 @@
 
 - (void)tagClick
 {
-    ABLogFunc 
+    ABRecommendTagViewController *tag = [[ABRecommendTagViewController alloc] init];
+    [self.navigationController pushViewController:tag animated:YES];
 }
 
 
