@@ -61,6 +61,8 @@
 		28F15EDA20724FAB00DC83B4 /* ABRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F15ED820724FAB00DC83B4 /* ABRecommendTagCell.xib */; };
 		28F15EDD2072623D00DC83B4 /* ABRecommendTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EDC2072623D00DC83B4 /* ABRecommendTagViewController.m */; };
 		28F15EE02073825700DC83B4 /* UIImageView+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EDF2073825700DC83B4 /* UIImageView+ABExtension.m */; };
+		28F15EE82073B3CC00DC83B4 /* ABCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EE62073B3CC00DC83B4 /* ABCommentViewController.m */; };
+		28F15EE92073B3CC00DC83B4 /* ABCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F15EE72073B3CC00DC83B4 /* ABCommentViewController.xib */; };
 		28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */; };
 		28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C81FDA9BB8001A94C8 /* ABFollowViewController.m */; };
 		28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184CE1FDA9BB8001A94C8 /* ABMeViewController.m */; };
@@ -197,6 +199,9 @@
 		28F15EDC2072623D00DC83B4 /* ABRecommendTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRecommendTagViewController.m; sourceTree = "<group>"; };
 		28F15EDE2073825700DC83B4 /* UIImageView+ABExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ABExtension.h"; sourceTree = "<group>"; };
 		28F15EDF2073825700DC83B4 /* UIImageView+ABExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ABExtension.m"; sourceTree = "<group>"; };
+		28F15EE52073B3CC00DC83B4 /* ABCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCommentViewController.h; sourceTree = "<group>"; };
+		28F15EE62073B3CC00DC83B4 /* ABCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCommentViewController.m; sourceTree = "<group>"; };
+		28F15EE72073B3CC00DC83B4 /* ABCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABCommentViewController.xib; sourceTree = "<group>"; };
 		28F184C11FDA9BB8001A94C8 /* ABEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABEssenceViewController.h; sourceTree = "<group>"; };
 		28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABEssenceViewController.m; sourceTree = "<group>"; };
 		28F184C71FDA9BB8001A94C8 /* ABFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFollowViewController.h; sourceTree = "<group>"; };
@@ -320,9 +325,44 @@
 			path = DandelionUITests;
 			sourceTree = "<group>";
 		};
+		28F15EE12073B30600DC83B4 /* Comment-评论 */ = {
+			isa = PBXGroup;
+			children = (
+				28F15EE22073B30600DC83B4 /* Controller */,
+				28F15EE32073B30600DC83B4 /* Model */,
+				28F15EE42073B30600DC83B4 /* View */,
+			);
+			path = "Comment-评论";
+			sourceTree = "<group>";
+		};
+		28F15EE22073B30600DC83B4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28F15EE52073B3CC00DC83B4 /* ABCommentViewController.h */,
+				28F15EE62073B3CC00DC83B4 /* ABCommentViewController.m */,
+				28F15EE72073B3CC00DC83B4 /* ABCommentViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		28F15EE32073B30600DC83B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		28F15EE42073B30600DC83B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		28F184BE1FDA9BB8001A94C8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				28F15EE12073B30600DC83B4 /* Comment-评论 */,
 				28F184BF1FDA9BB8001A94C8 /* Essence-精华 */,
 				28F184D11FDA9BB8001A94C8 /* New-新帖 */,
 				28F184C51FDA9BB8001A94C8 /* Follow-关注 */,
@@ -732,6 +772,7 @@
 				28F15E93206D220E00DC83B4 /* ABSeeBigViewController.xib in Resources */,
 				289E84CD1FD2D41F00E46DD8 /* Assets.xcassets in Resources */,
 				28F15EDA20724FAB00DC83B4 /* ABRecommendTagCell.xib in Resources */,
+				28F15EE92073B3CC00DC83B4 /* ABCommentViewController.xib in Resources */,
 				2844FAB8204AB656005C18AE /* ABTopicCell.xib in Resources */,
 				280A67731FEE7A5700AE22EE /* ABLoginRegisterViewController.xib in Resources */,
 			);
@@ -845,6 +886,7 @@
 				2898BCB6205E1F3700D328DF /* ABTopicVideoView.m in Sources */,
 				28F184F61FDAF6F2001A94C8 /* UIBarButtonItem+ABExtension.m in Sources */,
 				2890DA832020C018001CBE70 /* ABVoiceViewController.m in Sources */,
+				28F15EE82073B3CC00DC83B4 /* ABCommentViewController.m in Sources */,
 				2804B7B12056B90C0039EB85 /* ABExtensionConfig.m in Sources */,
 				2890DA862020C029001CBE70 /* ABPictureViewController.m in Sources */,
 				28F184EA1FDA9BB8001A94C8 /* ABNewViewController.m in Sources */,
