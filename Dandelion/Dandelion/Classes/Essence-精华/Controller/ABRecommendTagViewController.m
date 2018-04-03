@@ -103,7 +103,7 @@ static NSString * const ABRecommendTagCellID = @"recommendTag";
     // 取消请求
 //    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     [self.manager invalidateSessionCancelingTasks:YES];
-}
+} 
 
 #pragma mark - tableviewdatasource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
