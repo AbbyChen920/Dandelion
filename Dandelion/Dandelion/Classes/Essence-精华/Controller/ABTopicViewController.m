@@ -14,6 +14,7 @@
 #import "ABRefreshHeader.h"
 #import "ABRefreshFooter.h"
 #import "ABTopicCell.h"
+#import "ABCommentViewController.h"
 
 
 @interface ABTopicViewController ()
@@ -225,5 +226,10 @@ static NSString * const ABTopicCellId = @"topic";
     return self.topics[indexPath.row].cellHeight;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ABCommentViewController *comment = [[ABCommentViewController alloc] init];
+    [self.navigationController pushViewController:comment animated:YES];
+}
 
 @end
