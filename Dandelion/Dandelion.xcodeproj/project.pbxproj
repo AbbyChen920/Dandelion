@@ -60,6 +60,7 @@
 		28F15ED920724FAB00DC83B4 /* ABRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15ED720724FAB00DC83B4 /* ABRecommendTagCell.m */; };
 		28F15EDA20724FAB00DC83B4 /* ABRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F15ED820724FAB00DC83B4 /* ABRecommendTagCell.xib */; };
 		28F15EDD2072623D00DC83B4 /* ABRecommendTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EDC2072623D00DC83B4 /* ABRecommendTagViewController.m */; };
+		28F15EE02073825700DC83B4 /* UIImageView+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EDF2073825700DC83B4 /* UIImageView+ABExtension.m */; };
 		28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */; };
 		28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C81FDA9BB8001A94C8 /* ABFollowViewController.m */; };
 		28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184CE1FDA9BB8001A94C8 /* ABMeViewController.m */; };
@@ -194,6 +195,8 @@
 		28F15ED820724FAB00DC83B4 /* ABRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABRecommendTagCell.xib; sourceTree = "<group>"; };
 		28F15EDB2072623D00DC83B4 /* ABRecommendTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRecommendTagViewController.h; sourceTree = "<group>"; };
 		28F15EDC2072623D00DC83B4 /* ABRecommendTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRecommendTagViewController.m; sourceTree = "<group>"; };
+		28F15EDE2073825700DC83B4 /* UIImageView+ABExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ABExtension.h"; sourceTree = "<group>"; };
+		28F15EDF2073825700DC83B4 /* UIImageView+ABExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ABExtension.m"; sourceTree = "<group>"; };
 		28F184C11FDA9BB8001A94C8 /* ABEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABEssenceViewController.h; sourceTree = "<group>"; };
 		28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABEssenceViewController.m; sourceTree = "<group>"; };
 		28F184C71FDA9BB8001A94C8 /* ABFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFollowViewController.h; sourceTree = "<group>"; };
@@ -559,6 +562,8 @@
 				2804B72A204E77D70039EB85 /* NSDate+ABExtension.m */,
 				2804B72C204E7A230039EB85 /* NSCalendar+ABExtension.h */,
 				2804B72D204E7A230039EB85 /* NSCalendar+ABExtension.m */,
+				28F15EDE2073825700DC83B4 /* UIImageView+ABExtension.h */,
+				28F15EDF2073825700DC83B4 /* UIImageView+ABExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -809,6 +814,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2898BCBB205E1F9600D328DF /* ABTopicVoiceView.m in Sources */,
+				28F15EE02073825700DC83B4 /* UIImageView+ABExtension.m in Sources */,
 				2890DA69200E0D6C001CBE70 /* ABSettingViewController.m in Sources */,
 				28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */,
 				28CA93891FFFD37B00BFEBC2 /* UITextField+ABExtension.m in Sources */,

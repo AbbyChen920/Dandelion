@@ -24,7 +24,7 @@
 #import "NSString+ABExtension.h"
 #import "NSDate+ABExtension.h"
 #import "NSCalendar+ABExtension.h"
-
+#import "UIImageView+ABExtension.h"
 // 当前系统版本判断
 #define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
 

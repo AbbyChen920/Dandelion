@@ -19,12 +19,14 @@
 
 @implementation ABRecommendTagCell
 
+
+
 -(void)setRecommendTag:(ABRecommendTag *)recommendTag
 {
     _recommendTag = recommendTag;
     
     // 头像
-    [self.imageListView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.imageListView setHeader:recommendTag.image_list];
     
     // 名字
     self.themeNameLabel.text = recommendTag.theme_name;
