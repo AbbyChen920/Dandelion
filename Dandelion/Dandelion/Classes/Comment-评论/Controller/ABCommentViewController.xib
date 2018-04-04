@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ABCommentViewController">
             <connections>
                 <outlet property="bottomMargin" destination="5fe-tp-XZ3" id="fAX-12-Jme"/>
+                <outlet property="tableView" destination="QYk-TW-FJa" id="OAc-TP-QhO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -72,6 +73,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="622"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
+                        <outlet property="dataSource" destination="-1" id="ZVw-uu-Cqb"/>
                         <outlet property="delegate" destination="-1" id="SbK-el-ZJg"/>
                     </connections>
                 </tableView>
