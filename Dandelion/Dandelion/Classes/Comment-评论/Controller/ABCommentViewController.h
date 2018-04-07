@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ABTopic;
 
 @interface ABCommentViewController : UIViewController
+
+// 帖子模型数据
+@property (nonatomic,strong) ABTopic *topic;
 
 @end

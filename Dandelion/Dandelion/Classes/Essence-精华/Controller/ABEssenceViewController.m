@@ -52,16 +52,14 @@
 
 - (void)setupChildViewControllers
 {
-    ABAllViewController *all = [[ABAllViewController alloc] init];
+    ABVoiceViewController *voice = [[ABVoiceViewController alloc] init];
+    [self addChildViewController:voice];
     
+    ABAllViewController *all = [[ABAllViewController alloc] init];
     [self addChildViewController:all];
     
     ABVideoViewController *video = [[ABVideoViewController alloc] init];
     [self addChildViewController:video];
-    
-    ABVoiceViewController *voice = [[ABVoiceViewController alloc] init];
-    [self addChildViewController:voice];
-    
     
     ABPictureViewController *picture = [[ABPictureViewController alloc] init];
     [self addChildViewController:picture];
@@ -101,7 +99,7 @@
     self.titlesView = titlesView;
     
     // 添加标题
-    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+    NSArray *titles = @[@"声音", @"全部", @"视频", @"图片", @"段子"];
     NSUInteger count = titles.count;
     CGFloat titleButtonW = titlesView.ab_width / count;
     CGFloat titleButtonH = titlesView.ab_height;

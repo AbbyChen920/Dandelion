@@ -21,28 +21,36 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-TW-FJa">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ZVw-uu-Cqb"/>
+                        <outlet property="delegate" destination="-1" id="SbK-el-ZJg"/>
+                    </connections>
+                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AiU-WY-LLG" userLabel="底部工具条">
-                    <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment-bar-bg" translatesAutoresizingMaskIntoConstraints="NO" id="k18-Mh-GHd">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ij-4r-CIb">
-                            <rect key="frame" x="0.0" y="0.0" width="35" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="35" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="Yfi-7f-YKK"/>
                             </constraints>
                             <state key="normal" image="comment-bar-voice"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlt-Eg-S56">
-                            <rect key="frame" x="340" y="0.0" width="35" height="45"/>
+                            <rect key="frame" x="340" y="0.0" width="35" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="J5u-tS-WU4"/>
                             </constraints>
                             <state key="normal" image="comment_bar_at_icon"/>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="写评论..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBo-g8-exB">
-                            <rect key="frame" x="50" y="7" width="275" height="30"/>
+                            <rect key="frame" x="50" y="6.5" width="275" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="dC1-Ke-dgm"/>
                             </constraints>
@@ -60,7 +68,7 @@
                         <constraint firstItem="2Ij-4r-CIb" firstAttribute="top" secondItem="AiU-WY-LLG" secondAttribute="top" id="BQp-St-xOS"/>
                         <constraint firstItem="k18-Mh-GHd" firstAttribute="leading" secondItem="AiU-WY-LLG" secondAttribute="leading" id="HmT-VY-CGz"/>
                         <constraint firstAttribute="bottom" secondItem="k18-Mh-GHd" secondAttribute="bottom" id="QLB-KG-ZWf"/>
-                        <constraint firstAttribute="height" constant="45" id="Sri-Pb-URy"/>
+                        <constraint firstAttribute="height" constant="44" id="Sri-Pb-URy"/>
                         <constraint firstItem="Xlt-Eg-S56" firstAttribute="top" secondItem="AiU-WY-LLG" secondAttribute="top" id="V1k-Vq-ceO"/>
                         <constraint firstAttribute="trailing" secondItem="Xlt-Eg-S56" secondAttribute="trailing" id="bdS-pI-e2d"/>
                         <constraint firstItem="cBo-g8-exB" firstAttribute="centerY" secondItem="AiU-WY-LLG" secondAttribute="centerY" id="kjl-AC-qBP"/>
@@ -69,14 +77,6 @@
                         <constraint firstAttribute="bottom" secondItem="2Ij-4r-CIb" secondAttribute="bottom" id="wsj-sh-Np2"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-TW-FJa">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="622"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="ZVw-uu-Cqb"/>
-                        <outlet property="delegate" destination="-1" id="SbK-el-ZJg"/>
-                    </connections>
-                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
