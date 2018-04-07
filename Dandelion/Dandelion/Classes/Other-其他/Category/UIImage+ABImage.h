@@ -10,4 +10,10 @@
 
 @interface UIImage (ABImage)
 + (instancetype)imageWithOriginalImageName:(NSString *)imageName;
+
+// 将图片改为圆形图片
+- (instancetype)circleImage;
+
++ (instancetype)circleImage:(NSString *)name;
+
 @end

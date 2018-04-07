@@ -13,6 +13,7 @@
 #import "ABVoiceViewController.h"
 #import "ABPictureViewController.h"
 #import "ABWordViewController.h"
+#import "ABRecommendTagViewController.h"
 
 
 @interface ABEssenceViewController () <UIScrollViewDelegate>
@@ -51,14 +52,14 @@
 
 - (void)setupChildViewControllers
 {
+    ABVoiceViewController *voice = [[ABVoiceViewController alloc] init];
+    [self addChildViewController:voice];
+    
     ABAllViewController *all = [[ABAllViewController alloc] init];
     [self addChildViewController:all];
     
     ABVideoViewController *video = [[ABVideoViewController alloc] init];
     [self addChildViewController:video];
-    
-    ABVoiceViewController *voice = [[ABVoiceViewController alloc] init];
-    [self addChildViewController:voice];
     
     ABPictureViewController *picture = [[ABPictureViewController alloc] init];
     [self addChildViewController:picture];
@@ -74,7 +75,7 @@
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.delegate = self;
-    scrollView.backgroundColor = ABRandomColor;
+    scrollView.backgroundColor = ABCommonBgColor;
     scrollView.frame = self.view.bounds;
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
@@ -98,7 +99,7 @@
     self.titlesView = titlesView;
     
     // 添加标题
-    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+    NSArray *titles = @[@"声音", @"全部", @"视频", @"图片", @"段子"];
     NSUInteger count = titles.count;
     CGFloat titleButtonW = titlesView.ab_width / count;
     CGFloat titleButtonH = titlesView.ab_height;
@@ -177,7 +178,8 @@
 
 - (void)tagClick
 {
-    ABLogFunc 
+    ABRecommendTagViewController *tag = [[ABRecommendTagViewController alloc] init];
+    [self.navigationController pushViewController:tag animated:YES];
 }
 
 
