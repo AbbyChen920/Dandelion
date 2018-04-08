@@ -13,6 +13,8 @@
 #import "ABTopic.h"
 #import "ABComment.h"
 #import <MJExtension.h>
+#import "ABCommentSectionHeader.h"
+
 
 @interface ABCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -36,6 +38,7 @@
 
 
 static NSString * const ABCommentCellID = @"comment";
+static NSString * const ABSectionHeaderID = @"header";
 
 #pragma mark - 懒加载
 -(AFHTTPSessionManager *)manager
@@ -61,7 +64,9 @@ static NSString * const ABCommentCellID = @"comment";
 - (void)setupTabled
 {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ABCommentCellID];
+    [self.tableView registerClass:[ABCommentSectionHeader class] forHeaderFooterViewReuseIdentifier:ABSectionHeaderID];
 
+    
     UIView *headerView = [[UIView alloc] init];
     headerView.backgroundColor = [UIColor redColor];
     headerView.ab_height = 200;
@@ -69,6 +74,9 @@ static NSString * const ABCommentCellID = @"comment";
     
     self.tableView.backgroundColor = ABCommonBgColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // 每一组头部header的高度
+    self.tableView.sectionHeaderHeight = ABCommentSectionHeaderFont.lineHeight  ;
     
 }
 
@@ -209,18 +217,105 @@ static NSString * const ABCommentCellID = @"comment";
   
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    // 第0组 && 有最热评论
-    if (section == 0 && self.hotestComments.count) {
-        return @"最热评论";
-    }
-    // 其他情况
-    return @"最新评论";
-    
-}
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    // 第0组 && 有最热评论
+//    if (section == 0 && self.hotestComments.count) {
+//        return @"最热评论";
+//    }
+//    // 其他情况
+//    return @"最新评论";
+//    
+//}
 
 #pragma mark -UITableViewDelegate
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UILabel *label = [[UILabel alloc] init];
+//    label.backgroundColor = tableView.backgroundColor;
+//    
+//    label.font = ABCommentSectionHeaderFont;
+//    label.textColor = [UIColor darkGrayColor];
+//    
+//    
+//    // 第0组 && 有最热评论
+//    if (section == 0 && self.hotestComments.count) {
+//        label.text = @"最热评论";
+//    }else{ // 其他情况
+//        label.text = @"最新评论";
+//    }
+//    
+//    return label;
+//}
+
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UIButton *btn = [[UIButton alloc] init];
+//    btn.backgroundColor = tableView.backgroundColor;
+//    
+//
+//    // 内边距
+////    btn.contentEdgeInsets = UIEdgeInsetsMake(0, ABMargin, 0, 0);
+//    btn.titleEdgeInsets = UIEdgeInsetsMake(0, ABMargin, 0, 0);
+//    
+//    // 让按钮内部的内容, 在按钮中左对齐
+//    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//    
+//    btn.titleLabel.font = ABCommentSectionHeaderFont;
+//    
+//    // 让 label 的文字在 label 内容左对齐
+////    btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+//    
+//    [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//    
+//    // 第0组 && 有最热评论
+//    if (section == 0 && self.hotestComments.count) {
+//        [btn setTitle:@"最热评论" forState:UIControlStateNormal];
+//    }else{ // 其他情况
+//        [btn setTitle:@"最新评论" forState:UIControlStateNormal];
+//    }
+//    
+//    return btn;
+//}
+
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    //    if (header == nil) {
+//    //        header = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"header"];
+//    ////        header.textLabel.textColor = [UIColor redColor];
+//    //    }
+//    
+//    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ABSectionHeaderID];
+//    
+//    header.textLabel.textColor = [UIColor redColor];
+//
+//    // 第0组 && 有最热评论
+//    if (section == 0 && self.hotestComments.count) {
+//        header.textLabel.text = @"最热评论";
+//        
+//    }else{ // 其他情况
+//        header.textLabel.text = @"最新评论";
+//    }
+//    
+//    return header;
+//}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+
+    ABCommentSectionHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ABSectionHeaderID];
+    
+    // 第0组 && 有最热评论
+    if (section == 0 && self.hotestComments.count) {
+        header.textLabel.text = @"最热评论";
+    }else{ // 其他情况
+        header.textLabel.text = @"最新评论";
+    }
+    
+    return header;
+}
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
