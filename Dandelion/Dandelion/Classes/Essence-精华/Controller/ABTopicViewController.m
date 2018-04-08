@@ -229,6 +229,7 @@ static NSString * const ABTopicCellId = @"topic";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ABCommentViewController *comment = [[ABCommentViewController alloc] init];
+    comment.topic = self.topics[indexPath.row];
     [self.navigationController pushViewController:comment animated:YES];
 }
 
