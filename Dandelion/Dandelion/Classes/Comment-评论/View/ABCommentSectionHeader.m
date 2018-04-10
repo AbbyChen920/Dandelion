@@ -29,6 +29,9 @@
     
     // 在 layoutSubviews 方法中覆盖对子控件的一些设置
     self.textLabel.font = ABCommentSectionHeaderFont;
+    
+    // 设置 label 的 x 值
+    self.textLabel.ab_x = ABSmallMargin;
 }
 
 @end

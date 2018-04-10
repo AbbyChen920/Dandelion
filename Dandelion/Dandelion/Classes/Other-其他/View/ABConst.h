@@ -6,3 +6,9 @@ UIKIT_EXTERN CGFloat const ABMargin;
 UIKIT_EXTERN CGFloat const ABSmallMargin;
 // 公共的 url
 UIKIT_EXTERN NSString * const ABCommonURL;
+
+// ABUser - sex - male
+UIKIT_EXTERN NSString * const ABUserSexMale;
+
+// ABUser - sex - female
+UIKIT_EXTERN NSString * const ABUserSexFemale;
