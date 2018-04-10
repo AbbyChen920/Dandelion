@@ -7,3 +7,7 @@ CGFloat const ABSmallMargin = ABMargin * 0.5;
 
 // 公共的 url
 NSString * const ABCommonURL = @"http://api.budejie.com/api/api_open.php";
+
+NSString * const ABUserSexMale = @"m";
+
+NSString * const ABUserSexFemale = @"f";

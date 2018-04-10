@@ -14,7 +14,7 @@
 #import "ABComment.h"
 #import <MJExtension.h>
 #import "ABCommentSectionHeader.h"
-
+#import "ABCommentCell.h"
 
 @interface ABCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -55,15 +55,15 @@ static NSString * const ABSectionHeaderID = @"header";
     
     [self setupBase];
     
-    [self setupTabled];
+    [self setupTable];
 
     [self setUpRefresh];
 
 }
 
-- (void)setupTabled
+- (void)setupTable
 {
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ABCommentCellID];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ABCommentCell class]) bundle:nil] forCellReuseIdentifier:ABCommentCellID];
     [self.tableView registerClass:[ABCommentSectionHeader class] forHeaderFooterViewReuseIdentifier:ABSectionHeaderID];
 
     
@@ -76,7 +76,11 @@ static NSString * const ABSectionHeaderID = @"header";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 每一组头部header的高度
-    self.tableView.sectionHeaderHeight = ABCommentSectionHeaderFont.lineHeight  ;
+    self.tableView.sectionHeaderHeight = ABCommentSectionHeaderFont.lineHeight;
+    
+    // 设置 cell的高度
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44;
     
 }
 
@@ -210,11 +214,15 @@ static NSString * const ABSectionHeaderID = @"header";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ABCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:ABCommentCellID];
+    if (indexPath.section == 0 && self.hotestComments.count) {
+        cell.comment = self.hotestComments[indexPath.row];
+    } else{
+        cell.comment = self.latestComments[indexPath.row];
+    }
+    
+    return cell;
 
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ABCommentCellID];
-        cell.textLabel.text = [NSString stringWithFormat:@"评论数据-%zd-%zd",indexPath.section,indexPath.row];
-        return cell;
-  
 }
 
 //-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -315,12 +323,11 @@ static NSString * const ABSectionHeaderID = @"header";
     return header;
 }
 
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    return 44;
-}
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 44;
+//}
 
 //当用户开始拖拽 scrollview 就会调用一 次
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
