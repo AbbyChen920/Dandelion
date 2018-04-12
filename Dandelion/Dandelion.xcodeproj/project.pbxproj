@@ -63,6 +63,9 @@
 		28F15EE02073825700DC83B4 /* UIImageView+ABExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EDF2073825700DC83B4 /* UIImageView+ABExtension.m */; };
 		28F15EE82073B3CC00DC83B4 /* ABCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EE62073B3CC00DC83B4 /* ABCommentViewController.m */; };
 		28F15EE92073B3CC00DC83B4 /* ABCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F15EE72073B3CC00DC83B4 /* ABCommentViewController.xib */; };
+		28F15EEC2079DAE400DC83B4 /* ABCommentSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EEB2079DAE400DC83B4 /* ABCommentSectionHeader.m */; };
+		28F15EF0207BA34300DC83B4 /* ABCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EEE207BA34300DC83B4 /* ABCommentCell.m */; };
+		28F15EF1207BA34300DC83B4 /* ABCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F15EEF207BA34300DC83B4 /* ABCommentCell.xib */; };
 		28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */; };
 		28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C81FDA9BB8001A94C8 /* ABFollowViewController.m */; };
 		28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184CE1FDA9BB8001A94C8 /* ABMeViewController.m */; };
@@ -202,6 +205,11 @@
 		28F15EE52073B3CC00DC83B4 /* ABCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCommentViewController.h; sourceTree = "<group>"; };
 		28F15EE62073B3CC00DC83B4 /* ABCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCommentViewController.m; sourceTree = "<group>"; };
 		28F15EE72073B3CC00DC83B4 /* ABCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABCommentViewController.xib; sourceTree = "<group>"; };
+		28F15EEA2079DAE400DC83B4 /* ABCommentSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCommentSectionHeader.h; sourceTree = "<group>"; };
+		28F15EEB2079DAE400DC83B4 /* ABCommentSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCommentSectionHeader.m; sourceTree = "<group>"; };
+		28F15EED207BA34300DC83B4 /* ABCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCommentCell.h; sourceTree = "<group>"; };
+		28F15EEE207BA34300DC83B4 /* ABCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCommentCell.m; sourceTree = "<group>"; };
+		28F15EEF207BA34300DC83B4 /* ABCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABCommentCell.xib; sourceTree = "<group>"; };
 		28F184C11FDA9BB8001A94C8 /* ABEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABEssenceViewController.h; sourceTree = "<group>"; };
 		28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABEssenceViewController.m; sourceTree = "<group>"; };
 		28F184C71FDA9BB8001A94C8 /* ABFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFollowViewController.h; sourceTree = "<group>"; };
@@ -355,6 +363,11 @@
 		28F15EE42073B30600DC83B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				28F15EEA2079DAE400DC83B4 /* ABCommentSectionHeader.h */,
+				28F15EEB2079DAE400DC83B4 /* ABCommentSectionHeader.m */,
+				28F15EED207BA34300DC83B4 /* ABCommentCell.h */,
+				28F15EEE207BA34300DC83B4 /* ABCommentCell.m */,
+				28F15EEF207BA34300DC83B4 /* ABCommentCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -775,6 +788,7 @@
 				28F15EE92073B3CC00DC83B4 /* ABCommentViewController.xib in Resources */,
 				2844FAB8204AB656005C18AE /* ABTopicCell.xib in Resources */,
 				280A67731FEE7A5700AE22EE /* ABLoginRegisterViewController.xib in Resources */,
+				28F15EF1207BA34300DC83B4 /* ABCommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,6 +874,7 @@
 				28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */,
 				28CA93891FFFD37B00BFEBC2 /* UITextField+ABExtension.m in Sources */,
 				28F184ED1FDA9BB8001A94C8 /* UIView+ABExtension.m in Sources */,
+				28F15EF0207BA34300DC83B4 /* ABCommentCell.m in Sources */,
 				28F184EB1FDA9BB8001A94C8 /* AppDelegate.m in Sources */,
 				28CA93051FF28BE500BFEBC2 /* ABLoginRegisterTextField.m in Sources */,
 				28F184EC1FDA9BB8001A94C8 /* UIImage+ABImage.m in Sources */,
@@ -909,6 +924,7 @@
 				2898BCC02062544300D328DF /* ABTopicViewController.m in Sources */,
 				2890DA8C202C7F87001CBE70 /* ABTopic.m in Sources */,
 				2890DA72201636A7001CBE70 /* ABSettingCell.m in Sources */,
+				28F15EEC2079DAE400DC83B4 /* ABCommentSectionHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

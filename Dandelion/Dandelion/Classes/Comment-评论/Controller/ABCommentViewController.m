@@ -13,6 +13,8 @@
 #import "ABTopic.h"
 #import "ABComment.h"
 #import <MJExtension.h>
+#import "ABCommentSectionHeader.h"
+#import "ABCommentCell.h"
 
 @interface ABCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -36,6 +38,7 @@
 
 
 static NSString * const ABCommentCellID = @"comment";
+static NSString * const ABSectionHeaderID = @"header";
 
 #pragma mark - 懒加载
 -(AFHTTPSessionManager *)manager
@@ -52,16 +55,18 @@ static NSString * const ABCommentCellID = @"comment";
     
     [self setupBase];
     
-    [self setupTabled];
+    [self setupTable];
 
     [self setUpRefresh];
 
 }
 
-- (void)setupTabled
+- (void)setupTable
 {
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ABCommentCellID];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ABCommentCell class]) bundle:nil] forCellReuseIdentifier:ABCommentCellID];
+    [self.tableView registerClass:[ABCommentSectionHeader class] forHeaderFooterViewReuseIdentifier:ABSectionHeaderID];
 
+    
     UIView *headerView = [[UIView alloc] init];
     headerView.backgroundColor = [UIColor redColor];
     headerView.ab_height = 200;
@@ -69,6 +74,13 @@ static NSString * const ABCommentCellID = @"comment";
     
     self.tableView.backgroundColor = ABCommonBgColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // 每一组头部header的高度
+    self.tableView.sectionHeaderHeight = ABCommentSectionHeaderFont.lineHeight;
+    
+    // 设置 cell的高度
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44;
     
 }
 
@@ -129,6 +141,13 @@ static NSString * const ABCommentCellID = @"comment";
         
         // 让[刷新控件]结束刷新
         [weakSelf.tableView.mj_header endRefreshing];
+        
+        int total = [responseObject[@"total"] intValue];
+        if (weakSelf.latestComments.count == total) {// 全部加载完毕
+            // 隐藏
+            weakSelf.tableView.mj_footer.hidden = YES;
+        }
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)  {
      
         // 让[刷新控件]结束刷新
@@ -140,7 +159,53 @@ static NSString * const ABCommentCellID = @"comment";
 
 - (void)loadMoreComments
 {
+    // 取消其他请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"lastcid"] = self.latestComments.lastObject.ID;
+    
+    __weak typeof(self) weakSelf = self;
+    
+    // 发送请求
+    [self.manager GET:ABCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        // 没有任何评论数据
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            // 让[刷新控件]结束刷新
+            [weakSelf.tableView.mj_footer endRefreshing];
+            return;
+        }
+        
+        // 字典数组->模型数组
+        NSArray *moreComments = [ABComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [weakSelf.latestComments addObjectsFromArray:moreComments];
+        
+        // 刷新表格
+        [weakSelf.tableView reloadData];
+        
+        int total = [responseObject[@"total"] intValue];
+        if (weakSelf.latestComments.count == total) {// 全部加载完毕
+            // 提示用户:没有更多数据
+//            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+            weakSelf.tableView.mj_footer.hidden = YES;
+        } else {  // 还没有加载完全
+            // 结束刷新
+            [weakSelf.tableView.mj_footer endRefreshing];
+        }
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)  {
+        
+        // 让[刷新控件]结束刷新
+        [weakSelf.tableView.mj_footer   endRefreshing];
+        
+    }];
+    
+
 }
 
 #pragma mark - 监听
@@ -202,30 +267,120 @@ static NSString * const ABCommentCellID = @"comment";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ABCommentCellID];
-        cell.textLabel.text = [NSString stringWithFormat:@"评论数据-%zd-%zd",indexPath.section,indexPath.row];
-        return cell;
-  
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    // 第0组 && 有最热评论
-    if (section == 0 && self.hotestComments.count) {
-        return @"最热评论";
+    ABCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:ABCommentCellID];
+    if (indexPath.section == 0 && self.hotestComments.count) {
+        cell.comment = self.hotestComments[indexPath.row];
+    } else{
+        cell.comment = self.latestComments[indexPath.row];
     }
-    // 其他情况
-    return @"最新评论";
     
+    return cell;
+
 }
+
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    // 第0组 && 有最热评论
+//    if (section == 0 && self.hotestComments.count) {
+//        return @"最热评论";
+//    }
+//    // 其他情况
+//    return @"最新评论";
+//    
+//}
 
 #pragma mark -UITableViewDelegate
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UILabel *label = [[UILabel alloc] init];
+//    label.backgroundColor = tableView.backgroundColor;
+//    
+//    label.font = ABCommentSectionHeaderFont;
+//    label.textColor = [UIColor darkGrayColor];
+//    
+//    
+//    // 第0组 && 有最热评论
+//    if (section == 0 && self.hotestComments.count) {
+//        label.text = @"最热评论";
+//    }else{ // 其他情况
+//        label.text = @"最新评论";
+//    }
+//    
+//    return label;
+//}
+
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UIButton *btn = [[UIButton alloc] init];
+//    btn.backgroundColor = tableView.backgroundColor;
+//    
+//
+//    // 内边距
+////    btn.contentEdgeInsets = UIEdgeInsetsMake(0, ABMargin, 0, 0);
+//    btn.titleEdgeInsets = UIEdgeInsetsMake(0, ABMargin, 0, 0);
+//    
+//    // 让按钮内部的内容, 在按钮中左对齐
+//    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//    
+//    btn.titleLabel.font = ABCommentSectionHeaderFont;
+//    
+//    // 让 label 的文字在 label 内容左对齐
+////    btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+//    
+//    [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//    
+//    // 第0组 && 有最热评论
+//    if (section == 0 && self.hotestComments.count) {
+//        [btn setTitle:@"最热评论" forState:UIControlStateNormal];
+//    }else{ // 其他情况
+//        [btn setTitle:@"最新评论" forState:UIControlStateNormal];
+//    }
+//    
+//    return btn;
+//}
+
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    //    if (header == nil) {
+//    //        header = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"header"];
+//    ////        header.textLabel.textColor = [UIColor redColor];
+//    //    }
+//    
+//    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ABSectionHeaderID];
+//    
+//    header.textLabel.textColor = [UIColor redColor];
+//
+//    // 第0组 && 有最热评论
+//    if (section == 0 && self.hotestComments.count) {
+//        header.textLabel.text = @"最热评论";
+//        
+//    }else{ // 其他情况
+//        header.textLabel.text = @"最新评论";
+//    }
+//    
+//    return header;
+//}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+
+    ABCommentSectionHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ABSectionHeaderID];
     
-    return 44;
+    // 第0组 && 有最热评论
+    if (section == 0 && self.hotestComments.count) {
+        header.textLabel.text = @"最热评论";
+    }else{ // 其他情况
+        header.textLabel.text = @"最新评论";
+    }
+    
+    return header;
 }
+
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 44;
+//}
 
 //当用户开始拖拽 scrollview 就会调用一 次
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

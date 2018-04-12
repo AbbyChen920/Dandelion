@@ -25,6 +25,10 @@
 #import "NSDate+ABExtension.h"
 #import "NSCalendar+ABExtension.h"
 #import "UIImageView+ABExtension.h"
+
+// 评论 - 头部--字体
+#define ABCommentSectionHeaderFont [UIFont systemFontOfSize:15]
+
 // 当前系统版本判断
 #define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
 

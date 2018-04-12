@@ -16,3 +16,4 @@
 //订阅数
 @property (nonatomic, assign) NSInteger sub_number;
 @end
+     
