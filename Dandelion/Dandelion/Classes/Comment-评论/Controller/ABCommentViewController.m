@@ -141,6 +141,13 @@ static NSString * const ABSectionHeaderID = @"header";
         
         // 让[刷新控件]结束刷新
         [weakSelf.tableView.mj_header endRefreshing];
+        
+        int total = [responseObject[@"total"] intValue];
+        if (weakSelf.latestComments.count == total) {// 全部加载完毕
+            // 隐藏
+            weakSelf.tableView.mj_footer.hidden = YES;
+        }
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)  {
      
         // 让[刷新控件]结束刷新
@@ -152,7 +159,53 @@ static NSString * const ABSectionHeaderID = @"header";
 
 - (void)loadMoreComments
 {
+    // 取消其他请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"lastcid"] = self.latestComments.lastObject.ID;
+    
+    __weak typeof(self) weakSelf = self;
+    
+    // 发送请求
+    [self.manager GET:ABCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        // 没有任何评论数据
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            // 让[刷新控件]结束刷新
+            [weakSelf.tableView.mj_footer endRefreshing];
+            return;
+        }
+        
+        // 字典数组->模型数组
+        NSArray *moreComments = [ABComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [weakSelf.latestComments addObjectsFromArray:moreComments];
+        
+        // 刷新表格
+        [weakSelf.tableView reloadData];
+        
+        int total = [responseObject[@"total"] intValue];
+        if (weakSelf.latestComments.count == total) {// 全部加载完毕
+            // 提示用户:没有更多数据
+//            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+            weakSelf.tableView.mj_footer.hidden = YES;
+        } else {  // 还没有加载完全
+            // 结束刷新
+            [weakSelf.tableView.mj_footer endRefreshing];
+        }
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)  {
+        
+        // 让[刷新控件]结束刷新
+        [weakSelf.tableView.mj_footer   endRefreshing];
+        
+    }];
+    
+
 }
 
 #pragma mark - 监听

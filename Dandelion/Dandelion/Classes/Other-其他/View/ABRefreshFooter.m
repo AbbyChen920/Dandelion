@@ -19,6 +19,8 @@
     
     [self addSubview:[UIButton buttonWithType:UIButtonTypeContactAdd]];
     
+    [self setTitle:@"没有数据了,不要再上拉了" forState:MJRefreshStateNoMoreData];
+    
     // 刷新控件出现多少的时候开始刷新(默认是1,全部出现的时候刷新; 越小表示离刷新控件越远就可以开始刷新
     self.triggerAutomaticallyRefreshPercent = 0.5;
     
