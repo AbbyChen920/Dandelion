@@ -16,6 +16,8 @@
         
         self.textLabel.textColor = [UIColor redColor];
     
+        self.contentView.backgroundColor = ABCommonBgColor;
+        
 //        UISwitch *s = [[UISwitch alloc] init];
 //        s.ab_x = 200;
 //        [self.contentView addSubview:s];

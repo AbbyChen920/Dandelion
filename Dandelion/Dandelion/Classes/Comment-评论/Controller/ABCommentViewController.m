@@ -15,6 +15,7 @@
 #import <MJExtension.h>
 #import "ABCommentSectionHeader.h"
 #import "ABCommentCell.h"
+#import "ABTopicCell.h"
 
 @interface ABCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -58,7 +59,28 @@ static NSString * const ABSectionHeaderID = @"header";
     [self setupTable];
 
     [self setUpRefresh];
+    
+    [self setupHeader];
 
+}
+
+- (void)setupHeader
+{
+    // 创建header
+    UIView *header = [[UIView alloc] init];
+    
+    // 添加 cell 到 header
+    ABTopicCell *cell = [ABTopicCell viewFromXib];
+    cell.topic = self.topic;
+    cell.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.topic.cellHeight);
+    [header addSubview:cell];
+    
+    // 设置 header 的高度
+    header.ab_height = cell.ab_height + ABMargin * 2;
+    
+    // 设置 header
+    self.tableView.tableHeaderView = header;
+    
 }
 
 - (void)setupTable
@@ -66,12 +88,6 @@ static NSString * const ABSectionHeaderID = @"header";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ABCommentCell class]) bundle:nil] forCellReuseIdentifier:ABCommentCellID];
     [self.tableView registerClass:[ABCommentSectionHeader class] forHeaderFooterViewReuseIdentifier:ABSectionHeaderID];
 
-    
-    UIView *headerView = [[UIView alloc] init];
-    headerView.backgroundColor = [UIColor redColor];
-    headerView.ab_height = 200;
-    self.tableView.tableHeaderView = headerView;
-    
     self.tableView.backgroundColor = ABCommonBgColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -386,5 +402,7 @@ static NSString * const ABSectionHeaderID = @"header";
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];
+    
+//    ABLog(@"%@", NSStringFromCGRect(self.tableView.tableHeaderView.frame));
 }
 @end
