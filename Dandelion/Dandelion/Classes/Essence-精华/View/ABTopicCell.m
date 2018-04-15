@@ -205,11 +205,14 @@
     
     frame.size.height -= ABMargin;
     frame.origin.y += ABMargin;
+    
 
 //    frame.origin.x += ABMargin;
 //    frame.size.width -= 2 * ABMargin;
     
     [super setFrame:frame];
+    
+    ABLog(@"abjiang%@", NSStringFromCGRect(frame));
 }
 
 

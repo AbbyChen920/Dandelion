@@ -20,13 +20,17 @@
 //    }];
     
     [ABTopic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return @{@"ID" : @"id",
+        return @{
                  @"top_cmt" : @"top_cmt[0]",
                  @"small_image" : @"image0",
                  @"large_image" : @"image1",
-                 @"middle_image" : @"image2"
-                 
+                 @"middle_image" : @"image2"                 
                  };
     }];
+    
+    [NSObject mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"ID" : @"id"};
+    }];
+    
 }
 @end
