@@ -144,6 +144,10 @@
         
         NSString *username = topic.top_cmt.user.username; // 用户名
         NSString *content = topic.top_cmt.content;  // 评论内容
+        
+        if (topic.top_cmt.voiceuri.length) {
+            content = @"[语音评论]";
+        }
         self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", username, content];
         
     } else{ // 没有最热评论
@@ -206,13 +210,9 @@
     frame.size.height -= ABMargin;
     frame.origin.y += ABMargin;
     
-
-//    frame.origin.x += ABMargin;
-//    frame.size.width -= 2 * ABMargin;
-    
     [super setFrame:frame];
     
-    ABLog(@"abjiang%@", NSStringFromCGRect(frame));
+//    ABLog(@"abjiang%@", NSStringFromCGRect(frame));
 }
 
 
