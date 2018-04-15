@@ -33,6 +33,8 @@
 // 对象属性名不能以 new 开头
 //@property (nonatomic,strong) NSMutableArray<ABComment *> *newComments;
 
+@property (nonatomic,strong) ABComment *savedTopCmt;
+
 @end
 
 @implementation ABCommentViewController
@@ -66,6 +68,11 @@ static NSString * const ABSectionHeaderID = @"header";
 
 - (void)setupHeader
 {
+    // 处理模型数据
+    self.savedTopCmt = self.topic.top_cmt;
+    self.topic.top_cmt = nil;
+    self.topic.cellHeight = 0;
+    
     // 创建header
     UIView *header = [[UIView alloc] init];
     
@@ -75,7 +82,7 @@ static NSString * const ABSectionHeaderID = @"header";
     cell.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.topic.cellHeight);
     [header addSubview:cell];
     
-    // 设置 header 的高度
+    // 设置 header 的高度    
     header.ab_height = cell.ab_height + ABMargin * 2;
     
     // 设置 header
@@ -121,6 +128,9 @@ static NSString * const ABSectionHeaderID = @"header";
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    self.topic.top_cmt = self.savedTopCmt;
+    self.topic.cellHeight = 0;
 }
 #pragma mark - 数据加载
 - (void)loadNewComments
