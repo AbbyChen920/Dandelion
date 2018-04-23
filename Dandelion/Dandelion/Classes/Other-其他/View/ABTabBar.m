@@ -76,11 +76,16 @@
         
         // 增加索引
         tabBarButtonIndex++;
+        
+        // layoutSubviews 会调用多次,会 add 很多 target.
+//        UIControl *tabBarButton = (UIControl *)subview;
+//        [tabBarButton addTarget:self action:@selector(tabBarButtonClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
     
 //    self.publishButton.frame = CGRectMake(0, 0, buttonW, buttonH);
     
+    // 设置中间的发布按钮的 frame
     self.publishButton.ab_width = buttonW;
     self.publishButton.ab_height = buttonH;
     self.publishButton.center = CGPointMake(self.ab_width * 0.5, self.ab_height * 0.5);
@@ -92,8 +97,11 @@
 - (void)publishClick
 {
     ABLogFunc;
-    
-
-    
 }
+
+//- (void)tabBarButtonClick
+//{
+//    ABLogFunc
+//}
+
 @end

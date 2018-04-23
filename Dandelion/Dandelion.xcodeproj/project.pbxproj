@@ -66,6 +66,7 @@
 		28F15EEC2079DAE400DC83B4 /* ABCommentSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EEB2079DAE400DC83B4 /* ABCommentSectionHeader.m */; };
 		28F15EF0207BA34300DC83B4 /* ABCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15EEE207BA34300DC83B4 /* ABCommentCell.m */; };
 		28F15EF1207BA34300DC83B4 /* ABCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F15EEF207BA34300DC83B4 /* ABCommentCell.xib */; };
+		28F15F7E208E2B3000DC83B4 /* ABTopWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F15F7D208E2B3000DC83B4 /* ABTopWindow.m */; };
 		28F184E71FDA9BB8001A94C8 /* ABEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */; };
 		28F184E81FDA9BB8001A94C8 /* ABFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184C81FDA9BB8001A94C8 /* ABFollowViewController.m */; };
 		28F184E91FDA9BB8001A94C8 /* ABMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F184CE1FDA9BB8001A94C8 /* ABMeViewController.m */; };
@@ -210,6 +211,8 @@
 		28F15EED207BA34300DC83B4 /* ABCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCommentCell.h; sourceTree = "<group>"; };
 		28F15EEE207BA34300DC83B4 /* ABCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCommentCell.m; sourceTree = "<group>"; };
 		28F15EEF207BA34300DC83B4 /* ABCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ABCommentCell.xib; sourceTree = "<group>"; };
+		28F15F7C208E2B3000DC83B4 /* ABTopWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABTopWindow.h; path = "Dandelion/Classes/Other-其他/ABTopWindow.h"; sourceTree = SOURCE_ROOT; };
+		28F15F7D208E2B3000DC83B4 /* ABTopWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABTopWindow.m; path = "Dandelion/Classes/Other-其他/ABTopWindow.m"; sourceTree = SOURCE_ROOT; };
 		28F184C11FDA9BB8001A94C8 /* ABEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABEssenceViewController.h; sourceTree = "<group>"; };
 		28F184C21FDA9BB8001A94C8 /* ABEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABEssenceViewController.m; sourceTree = "<group>"; };
 		28F184C71FDA9BB8001A94C8 /* ABFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFollowViewController.h; sourceTree = "<group>"; };
@@ -654,6 +657,8 @@
 				2844FAB2204A438F005C18AE /* ABHTTPSessionManager.m */,
 				2804B7AF2056B90C0039EB85 /* ABExtensionConfig.h */,
 				2804B7B02056B90C0039EB85 /* ABExtensionConfig.m */,
+				28F15F7C208E2B3000DC83B4 /* ABTopWindow.h */,
+				28F15F7D208E2B3000DC83B4 /* ABTopWindow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -924,6 +929,7 @@
 				2898BCC02062544300D328DF /* ABTopicViewController.m in Sources */,
 				2890DA8C202C7F87001CBE70 /* ABTopic.m in Sources */,
 				2890DA72201636A7001CBE70 /* ABSettingCell.m in Sources */,
+				28F15F7E208E2B3000DC83B4 /* ABTopWindow.m in Sources */,
 				28F15EEC2079DAE400DC83B4 /* ABCommentSectionHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
