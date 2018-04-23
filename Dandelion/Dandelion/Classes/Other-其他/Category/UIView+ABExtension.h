@@ -28,4 +28,7 @@
 
 
 + (instancetype)viewFromXib;
+
+- (BOOL)intersectWithView:(UIView *)view;
+
 @end
