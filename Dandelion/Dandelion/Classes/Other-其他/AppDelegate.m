@@ -71,6 +71,14 @@ UIWindow *window_;
     // 如果不是 scrollView
     if (![view isKindOfClass:[UIScrollView class]]) return;
     
+    // 判断是否跟 window 有重叠
+    if (![view intersectWithView:[UIApplication sharedApplication].keyWindow]) return;
+    
+//    CGRect windowRect = [UIApplication sharedApplication].keyWindow.bounds;
+//    CGRect viewRect = [view convertRect:view.bounds toView:nil];
+//    // 跟 window 不重叠
+//    if (!CGRectIntersectsRect(windowRect, viewRect)) return;
+    
     // 如果是 scrollView
     UIScrollView *scrollView = (UIScrollView *)view;
     
@@ -84,10 +92,6 @@ UIWindow *window_;
     
 }
 
-//- (void)topViewClick
-//{
-//    ABLogFunc
-//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
