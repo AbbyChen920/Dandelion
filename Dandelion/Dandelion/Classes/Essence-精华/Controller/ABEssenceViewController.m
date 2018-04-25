@@ -156,6 +156,11 @@
 #pragma mark - 监听点击
 - (void)titleClick:(ABTitleButton *)titleButton
 {
+    if (titleButton == self.selectedTitleButton) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:ABTitleButtonDidRepeatClickNotification object:nil];
+    }
+    
+    
     // 控制按钮状态
     self.selectedTitleButton.selected = NO;
     titleButton.selected = YES;
