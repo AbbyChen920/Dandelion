@@ -11,3 +11,8 @@ NSString * const ABCommonURL = @"http://api.budejie.com/api/api_open.php";
 NSString * const ABUserSexMale = @"m";
 
 NSString * const ABUserSexFemale = @"f";
+
+
+// 通知
+// TabBar 按钮被重复点击的通知
+NSString * const ABTabBarButtonDidRepeatClickNotification = @"ABTabBarButtonDidRepeatClickNotification";

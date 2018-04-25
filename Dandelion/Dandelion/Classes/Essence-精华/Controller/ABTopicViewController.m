@@ -57,8 +57,14 @@ static NSString * const ABTopicCellId = @"topic";
     [self setUpTable];
     
     [self setUpRefresh];
+    
+    [self setupNote];
 }
 
+- (void)setupNote
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:ABTabBarButtonDidRepeatClickNotification object:nil];
+}
 
 - (void)setUpTable
 {
@@ -81,12 +87,23 @@ static NSString * const ABTopicCellId = @"topic";
     self.tableView.mj_footer = [ABRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
     
 }
-
+#pragma mark - 监听
+// 监听 tabbar 按钮的重复点击
+- (void)tabBarButtonDidRepeatClick
+{
+    // 如果当前控制器的 view 不在 window 上,就直接返回
+    if (self.view.window == nil) return;
+    
+    // 如果当前控制器的 view 跟 window 没有重叠,就直接返回
+    if (![self.view intersectWithView:self.view.window]) return;
+    
+    // 进行下拉刷新
+    [self.tableView.mj_header beginRefreshing];
+}
 
 #pragma mark - 数据加载
 - (void)loadNewTopics
-{
-    
+{    
     
     // 取消其他请求
     //    for (NSURLSessionTask *task in self.manager.tasks) {
