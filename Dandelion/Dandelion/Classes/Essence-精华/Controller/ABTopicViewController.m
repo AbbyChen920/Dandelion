@@ -64,6 +64,8 @@ static NSString * const ABTopicCellId = @"topic";
 - (void)setupNote
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:ABTabBarButtonDidRepeatClickNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:ABTitleButtonDidRepeatClickNotification object:nil];
 }
 
 - (void)setUpTable
@@ -87,6 +89,12 @@ static NSString * const ABTopicCellId = @"topic";
     self.tableView.mj_footer = [ABRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
     
 }
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - 监听
 // 监听 tabbar 按钮的重复点击
 - (void)tabBarButtonDidRepeatClick
@@ -99,6 +107,12 @@ static NSString * const ABTopicCellId = @"topic";
     
     // 进行下拉刷新
     [self.tableView.mj_header beginRefreshing];
+}
+
+// 监听标题按钮的重复点击
+- (void)titleButtonDidRepeatClick
+{
+    [self tabBarButtonDidRepeatClick];
 }
 
 #pragma mark - 数据加载

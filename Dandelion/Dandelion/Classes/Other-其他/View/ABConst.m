@@ -16,3 +16,5 @@ NSString * const ABUserSexFemale = @"f";
 // 通知
 // TabBar 按钮被重复点击的通知
 NSString * const ABTabBarButtonDidRepeatClickNotification = @"ABTabBarButtonDidRepeatClickNotification";
+// TitleButyon 按钮被重复点击的通知
+NSString * const ABTitleButtonDidRepeatClickNotification = @"ABTitleButtonDidRepeatClickNotification";
